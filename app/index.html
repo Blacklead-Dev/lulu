@@ -3,15 +3,50 @@
 
 <!-- main start here -->
 
-<video preload="preload" playsinline muted='muted' class="background-video">
-    <source type="video/webm"
-        src="assets/videos/Lulubg_00000_VP9.webm">
-    </source>
-</video>
 
-<video preload="preload" playsinline muted='muted' class="brain-video">
-    <source type="video/webm"
-        src="assets/videos/Brain_00000_VP9.webm">
-    </source>
-</video>
+<main>
+    <div class="preloader">
+        <lottie-player src="assets/Lulu_preloader_ready.json" background="transparent" style="overflow:clip !important" speed="1" loop autoplay>
+        </lottie-player>
+        <div class="preloader-curtain">
+
+        </div>
+    </div>
+    <video preload="preload" playsinline muted='muted' class="background-video" autoplay>
+        <source type="video/webm"
+            src="assets/videos/Lulubg_00000_VP9.webm">
+        </source>
+    </video>
+
+    <section class="video-section brain-section">
+        <div class="content">
+            <video preload="preload" playsinline muted='muted' autoplay>
+                <source type="video/webm" src="assets/videos/Brain_00000_VP9.webm">
+                </source>
+            </video>
+            <h2>
+                THE HUMAN BRAIN
+            </h2>
+            <p>
+                IS THE HARDWARE INTERFACE BETWEEN
+                YOUR CONSCIOUSNESS AND THE UNIVERSE
+            </p>
+        </div>
+    </section>
+    <section class="video-section portal-section">
+        <div class="content">
+            <video preload="preload" playsinline muted='muted' autoplay>
+                <source type="video/webm" src="assets/videos/Portal_00000_VP9.webm">
+                </source>
+            </video>
+            <h2>
+                LULU
+            </h2>
+            <p>
+                IS YOUR SOFTWARE INTERFACE BETWEEN BASE REALITY AND MIXED REALITY
+            </p>
+        </div>
+    </section>
+</main>
+
 <!--#include virtual="/parts/foot.html" -->

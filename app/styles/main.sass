@@ -11,7 +11,8 @@ html, body
 body,
 main
 	overflow-x: hidden
-
+main
+	height: 100%
 body
 	display: flex
 	flex-direction: column
@@ -21,6 +22,11 @@ body
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
 	text-rendering: optimizeLegibility
+	&.hiddenlines
+		::-webkit-scrollbar 
+			display: none
+	&.unscroll
+		overflow: hidden
 
 a
 	text-decoration: none
@@ -55,7 +61,7 @@ button
 	cursor: pointer
 
 //start here
-video
+.background-video
 	width: 100%
 	height: 100vh
 	position: fixed
@@ -63,4 +69,90 @@ video
 	left: 0
 	object-fit: cover
 body
-	height: 20000px
+	background: #010101
+.preloader
+	background: #131313
+	width: 100%
+	height: 100vh
+	display: flex
+	justify-content: center
+	align-items: center
+	position: fixed
+	top: 0
+	left: 0
+	z-index: 2
+	lottie-player
+		width: gem(1000)
+		position: relative
+		z-index: 1
+	&-curtain
+		width: 200%
+		height: 50%
+		position: absolute
+		bottom: -50%
+		z-index: 2
+		border-radius: 50% 50% 0% 0% 
+		background: #010101
+		&.close
+			animation: 1s openCurtain forwards
+@keyframes openCurtain 
+	0%
+		height: 50%
+		width: 200%
+		border-radius: 50% 50% 0% 0% 
+		animation-timing-function: linear
+	75%
+		height: 125%
+		width: 200%
+		border-radius: 50% 50% 0% 0% 
+		animation-timing-function: linear
+	100%
+		width: 300%
+		height: 150%
+		border-radius: 30% 30% 0% 0% 
+		animation-timing-function: linear
+
+main
+	padding-bottom: 60vh
+.brain-section
+	width: 100%
+	min-height: gem(1000)
+	height: 100vh
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	video
+		width: gem(700)
+		object-fit: cover
+.portal-section
+	width: 100%
+	min-height: gem(1000)
+	height: 100vh
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	video
+		width: gem(1000)
+		object-fit: cover
+		margin-bottom: gem(-50)
+.content
+	width: 100%
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+h2
+	font-family: "type-bold"
+	font-size: gem(72)
+	line-height: gem(97)
+	color: #fff
+	text-align: center
+p
+	font-family: "type-regular"
+	font-size: gem(30)
+	line-height: gem(36)
+	color: #E4E6EB
+	width: gem(900)
+	text-align: center
