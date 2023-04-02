@@ -68,6 +68,9 @@ button
 	top: 0
 	left: 0
 	object-fit: cover
+	&.mobile
+		display: none
+
 body
 	background: #010101
 .preloader
@@ -117,7 +120,7 @@ main
 .brain-section
 	width: 100%
 	min-height: gem(1000)
-	height: 100vh
+	height: 200vh
 	display: flex
 	justify-content: center
 	align-items: center
@@ -128,7 +131,7 @@ main
 .portal-section
 	width: 100%
 	min-height: gem(1000)
-	height: 100vh
+	height: 200vh
 	display: flex
 	justify-content: center
 	align-items: center
@@ -156,3 +159,36 @@ p
 	color: #E4E6EB
 	width: gem(900)
 	text-align: center
+.split-line
+	&.parent
+		overflow: hidden
+@media all and (max-width: 515px)
+	h2
+		font-size: gem(42)
+		line-height: gem(42)
+	p
+		font-size: gem(22)
+		line-height: gem(26)
+		width: gem(392)
+		margin-top: gem(22)
+	.brain-section
+		height: 200vh
+		video
+			width: gem(340)
+	.portal-section
+		height: 200vh
+		margin-top: gem(-500)
+		video
+			width: gem(540)	
+			margin-left: gem(140)
+			margin-bottom: 0
+		p
+			width: gem(370)
+	.background-video
+		&.desctop
+			display: none
+		&.mobile
+			display: unset
+	
+
+

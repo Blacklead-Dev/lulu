@@ -3,6 +3,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import ScrollToPlugin from 'gsap/ScrollToPlugin'
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
+import { splitingText } from './assets/splitingText'
 
 gsap.to(window, {duration: .1, scrollTo: {y: 0}, onComplete: () => {
 	document.body.classList.add('unscroll')
@@ -11,16 +12,16 @@ gsap.to(window, {duration: .1, scrollTo: {y: 0}, onComplete: () => {
 
 window.addEventListener('load', () => {
 
-	let backgroundVideo = document.querySelector('.background-video')
-	console.log(backgroundVideo)
-	if(backgroundVideo.buffered) {
-		backgroundVideoFunction()
-	} else {
-		backgroundVideo.addEventListener('loadedmetadata', backgroundVideoFunction)
-	}
-	
+	let backgroundVideo = (window.innerWidth > 515) ? document.querySelector('.background-video.desctop') : document.querySelector('.background-video.mobile')
 
+	backgroundVideoFunction()
+	splitingText()
+	setTimeout(() => {
+		prelodaderHide()
+	}, 2000);
+	
 	function backgroundVideoFunction() {
+		backgroundVideo.play()
 		backgroundVideo.pause()
 		backgroundVideo.currentTime = 0
 		ScrollTrigger.create({
@@ -28,34 +29,19 @@ window.addEventListener('load', () => {
 			start: 'top top',
 			end: 'bottom bottom',
 			onUpdate: self => {
-				backgroundVideo.currentTime = backgroundVideo.duration * self.progress
-				console.log(backgroundVideo.currentTime)
+				backgroundVideo.pause()
+				backgroundVideo.currentTime = backgroundVideo.duration * self.progress * 0.5
 			}
 		})
 	}
-
-	function prelodaderHide() {
-		let preloaderCurtain = document.querySelector('.preloader-curtain')
-		let preloader = document.querySelector('.preloader')
-		preloaderCurtain.classList.add('close')
-		
-		gsap.to(preloader, {opacity: 0, duration: 1, onComplete: () => {
-			preloader.remove()
-			document.body.classList.remove('unscroll')
-		}, delay: 1.1})
-	}
-
-	setTimeout(() => {
-		prelodaderHide()
-	}, 2000);
-
 
 	let videoSection = document.querySelectorAll('.video-section') 
 
 	videoSection.forEach( section => {
 		let video = section.querySelector('video')
 		let content = section.querySelector('.content')
-		let textElements =  section.querySelectorAll('h2, p')
+		let textElements =  section.querySelectorAll('.split-line.child')
+		video.play()
 		video.pause()
 		video.currentTime = 0
 		gsap.set([video, textElements], {
@@ -69,35 +55,65 @@ window.addEventListener('load', () => {
 			end: 'bottom center',
 			pinSpacer: false,
 			onUpdate: self => {
-				video.currentTime = (video.duration * self.progress)
+				video.pause()
+				video.currentTime = video.duration * self.progress
 			},
 			onEnter: () => {
-				gsap.to([video, textElements], {
+				gsap.to(video, {
 					opacity: 1,
 					duration: .3
+				})
+				gsap.to(textElements, {
+					y: 0,
+					opacity: 1,
+					stagger: .08,
+					delay: .2
 				})
 			},
 			onLeave: () => {
 				gsap.to(textElements, {
+					y: '100%',
 					opacity: 0,
-					duration: .3
 				})
+				video.pause()
 			},
 			onEnterBack: () => {
 				gsap.to(textElements, {
+					y: 0,
 					opacity: 1,
-					duration: .3
+					stagger: .08,
+					delay: .2
 				})
 			},
 			onLeaveBack: () => {
-				gsap.to([video, textElements], {
+				gsap.to(video, {
 					opacity: 0,
 					duration: .3
 				})
+				gsap.to(textElements, {
+					y: '100%',
+					opacity: 0,
+				})
+				video.pause()
 			}
 		})
 	})
-	ScrollTrigger.refresh()
+
+	
+	function prelodaderHide() {
+		let preloaderCurtain = document.querySelector('.preloader-curtain')
+		let preloader = document.querySelector('.preloader')
+		preloaderCurtain.classList.add('close')
+		
+		gsap.to(preloader, {opacity: 0, duration: 1, onComplete: () => {
+			preloader.remove()
+			document.body.classList.remove('unscroll')
+		}, delay: 1.1})
+		setTimeout(() => {
+			document.body.classList.remove('unscroll')
+			ScrollTrigger.refresh()
+		}, 1000);
+	}
 
 	window.addEventListener('resize', () => {
 		ScrollTrigger.refresh()
