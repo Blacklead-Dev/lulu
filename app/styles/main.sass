@@ -22,9 +22,8 @@ body
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
 	text-rendering: optimizeLegibility
-	&.hiddenlines
-		::-webkit-scrollbar 
-			display: none
+	&::-webkit-scrollbar 	
+		display: none
 	&.unscroll
 		overflow: hidden
 
@@ -138,6 +137,18 @@ main
 	flex-direction: column
 	video
 		width: gem(1000)
+		object-fit: cover
+		margin-bottom: gem(-50)
+.souls-section
+	width: 100%
+	min-height: gem(1000)
+	height: 200vh
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	video
+		width: gem(600)
 		object-fit: cover
 		margin-bottom: gem(-50)
 .content
