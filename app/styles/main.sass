@@ -22,6 +22,8 @@ body
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
 	text-rendering: optimizeLegibility
+	-ms-overflow-style: none
+	scrollbar-width: none
 	&::-webkit-scrollbar 	
 		display: none
 	&.unscroll
@@ -82,7 +84,7 @@ body
 	position: fixed
 	top: 0
 	left: 0
-	z-index: 2
+	z-index: 5
 	lottie-player
 		width: gem(1000)
 		position: relative
@@ -115,100 +117,68 @@ body
 		animation-timing-function: linear
 
 main
-	padding-bottom: 60vh
-.brain-section
+	padding-bottom: 40vh
+	padding-top: 10vh
+.video-section
 	width: 100%
 	min-height: gem(1000)
 	height: 200vh
 	display: flex
-	justify-content: center
+	justify-content: flex-start
 	align-items: center
 	flex-direction: column
+.brain-section
 	h2
-		margin-bottom: gem(21)
-		margin-top: gem(18)
-		margin-left: gem(12)
-	p
-		margin-right: gem(17)
+		margin-bottom: gem(18)
+		margin-top: gem(-42)
 	video
 		width: gem(700)
 		object-fit: cover
-
+		margin-top: gem(-70)
 .portal-section
-	width: 100%
-	min-height: gem(1000)
-	height: 200vh
-	display: flex
-	justify-content: center
-	align-items: center
-	flex-direction: column
 	h2
-		margin-top: gem(14)
-		margin-bottom: gem(19)
-		margin-left: gem(12)
-	p
-		margin-right: gem(22)
+		margin-top: gem(-14)
+		margin-bottom: gem(18)
 	video
 		width: gem(1000)
 		object-fit: cover
 		margin-bottom: gem(-50)
+		margin-top: gem(-60)
 .souls-section
-	width: 100%
-	min-height: gem(1000)
-	height: 200vh
-	display: flex
-	justify-content: center
-	align-items: center
-	flex-direction: column
 	h2
-		margin-left: gem(12)
-		font-size: gem(24)
-		line-height: gem(28)
-		letter-spacing: gem(3)
+		z-index: 1
 	p
 		width: gem(1475)
-		margin-top: gem(29)
+		margin-top: gem(18)
 		margin-left: gem(-64)
 	video
-		width: gem(600)
+		width: gem(1100)
 		object-fit: cover
-		margin-bottom: gem(-50)
+		margin-bottom: gem(-120)
+		margin-top: gem(-120)
+		z-index: 2
 .odlabs-section
-	width: 100%
-	min-height: gem(1000)
-	height: 200vh
-	display: flex
-	justify-content: center
-	align-items: center
-	flex-direction: column
 	h2
 		font-size: gem(95)
 		line-height: gem(127)
 		letter-spacing: gem(18)
-		margin-left: gem(17)
-		margin-bottom: gem(23)
+		margin-bottom: gem(10)
 	p
 		font-size: gem(44)
 		line-height: gem(53)
 		letter-spacing: gem(24)
 		width: gem(1032)
 .companions-section
-	width: 100%
-	min-height: gem(1000)
-	height: 200vh
-	display: flex
-	justify-content: center
-	
 	.content 
 		flex-direction: row
 		position: relative
 		z-index: 3
 	video
-		width: gem(979)
+		width: gem(839)
 		object-fit: cover
 		position: absolute
 		z-index: 1
-		left: gem(-115)
+		left: gem(-45)
 	&-right
 		width: gem(683)
 		display: flex
@@ -218,28 +188,32 @@ main
 		margin-left: gem(415)
 		.numbers
 			font-size: gem(171)
-			line-height: gem(230)
+			line-height: 1
 			letter-spacing: gem(10)
 			text-align: start
-			padding-bottom: gem(15)
+			// padding-bottom: gem(15)
+			margin-top: gem(-40)
+			font-weight: 700
 		h2
 			font-size: gem(58)
 			line-height: gem(78)
 			letter-spacing: gem(11)
 			text-align: start
+			margin-left: gem(7)
+			margin-bottom: gem(80)
+			font-weight: 700
+		p
+			width: gem(760)
+			margin-left: gem(7)
 		.title
 			font-size: gem(20)
 			line-height: gem(23)
 			letter-spacing: gem(3)
 			text-align: start
 .fnik-section
-	width: 100%
-	min-height: gem(1000)
-	height: 200vh
-	display: flex
-	justify-content: center
-	align-items: center
-	flex-direction: column
+	video
+		width: gem(1000)
+		margin-top: gem(-100)
 	h2
 		width: gem(1458)
 		text-align: start
@@ -257,13 +231,9 @@ main
 		letter-spacing: gem(3)
 		margin-left: gem(205)
 .mint-section
-	width: 100%
-	min-height: gem(1000)
-	height: 200vh
-	display: flex
-	justify-content: center
-	align-items: center
-	flex-direction: column
+	video
+		width: gem(954)	
+		margin-top: gem(-153)
 	h2
 		width: gem(1458)
 		text-align: start
@@ -271,7 +241,7 @@ main
 		line-height: gem(78)
 		letter-spacing: gem(11)
 		margin-left: gem(215)
-		margin-top: gem(-116)
+		margin-top: gem(-42)
 		margin-bottom: gem(29)
 	p
 		width: gem(1458)
@@ -281,13 +251,9 @@ main
 		letter-spacing: gem(3)
 		margin-left: gem(219)
 .incubation-section
-	width: 100%
-	min-height: gem(1000)
-	height: 200vh
-	display: flex
-	justify-content: center
-	align-items: center
-	flex-direction: column
+	video
+		width: gem(1100)
+		margin-top: gem(-80)
 	h2
 		width: gem(1458)
 		text-align: start
@@ -304,15 +270,39 @@ main
 		line-height: gem(23)
 		letter-spacing: gem(3)
 		margin-left: gem(219)
-
+.timer-section
+	h2
+		font-family: 'chakra-regular'
+		color: #ffff
+		font-size: gem(38)
+		line-height: gem(45)
+		text-transform: uppercase
+		letter-spacing: 5px
+		margin-top: gem(111)
+	.date
+		font-family: 'chakra-bold'
+		font-size: gem(87)
+		line-height: gem(104)
+		color: #fff
+		letter-spacing: 2px
+		margin-top: gem(9)
+	.timer
+		font-family: 'chakra-regular'
+		color: #0195FF
+		font-size: gem(64)
+		line-height: gem(76)
+		letter-spacing: 1px
+		margin-top: gem(3)
 .content
 	width: 100%
 	display: flex
 	justify-content: center
 	align-items: center
 	flex-direction: column
+	min-height: 100vh
+	position: relative
 h2
-	font-family: "type-bold"
+	font-family: "type-medium"
 	font-size: gem(72)
 	line-height: gem(97)
 	color: #fff
@@ -328,6 +318,8 @@ p
 	text-align: center
 	letter-spacing: gem(4)
 	text-transform: uppercase
+video
+	object-fit: cover
 .split-line
 	&.parent
 		overflow: hidden
@@ -339,82 +331,142 @@ p
 	p
 		font-size: gem(22)
 		line-height: gem(26)
-		width: gem(392)
-		margin-top: gem(22)
+		width: gem(340)
 		letter-spacing: gem(2)
-	.brain-section
-		height: 200vh
-		video
-			width: gem(340)
-	.portal-section
-		height: 200vh
-		margin-top: gem(-500)
-		h2
-			letter-spacing: gem(5)
-		p
-			letter-spacing: gem(2)
-		video
-			width: gem(540)	
-			margin-left: gem(140)
-			margin-bottom: 0
-		p
-			width: gem(370)
 	.background-video
 		&.desctop
 			display: none
 		&.mobile
 			display: unset
-	.souls-section
-		height: 200vh
+	.brain-section
+		video
+			width: gem(270)
+		h2
+			margin-top: 0
+			margin-bottom: gem(22)
+			margin-top: gem(61)
 		p
-			letter-spacing: gem(3)
+			width: gem(340)
+	.portal-section
+		video
+			width: gem(530)
+			margin-left: gem(140)
+		h2
+			margin-top: 0
+			margin-bottom: gem(22)
+			margin-top: gem(61)
+		p
+			width: gem(310)
+	.souls-section
+		video
+			width: gem(620)
+			margin-left: gem(30)
+			margin-top: gem(-60)
+			margin-bottom: gem(-26)
+		h2
+			margin-top: 0
+			margin-bottom: gem(22)
+			margin-top: 0
+		p
+			width: gem(350)
+			margin-left: 0
+			letter-spacing: 1px
+			margin-top: 0
+			br
+				display: none
 	.odlabs-section
-		height: 200vh
 		h2
 			font-size: gem(50)
 			line-height: gem(67)
 			letter-spacing: gem(10)
+			margin-bottom: gem(16)
 		p
-			font-size: gem(34)
+			width: 100%
+			font-size: gem(24)
 			line-height: gem(30)
 			letter-spacing: gem(10)
 	.companions-section
-		height: 200vh
-		.numbers
-			font-size: gem(86)
-			line-height: gem(115)
-			letter-spacing: gem(10)
-		.title
-			font-size: gem(17)
-			line-height: gem(20)
-			letter-spacing: gem(1)
-	.fnik-section
-		height: 200vh
+		.content
+			flex-direction: column
+		video
+			position: relative
+			left: unset
+			width: gem(559)
+			// margin-top: gem(-130)
+		&-right
+			width: 100%
+			margin-left: 0
+			align-items: flex-start
+			.numbers
+				margin: 0
+				font-size: gem(86)
+				margin-bottom: gem(4)
+				margin-left: gem(16)
+				white-space: nowrap
+				letter-spacing: 8
+			h2
+				margin: 0
+				font-size: gem(42)
+				line-height: gem(42)
+				letter-spacing: gem(5)
+				margin-bottom: gem(46)
+				margin-left: gem(20)
+			p
+				margin: 0
+				width: 100%
+				
+			.title
+				font-size: gem(17)
+				line-height: gem(20)
+				letter-spacing: 1px
+				width: gem(360)
+				margin-left: gem(20)
+	.fnik-section, .mint-section, .incubation-section
+		.content
+			align-items: flex-start
+		video
+			margin: 0
+			width: gem(510)
+			margin-left: gem(-50)
+			// margin-top: gem(-54)
 		h2
+			margin: 0
+			width: 100%
 			font-size: gem(38)
 			line-height: gem(40)
 			letter-spacing: gem(3)
+			margin-bottom: gem(23)
+			margin-left: gem(18)
 		p
+			margin: 0
+			width: gem(349)
 			font-size: gem(17)
 			line-height: gem(20)
-			letter-spacing: gem(1)
+			letter-spacing: 1px
+			margin-left: gem(21)
 	.mint-section
-		height: 200vh
+		video
+			width: gem(750)
+			align-self: center
+			margin-left: gem(10)
+			// margin-top: gem(-100)
 		h2
-			font-size: gem(38)
-			line-height: gem(40)
-			letter-spacing: gem(3)
-		p
-			font-size: gem(17)
-			line-height: gem(20)
-			letter-spacing: gem(1)
+			margin-top: gem(-50)
 	.incubation-section
-		height: 200vh
+		video
+			width: gem(700)
+			align-self: center
+			margin-left: 0
+			// margin-top: gem(-115)
+			margin-bottom: gem(-70)
 		h2
-			font-size: gem(38)
-			line-height: gem(40)
-			letter-spacing: gem(3)
-		p
-			font-size: gem(17)
-			line-height: gem(20)
-			letter-spacing: gem(1)
+			width: gem(353)
+	.timer-section
+		.date
+			font-size: gem(82)
+			line-height: gem(97)
+			width: unset
+		h2
+			margin-top: gem(-42)
+	.progress
+		display: none

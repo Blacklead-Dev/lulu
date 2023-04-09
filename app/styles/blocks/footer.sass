@@ -1,0 +1,52 @@
+.footer
+	&-media
+		position: absolute
+		bottom: 0
+		padding: gem(40) gem(36)
+		width: 100%
+		display: flex
+		align-items: flex-end
+		flex-direction: column
+	&-social
+		display: flex
+		flex-direction: row
+		align-items: center
+		margin-bottom: gem(32)
+		a
+			margin-left: gem(32)
+			display: flex	
+			img
+				width: gem(48)
+	&-info
+		display: flex
+		flex-direction: row
+		justify-content: space-between
+		width: 100%
+		a
+			font-family: 'Type-Medium'
+			font-size: gem(27)
+			line-height: 1
+			text-transform: uppercase
+			color: #fff
+			letter-spacing: 4px
+@media all and (max-width: 515px)
+	.footer
+		&-media
+			padding: gem(20)
+			align-items: flex-start
+			a
+				&:first-child
+					margin-left: 0
+				img
+					width: gem(32)
+		&-info
+			flex-wrap: wrap
+			justify-content: flex-start
+			a
+				font-size: gem(14)
+				line-height: gem(18)
+				letter-spacing: 1px
+				margin-right: gem(33)
+				&:nth-child(1), &:nth-child(2)
+					margin-bottom: gem(16)
+
