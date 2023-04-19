@@ -153,17 +153,47 @@ window.addEventListener('load', () => {
 		var interval = setInterval(function() {
 			var now = new Date().getTime();
 			var timeleft = countDownDate - now;
-				
-			var realHours = Math.floor(timeleft / (1000 * 60 * 60));
+
+			var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+			var realHours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
 			var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+			document.getElementById("days").innerHTML = days
 			document.getElementById("hours").innerHTML = realHours
 			document.getElementById("mins").innerHTML = minutes
 			document.getElementById("secs").innerHTML = seconds
+
+			if (timeleft < 0) {
+				clearInterval(interval);
+				document.querySelector('.timer-wrapper').remove()
+				document.querySelector('.timer-button').classList.remove('hidden')
+			}
+
 		}, 1000)
 	}
 
 	timer()
+
+	
+	var cursor = document.querySelector('.cursor');
+	var a = document.querySelectorAll('.custom-cursor');
+
+	document.addEventListener('mousemove', function(e){
+		var x = e.clientX;
+		var y = e.clientY;
+		cursor.style.transform = `translate3d(calc(${e.clientX}px - 25%), calc(${e.clientY}px - 25%), 0)`
+	});
+
+	a.forEach(item => {
+		item.addEventListener('mouseover', () => {
+			cursor.classList.add('hover');
+		});
+		item.addEventListener('mouseleave', () => {
+			cursor.classList.remove('hover');
+		});
+	})
+
 
 	function prelodaderHide() {
 		let preloaderCurtain = document.querySelector('.preloader-curtain')

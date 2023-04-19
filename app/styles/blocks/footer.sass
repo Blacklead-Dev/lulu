@@ -10,8 +10,17 @@
 	&-social
 		display: flex
 		flex-direction: row
-		align-items: center
+		justify-content: space-between
+		width: 100%
+		align-items: flex-end
 		margin-bottom: gem(32)
+		&-left
+			img
+				width: gem(195)
+		&-right
+			display: flex
+			justify-content: flex-start
+			align-items: center
 		a
 			margin-left: gem(32)
 			display: flex	
@@ -49,4 +58,8 @@
 				margin-right: gem(33)
 				&:nth-child(1), &:nth-child(2)
 					margin-bottom: gem(16)
+		&-social
+			&-left
+				img
+					width: gem(133)
 

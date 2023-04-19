@@ -24,14 +24,35 @@ body
 	text-rendering: optimizeLegibility
 	-ms-overflow-style: none
 	scrollbar-width: none
+	cursor: none !important
 	&::-webkit-scrollbar 	
 		display: none
 	&.unscroll
 		overflow: hidden
-
+.cursor
+	width: gem(30)
+	height: gem(30)
+	position: fixed
+	z-index: 3
+	top: 0
+	left: 0
+	pointer-events: none
+	img
+		width: 100%
+		pointer-events: none
+		position: absolute
+		top: 0
+		left: 0
+		&:nth-child(2)
+			opacity: 0
+			transition: all .3s ease
+	&.hover
+		img:nth-child(2)
+			opacity: 1
 a
 	text-decoration: none
 	outline: none
+	cursor: none
 
 img
 	max-width: 100%
@@ -293,6 +314,65 @@ main
 		line-height: gem(76)
 		letter-spacing: 1px
 		margin-top: gem(3)
+		&-button
+			display: flex
+			justify-content: center
+			align-items: center
+			&.hidden
+				display: none
+	a.button
+		width: gem(279)
+		height: gem(52)
+		background: #000000
+		background-size: 100% 100%
+		clip-path: url(#my-clip-path)
+		display: flex
+		justify-content: center
+		align-items: center
+		position: relative
+		overflow: hidden
+		svg
+			width: gem(279)
+			height: gem(52)
+			position: absolute
+			z-index: 2
+			top: 0
+			left: 0
+			path
+				width: 100%
+				height: 100%
+		&:after
+			content: ''
+			width: 100%
+			height: 0
+			background: #fff
+			position: absolute
+			mix-blend-mode: difference
+			bottom: 0
+			transition: all .3s ease
+		span
+			font-family: 'chakra-bold'
+			font-size: gem(28)
+			line-height: gem(34)
+			color: #ffffff
+			display: block
+			transform-style: preserve-3d
+			transform: translateY(-100%)
+			transition: all .3s ease
+		p
+			display: flex
+			flex-direction: column
+			letter-spacing: normal
+			flex-shrink: 0
+			width: 100%
+			height: gem(34)
+			overflow: hidden
+		&:hover
+			span
+				transform: translateY(0%)
+			&:after
+				height: 100%
+		
 .content
 	width: 100%
 	display: flex
@@ -454,11 +534,11 @@ video
 			margin-top: gem(-50)
 	.incubation-section
 		video
-			width: gem(700)
+			width: gem(540)
 			align-self: center
 			margin-left: 0
 			// margin-top: gem(-115)
-			margin-bottom: gem(-70)
+			margin-bottom: gem(-20)
 		h2
 			width: gem(353)
 	.timer-section
@@ -469,4 +549,6 @@ video
 		h2
 			margin-top: gem(-42)
 	.progress
+		display: none
+	.cursor
 		display: none
