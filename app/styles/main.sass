@@ -106,8 +106,8 @@ body
 	top: 0
 	left: 0
 	z-index: 5
-	lottie-player
-		width: gem(1000)
+	video
+		width: gem(500)
 		position: relative
 		z-index: 1
 	&-curtain
@@ -552,3 +552,48 @@ video
 		display: none
 	.cursor
 		display: none
+	.preloader
+		video
+			width: gem(300)
+	.low-battery-popup
+		position: fixed
+		top: 0
+		z-index: 10
+		width: 100%
+		height: 100vh
+		background: #000000
+		color: #E4E6EB
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		font-family: var(--main-font)
+		font-size: gem(22)
+		line-height: gem(26)
+		padding: gem(20)
+		text-align: center
+		opacity: 0
+		pointer-events: none
+		transition: all .3s ease
+		padding-top: gem(40)
+		img
+			margin-top: gem(40)
+			width: gem(89)
+		&.active
+			pointer-events: unset
+			opacity: 1
+		&-header
+			width: 100%
+			padding: gem(20)
+			display: flex
+			position: absolute
+			top: 0
+			left: 0
+			justify-content: space-between
+			align-items: center
+			img
+				margin-top: 0
+				&:first-child
+					width: gem(52)
+				&:last-child
+					width: gem(34)

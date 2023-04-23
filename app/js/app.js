@@ -159,10 +159,11 @@ window.addEventListener('load', () => {
 			var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
 			var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
 
+
 			document.getElementById("days").innerHTML = days
-			document.getElementById("hours").innerHTML = realHours
-			document.getElementById("mins").innerHTML = minutes
-			document.getElementById("secs").innerHTML = seconds
+			document.getElementById("hours").innerHTML = (realHours > 9) ? realHours : `0${realHours}`
+			document.getElementById("mins").innerHTML = (minutes > 9) ? minutes : `0${minutes}`
+			document.getElementById("secs").innerHTML = (seconds > 9) ? seconds : `0${seconds}`
 
 			if (timeleft < 0) {
 				clearInterval(interval);
@@ -174,6 +175,29 @@ window.addEventListener('load', () => {
 	}
 
 	timer()
+
+	const videoElement = document.getElementById('preloader-video');
+	const lowBatteryPopup = document.querySelector('.low-battery-popup')
+	const lowBatteryPopupClose = document.querySelector('.low-battery-popup-close')
+
+	Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
+		get: function () {
+			return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
+		}
+	});
+
+
+	videoElement
+		.play()
+		.then(() => {
+		})
+		.catch((error) => {
+			lowBatteryPopup.classList.add('active')
+		});
+
+	lowBatteryPopupClose.addEventListener('click', () => {
+		lowBatteryPopup.classList.remove('active')
+	})
 
 	
 	var cursor = document.querySelector('.cursor');

@@ -6,11 +6,23 @@
 <!--#include virtual="/parts/header.html" -->
 <main>
     <div class="preloader">
-        <lottie-player src="assets/Lulu_preloader_ready.json" background="transparent" style="overflow:clip !important" speed="1" loop autoplay>
-        </lottie-player>
+        <video preload="auto" playsinline muted  autoplay id="preloader-video">
+            <source src="assets/videos/preloader.mov" type="video/mp4; codecs=&quot;hvc1&quot">
+            <source src="assets/videos/preloader.webm" type="video/webm">
+        </video>
         <div class="preloader-curtain">
 
         </div>
+    </div>
+    <div class="low-battery-popup">
+        <div class="low-battery-popup-header">
+            <img src="images/dist/logo.svg" alt="">
+            <img src="images/dist/close.svg" alt="" class="low-battery-popup-close">
+        </div>
+        <p>
+            Make sure that energy-saving mode is switched off.
+        </p>
+        <img src="images/dist/low-battery.svg" alt="">
     </div>
     <video preload="auto" playsinline muted class="background-video desctop" >
         <source src="assets/videos/lulubg.mov" type="video/mp4; codecs=&quot;hvc1&quot">
