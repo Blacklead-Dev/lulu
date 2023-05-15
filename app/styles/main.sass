@@ -409,8 +409,8 @@ video
 		line-height: gem(42)
 		letter-spacing: gem(5)
 	p
-		font-size: gem(22)
-		line-height: gem(26)
+		font-size: gem(12)
+		line-height: gem(18)
 		width: gem(340)
 		letter-spacing: gem(2)
 	.background-video
@@ -437,6 +437,7 @@ video
 			margin-top: gem(61)
 		p
 			width: gem(310)
+			letter-spacing: gem(1)
 	.souls-section
 		video
 			width: gem(620)
@@ -452,6 +453,8 @@ video
 			margin-left: 0
 			letter-spacing: 1px
 			margin-top: 0
+			font-size: gem(12)
+			line-height: gem(18)
 			br
 				display: none
 	.odlabs-section
@@ -462,8 +465,8 @@ video
 			margin-bottom: gem(16)
 		p
 			width: 100%
-			font-size: gem(24)
-			line-height: gem(30)
+			font-size: gem(12)
+			line-height: gem(18)
 			letter-spacing: gem(10)
 	.companions-section
 		.content
@@ -477,6 +480,8 @@ video
 			width: 100%
 			margin-left: 0
 			align-items: flex-start
+			position: relative
+			top: gem(-70)
 			.numbers
 				margin: 0
 				font-size: gem(86)
@@ -489,15 +494,15 @@ video
 				font-size: gem(42)
 				line-height: gem(42)
 				letter-spacing: gem(5)
-				margin-bottom: gem(46)
+				margin-bottom: gem(20)
 				margin-left: gem(20)
 			p
 				margin: 0
 				width: 100%
 				
 			.title
-				font-size: gem(17)
-				line-height: gem(20)
+				font-size: gem(12)
+				line-height: gem(18)
 				letter-spacing: 1px
 				width: gem(360)
 				margin-left: gem(20)
@@ -520,8 +525,8 @@ video
 		p
 			margin: 0
 			width: gem(349)
-			font-size: gem(17)
-			line-height: gem(20)
+			font-size: gem(12)
+			line-height: gem(18)
 			letter-spacing: 1px
 			margin-left: gem(21)
 	.mint-section
@@ -531,16 +536,22 @@ video
 			margin-left: gem(10)
 			// margin-top: gem(-100)
 		h2
-			margin-top: gem(-50)
+			margin-top: gem(-90)
+			margin-bottom: gem(15)
+		p 
+			font-size: gem(10)
 	.incubation-section
 		video
 			width: gem(540)
 			align-self: center
 			margin-left: 0
-			// margin-top: gem(-115)
 			margin-bottom: gem(-20)
 		h2
 			width: gem(353)
+			margin-bottom: gem(10)
+		p 
+			font-size: gem(12)
+			line-height: gem(18)
 	.timer-section
 		.date
 			font-size: gem(82)
@@ -548,6 +559,10 @@ video
 			width: unset
 		h2
 			margin-top: gem(-42)
+		.timer 
+			.split-line.parent
+				overflow: visible
+
 	.progress
 		display: none
 	.cursor
