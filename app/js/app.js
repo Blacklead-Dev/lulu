@@ -298,9 +298,22 @@ window.addEventListener('load', () => {
 				}
 			}
 			
-			
-			
 		}
 	}
+	const numberElement = document.querySelector('.number');
+	const plusButton = document.querySelector('.plus');
+	const minusButton = document.querySelector('.minus');
+
+	let number = 0;
+
+	plusButton.addEventListener('click', () => {
+		number++;
+		numberElement.textContent = number;
+	});
+
+	minusButton.addEventListener('click', () => {
+		number--;
+		numberElement.textContent = number;
+	});
 	
 })
