@@ -1,9 +1,3 @@
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-import ScrollToPlugin from 'gsap/ScrollToPlugin'
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
-
-import { splitingText } from './assets/splitingText'
 import { customCursor } from './assets/customCursor'
 
 import { mainPage } from './pages/main'
