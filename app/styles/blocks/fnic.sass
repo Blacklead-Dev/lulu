@@ -1,38 +1,41 @@
+.holders-mint
+    display: flex
 .fnic-section
     display: none
     position: fixed
     width: 100%
     height: 100vh
     top: 0
+    background: #000
+    z-index: 5
     justify-content: center
     video
         width: gem(680)
         height: gem(680)
-        // margin-top: gem(36)
         top: gem(36)
         position: absolute
     .content 
         display: flex
         flex-direction: row
         justify-content: space-between
+        h3 
+            font-size: gem(30)
+            line-height: gem(40)
+            text-align: start
+            font-weight: 600
+            letter-spacing: gem(4)
+            color: #ffffff
+            margin-bottom: gem(40)
+            font-family: 'type-regular'
+        h2
+            font-size: gem(58)
+            line-height: gem(78)
+            text-align: start
+            font-family: 'type-bold'
         &-left
             display: flex
             flex-direction: column
             margin-left: gem(34)
-            h2
-                font-size: gem(58)
-                line-height: gem(78)
-                text-align: start
-                font-family: 'type-bold'
-            h3 
-                font-size: gem(30)
-                line-height: gem(40)
-                text-align: start
-                font-weight: 600
-                letter-spacing: gem(4)
-                color: #ffffff
-                margin-bottom: gem(40)
-                font-family: 'type-regular'
             p 
                 font-size: gem(17)
                 line-height: gem(20)
@@ -92,7 +95,10 @@
                 align-items: center
                 margin-right: gem(12)
                 font-weight: 900
-                button 
+                .but
+                    display: flex
+                    justify-content: center
+                    align-items: center
                     width: gem(54)
                     height: gem(44)
                     border: 1px solid #ffffff
@@ -138,6 +144,66 @@
                     flex-direction: column
                     overflow: scroll
                     height: gem(80)
+                    margin-bottom: gem(104)
+            .connect
+                width: gem(163)
+                height: gem(85)
+                background: #000000
+                background-size: 100% 100%
+                clip-path: url(#my-clip-path-new)
+                display: flex
+                justify-content: center
+                align-items: center
+                position: relative
+                overflow: hidden
+                margin-bottom: gem(12)
+                svg
+                    width: 100%
+                    height: 100%
+                    position: absolute
+                    z-index: 2
+                    top: 0
+                    left: 0
+                    path
+                        width: 100%
+                        height: 100%
+                &:after
+                    content: ''
+                    width: 100%
+                    height: 0
+                    background: #fff
+                    position: absolute
+                    mix-blend-mode: difference
+                    bottom: 0
+                    // clip-path: url(#my-clip-path-new)
+                    transition: all .3s ease
+                span
+                    font-family: 'chakra-bold'
+                    font-size: gem(28)
+                    line-height: gem(34)
+                    color: #ffffff
+                    display: block
+                    transform-style: preserve-3d
+                    transform: translateY(-100%)
+                    transition: all .3s ease
+                p
+                    display: flex
+                    flex-direction: column
+                    letter-spacing: normal
+                    text-align: center
+                    flex-shrink: 0
+                    width: 100%
+                    margin-top: gem(10)
+                    height: gem(68)
+                    overflow: hidden
+                &:hover
+                    span
+                        transform: translateY(0%)
+                    &:after
+                        height: 100%
+            .total
+                width: gem(163)
+                text-align: end
     .lulusha
         display: flex
     .card-insert
@@ -150,8 +216,199 @@
         display: none
     .static-noise
         display: none
-            
+                                
+// .successful-section
+//     display: none
+//     position: fixed
+//     top: 0
+//     width: 100%
+//     height: 100vh
+//     justify-content: center
+//     background: #000
+//     z-index: 5
+//     video
+//         width: gem(680)
+//         height: gem(680)
+//         // margin-top: gem(36)
+//         top: gem(168)
+//         position: absolute
+//     .content 
+//         justify-content: flex-start
+//         h2
+//             font-size: gem(58)
+//             line-height: gem(78)
+//             letter-spacing: gem(11)
+//             margin: gem(60) 0 gem(28)
+//         h3 
+//             color: #ffffff
+//             font-family: 'type-medium'
+//             font-size: gem(30)
+//             line-height: gem(36)
+//             text-transform: uppercase
+//             width: gem(701)
+//             text-align: center
 
+.after-successful-section
+    display: none
+    position: fixed
+    top: 0
+    width: 100%
+    height: 100vh
+    justify-content: center
+    z-index: 5
+    background: #000000
+    .scan-lulu
+        display: none
+    video
+        width: gem(680)
+        height: gem(680)
+        // margin-top: gem(36)
+        top: gem(36)
+        position: absolute
+    .successful-text
+        display: none
+        flex-direction: column
+        align-items: center
+        position: absolute
+        h2
+            font-size: gem(58)
+            line-height: gem(78)
+            letter-spacing: gem(11)
+            margin: gem(60) 0 gem(28)
+        h3 
+            color: #ffffff
+            font-family: 'type-medium'
+            font-size: gem(30)
+            line-height: gem(36)
+            text-transform: uppercase
+            letter-spacing: gem(4)
+            width: gem(690)
+            text-align: center
+    .content 
+        display: flex
+        flex-direction: row
+        justify-content: flex-end
+        &-right 
+            display: flex
+            width: gem(489)
+            flex-direction: column
+            h2
+                font-size: gem(58)
+                line-height: gem(78)
+                text-align: start
+                font-family: 'type-bold'
+            h3 
+                font-size: gem(30)
+                line-height: gem(40)
+                text-align: start
+                font-weight: 600
+                letter-spacing: gem(4)
+                color: #ffffff
+                margin-bottom: gem(40)
+                font-family: 'type-regular'
+            p 
+                font-size: gem(17)
+                line-height: gem(20)
+                text-align: start
+                width: gem(430)
+                letter-spacing: gem(1)
+                margin-bottom: gem(52)
+            .tabs
+                position: relative
+                margin-bottom: gem(28)
+                padding-left: gem(12)
+                &::after
+                    content: ''
+                    display: flex
+                    width: gem(211)
+                    height: gem(40)
+                    position: absolute
+                    left: 0
+                    background: #ffffff
+                    top: gem(-4)
+                    z-index: -1
+                    transition: all .5s ease
+                span
+                    font-family: 'chakra-bold'
+                    font-weight: 700
+                    color: #000
+                    font-size: gem(28)
+                    line-height: gem(32)
+                    text-transform: uppercase
+                    margin-right: gem(36)
+                    transition: all .5s ease
+                    &:nth-of-type(2)
+                        margin-right: 0
+                        color: #fff
+                &.active 
+                    &::after
+                        transform: translateX(gem(220))
+                        width: gem(170)
+                    span 
+                        color: #ffffff
+                        &:nth-of-type(2)
+                            color: #000000
+                &-container 
+                    display: flex
+                    width: gem(420)
+                    position: relative
+                    overflow: hidden
+                    height: gem(227)
+                    margin-bottom: gem(32)
+                    &-inside
+                        display: flex
+                        flex-direction: row-reverse
+                        width: gem(855)
+                        position: absolute
+                        transition: all .5s ease
+                        justify-content: flex-end
+                        transform: translateX(gem(-440))
+                        .properties
+                            display: flex
+                            flex-direction: column
+                            width: gem(405)
+                            h3 
+                                text-transform: uppercase
+                                margin-bottom: gem(20)
+                            &-list 
+                                display: flex
+                                flex-direction: column
+                                height: gem(167)
+                                overflow: scroll
+                                &-li 
+                                    display: flex
+                                    p 
+                                        margin-bottom: gem(20)
+                        .addresses
+                            display: flex
+                            width: gem(420)
+                            flex-direction: column
+                            margin-right: gem(30)
+                            &-list 
+                                display: flex
+                                position: relative
+                                .check
+                                    display: flex
+                                    position: relative
+                                    width: gem(21)
+                                    .ok
+                                        width: gem(12)
+                                        position: absolute
+                                        right: 0
+                                    .error
+                                        width: gem(21)
+                                        position: absolute
+                                        right: 0
+                                p 
+                                    margin-bottom: gem(20)
+                    &.active 
+                        .tabs-container-inside
+                            transform: translateX(gem(0))
+            .connect 
+                p 
+                    width: gem(241)    
+                    text-align: center
+                    margin-bottom: 0
 @keyframes colors
     0% 
         fill: #ffffff
@@ -169,33 +426,281 @@
         fill: #FFB800
     100%
         fill: #ffffff
-        
-                
-.successful-section
-    display: none
+                            
+.public-mint
+    display: flex
     position: fixed
     top: 0
-    width: 100%
-    height: 100vh
-    justify-content: center
-    video
-        width: gem(680)
-        height: gem(680)
-        // margin-top: gem(36)
-        top: gem(168)
-        position: absolute
-    .content 
-        justify-content: flex-start
-        h2
-            font-size: gem(58)
-            line-height: gem(78)
-            letter-spacing: gem(11)
-            margin: gem(60) 0 gem(28)
-        h3 
-            color: #ffffff
-            font-family: 'type-medium'
-            font-size: gem(30)
-            line-height: gem(36)
-            text-transform: uppercase
-            width: gem(701)
-            text-align: center
+    z-index: 5
+    background: #000
+    .fnic-section 
+        display: flex
+        .successful-text
+            display: none
+            flex-direction: column
+            align-items: center
+            position: absolute
+            h2
+                font-size: gem(58)
+                line-height: gem(78)
+                letter-spacing: gem(11)
+                margin: gem(60) 0 gem(28)
+            h3 
+                color: #ffffff
+                font-family: 'type-medium'
+                font-size: gem(30)
+                line-height: gem(36)
+                text-transform: uppercase
+                letter-spacing: gem(4)
+                width: gem(690)
+                text-align: center
+        .content-right 
+            margin-right: gem(50)
+            p 
+                width: gem(460)
+                margin-bottom: gem(40)
+            .total
+                width: gem(180)
+            .connect 
+                width: gem(180)
+                height: gem(52)
+                clip-path: url(#my-clip-path-public)
+                p 
+                    margin: gem(40) 0 0 0
+            .cell 
+                .but 
+                    font-size: gem(30)
+        .content-left 
+            .tabs
+                position: relative
+                margin-bottom: gem(28)
+                padding-left: gem(12)
+                &::after
+                    content: ''
+                    display: flex
+                    width: gem(211)
+                    height: gem(40)
+                    position: absolute
+                    left: 0
+                    background: #ffffff
+                    top: gem(-4)
+                    z-index: -1
+                    transition: all .5s ease
+                span
+                    font-family: 'chakra-bold'
+                    font-weight: 700
+                    color: #000
+                    font-size: gem(28)
+                    line-height: gem(32)
+                    text-transform: uppercase
+                    margin-right: gem(36)
+                    transition: all .5s ease
+                    &:nth-of-type(2)
+                        margin-right: 0
+                        color: #fff
+                &.active 
+                    &::after
+                        transform: translateX(gem(220))
+                        width: gem(170)
+                    span 
+                        color: #ffffff
+                        &:nth-of-type(2)
+                            color: #000000
+                &-container 
+                    display: flex
+                    width: gem(420)
+                    position: relative
+                    overflow: hidden
+                    height: gem(227)
+                    &-inside
+                        display: flex
+                        flex-direction: row-reverse
+                        width: gem(855)
+                        position: absolute
+                        transition: all .5s ease
+                        justify-content: flex-end
+                        .properties
+                            display: flex
+                            flex-direction: column
+                            width: gem(405)
+                            h3 
+                                text-transform: uppercase
+                                margin-bottom: gem(20)
+                            &-list 
+                                display: flex
+                                flex-direction: column
+                                height: gem(167)
+                                overflow: scroll
+                                &-li 
+                                    display: flex
+                                    p 
+                                        margin-bottom: gem(20)
+        &.active
+            .content
+                flex-direction: row-reverse
+                &-left 
+                    margin: 0 gem(80) 0 0
+                &-right
+                    margin: 0 0 0 gem(34)
+                    .cell-count
+                        display: none
+                    .connect 
+                        display: none
+                    .total 
+                        display: none
+@media all and (max-width: 515px)
+    .fnic-section
+        video 
+            width: gem(390)
+            height: gem(390)
+            top: 0
+        .content
+            flex-direction: column
+            h2 
+                font-size: gem(42)
+                line-height: gem(42)
+                margin-bottom: gem(8)
+            h3 
+                margin-bottom: gem(20)
+            &-right
+                display: flex
+                margin-right: 0
+                position: absolute
+                bottom: gem(80)
+                .cell-count
+                    margin-bottom: gem(28)
+                p 
+                    width: gem(298)
+                input 
+                    width: gem(330)
+                .enter 
+                    .from-input
+                        margin-bottom: gem(40)
+                .connect 
+                    margin-left: gem(85)
+                .total 
+                    margin-left: gem(85)
+                .cell 
+                    .but 
+                        font-size: gem(20)
+            &-left 
+                display: none
+                position: absolute
+                bottom: gem(90)
+                p 
+                    width: gem(322)
+                    font-size: gem(16)
+                    line-height: gem(22)
+                    margin-bottom: gem(28)
+            &.show-left
+                .content-right 
+                    display: none
+            &.show-right
+                .content-left 
+                    display: none
+    .after-successful-section
+        height: gem(900)
+        overflow-y: scroll
+        video 
+            width: gem(390)
+            height: gem(390)
+            top: 0
+        .successful-text
+            h2 
+                font-size: gem(42)
+                line-height: gem(42) 
+                width: gem(389)
+                margin-top: gem(112)
+                letter-spacing: gem(5)
+            h3
+                width: gem(350)
+                font-size: gem(22)
+                line-height: gem(26)
+        .content 
+            flex-direction: column
+            justify-content: flex-start
+            margin-bottom: gem(600)
+            &-right 
+                width: gem(322)
+                margin-top: gem(320)
+                p 
+                    font-size: gem(16)
+                    line-height: gem(22)
+                    width: gem(322)
+                .tabs 
+                    display: flex
+                    width: gem(322)
+                    padding-left: gem(0)
+                    justify-content: space-around
+                    &::after
+                        width: gem(161)
+                    span 
+                        display: flex
+                        justify-content: center
+                        width: gem(161)
+                        font-size: gem(17)
+                        line-height: gem(32)
+                        margin-right: gem(0)
+                    &.active 
+                        &::after
+                            transform: translateX(gem(161))
+                            width: gem(161)
+                    &-container
+                        width: gem(340)
+                        &-inside
+                            width: gem(600)
+                            transform: translateX(gem(-340))
+                            .addresses
+                                width: gem(320)
+                                margin-right: gem(20)
+                            .properties
+                                width: gem(320)
+    .public-mint
+        .fnic-section 
+            height: gem(900)
+            overflow-y: scroll
+            overflow-x: hidden
+            video 
+                width: gem(390)
+                height: gem(390)
+                top: 0
+            .content
+                flex-direction: column
+                justify-content: flex-start
+                margin-top: gem(400)
+                margin-bottom: gem(270)
+                h2 
+                    font-size: gem(42)
+                    line-height: gem(42)
+                    margin-bottom: gem(8)
+                h3 
+                    margin-bottom: gem(20)
+                p 
+                    width: gem(298)
+                &-left
+                    display: flex
+                    position: relative
+                    bottom: unset
+                    margin-left: gem(34)
+                    .tabs 
+                        width: gem(324)
+                        padding-left: 0
+                        span 
+                            width: 100%
+                            height: gem(34)
+                            display: flex
+                            justify-content: center
+                        &::after
+                            width: 100%
+                        &-container 
+                            width: gem(380)
+                            h3 
+                                font-size: gem(22)
+                                line-height: gem(26)
+                            p 
+                                font-size: gem(28)
+                                line-height: gem(20)
+                &-right 
+                    display: flex
+                    position: relative
+                    bottom: unset

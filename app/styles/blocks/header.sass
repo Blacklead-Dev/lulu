@@ -12,58 +12,58 @@ header
 		width: gem(115)
 	img
 		width: gem(115)
-	.connect
-		width: gem(279)
-		height: gem(52)
-		background: #000000
-		background-size: 100% 100%
-		clip-path: url(#my-clip-path)
-		display: flex
-		justify-content: center
-		align-items: center
-		position: relative
-		overflow: hidden
-		svg
+.connect
+	width: gem(279)
+	height: gem(52)
+	background: #000000
+	background-size: 100% 100%
+	clip-path: url(#my-clip-path)
+	display: flex
+	justify-content: center
+	align-items: center
+	position: relative
+	overflow: hidden
+	svg
+		width: 100%
+		height: 100%
+		position: absolute
+		z-index: 2
+		top: 0
+		left: 0
+		path
 			width: 100%
 			height: 100%
-			position: absolute
-			z-index: 2
-			top: 0
-			left: 0
-			path
-				width: 100%
-				height: 100%
-		&:after
-			content: ''
-			width: 100%
-			height: 0
-			background: #fff
-			position: absolute
-			mix-blend-mode: difference
-			bottom: 0
-			transition: all .3s ease
+	&:after
+		content: ''
+		width: 100%
+		height: 0
+		background: #fff
+		position: absolute
+		mix-blend-mode: difference
+		bottom: 0
+		transition: all .3s ease
+	span
+		font-family: 'chakra-bold'
+		font-size: gem(28)
+		line-height: gem(34)
+		color: #ffffff
+		display: block
+		transform-style: preserve-3d
+		transform: translateY(-100%)
+		transition: all .3s ease
+	p
+		display: flex
+		flex-direction: column
+		letter-spacing: normal
+		flex-shrink: 0
+		width: 100%
+		height: gem(34)
+		overflow: hidden
+	&:hover
 		span
-			font-family: 'chakra-bold'
-			font-size: gem(28)
-			line-height: gem(34)
-			color: #ffffff
-			display: block
-			transform-style: preserve-3d
-			transform: translateY(-100%)
-			transition: all .3s ease
-		p
-			display: flex
-			flex-direction: column
-			letter-spacing: normal
-			flex-shrink: 0
-			width: 100%
-			height: gem(34)
-			overflow: hidden
-		&:hover
-			span
-				transform: translateY(0%)
-			&:after
-				height: 100%
+			transform: translateY(0%)
+		&:after
+			height: 100%
 @media all and (max-width: 515px)
 	header
 		padding: gem(20)
