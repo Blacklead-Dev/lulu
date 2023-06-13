@@ -1,5 +1,8 @@
 .holders-mint
     display: flex
+    &.active
+        .fnic-section
+            display: flex
 .fnic-section
     display: none
     position: fixed
@@ -9,6 +12,7 @@
     background: #000
     z-index: 5
     justify-content: center
+   
     video
         width: gem(680)
         height: gem(680)
@@ -138,11 +142,13 @@
                 line-height: gem(22)
                 letter-spacing: gem(1)
                 margin-bottom: gem(11)
+                flex-shrink: 0
             .enter
                 .from-input
                     display: flex
                     flex-direction: column
-                    overflow: scroll
+                    overflow-y: scroll
+                    overflow-x: hidden
                     height: gem(80)
                     margin-bottom: gem(104)
             .connect
