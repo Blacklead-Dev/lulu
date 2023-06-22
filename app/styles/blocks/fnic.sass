@@ -1,18 +1,36 @@
 .holders-mint
-    display: flex
+    visibility: hidden
     &.active
+        visibility: visible
         .fnic-section
+            visibility: visible
+            clip-path: inset(0% 0 0 0)
+        .footer-media
             display: flex
+            pointer-events: none
+            .footer-social
+                pointer-events: visible
+    .footer-media
+        display: none
+        z-index: 5
 .fnic-section
-    display: none
+    display: flex
     position: fixed
+    visibility: hidden
     width: 100%
     height: 100vh
     top: 0
     background: #000
     z-index: 5
+    transition: all .5s ease
     justify-content: center
-   
+    clip-path: inset(100% 0 0 0)
+    .from-video
+        display: flex
+        width: 100%
+        height: 100%
+        justify-content: center
+        position: absolute
     video
         width: gem(680)
         height: gem(680)
@@ -30,12 +48,13 @@
             letter-spacing: gem(4)
             color: #ffffff
             margin-bottom: gem(40)
-            font-family: 'type-regular'
+            font-family: 'roboto-bold'
         h2
             font-size: gem(58)
             line-height: gem(78)
             text-align: start
-            font-family: 'type-bold'
+            letter-spacing: gem(2)
+            font-family: 'roboto-bold'
         &-left
             display: flex
             flex-direction: column
@@ -44,6 +63,7 @@
                 font-size: gem(17)
                 line-height: gem(20)
                 text-align: start
+                font-family: 'rajdhani-medium'
                 width: gem(430)
                 letter-spacing: gem(1)
                 margin-bottom: gem(52)
@@ -60,7 +80,7 @@
                     display: block
                     position: relative
                     color: #ffffff
-                    font-family: "chakra-bold"
+                    font-family: "rajdhani-bold"
                     font-size: gem(28)
                     transition: all .3s ease
                     line-height: gem(32)
@@ -86,6 +106,9 @@
             display: flex
             flex-direction: column
             margin-right: gem(150)
+            opacity: 0
+            transform: translateY(gem(100))
+            transition: all .3s ease
             .cell-count 
                 display: flex
                 align-items: center
@@ -106,17 +129,23 @@
                     width: gem(54)
                     height: gem(44)
                     border: 1px solid #ffffff
+                    border-radius: gem(5) 0 0 gem(5)
                     background: none
                     color: #ffffff
-                    font-size: gem(40)
+                    font-size: gem(30)
                     line-height: 1px
+                    padding-bottom: gem(3)
+                    &:nth-of-type(2)
+                        border-radius: 0 gem(5) gem(5) 0
                 span 
                     width: gem(54)
                     height: gem(44)
                     border: 1px solid #ffffff
                     display: flex
                     justify-content: center
+                    font-family: 'rajdhani-bold'
                     align-items: center
+                
             .number 
                 font-size: gem(24)
                 color: #ffffff
@@ -127,7 +156,7 @@
                 text-align: start
                 width: gem(378)
                 letter-spacing: 1px
-                font-family: 'type-regular'
+                font-family: 'roboto-medium'
                 font-weight: 600
                 margin-bottom: gem(12)
             input 
@@ -143,6 +172,7 @@
                 letter-spacing: gem(1)
                 margin-bottom: gem(11)
                 flex-shrink: 0
+                border-radius: gem(5)
             .enter
                 .from-input
                     display: flex
@@ -151,9 +181,20 @@
                     overflow-x: hidden
                     height: gem(80)
                     margin-bottom: gem(104)
+                    /* width */
+                    &::-webkit-scrollbar 
+                        width: gem(2)
+                    /* Track */
+                    &::-webkit-scrollbar-track 
+                        background: #333333
+                    /* Handle */
+                    &::-webkit-scrollbar-thumb 
+                        background: #FFFFFF
+                .from-scroll
+                    display: none
             .connect
-                width: gem(163)
-                height: gem(85)
+                width: gem(240)
+                height: gem(52)
                 background: #000000
                 background-size: 100% 100%
                 clip-path: url(#my-clip-path-new)
@@ -162,36 +203,41 @@
                 align-items: center
                 position: relative
                 overflow: hidden
+                border-radius: gem(6)
                 margin-bottom: gem(12)
                 svg
                     width: 100%
                     height: 100%
                     position: absolute
-                    z-index: 2
+                    z-index: 1
                     top: 0
                     left: 0
                     path
+                        transition: all .3s ease
                         width: 100%
                         height: 100%
                 &:after
                     content: ''
                     width: 100%
                     height: 0
-                    background: #fff
+                    background: #000000
                     position: absolute
                     mix-blend-mode: difference
                     bottom: 0
-                    // clip-path: url(#my-clip-path-new)
+                    // border-radius: gem(6)
+                    clip-path: url(#my-clip-path-new)
                     transition: all .3s ease
                 span
-                    font-family: 'chakra-bold'
+                    font-family: 'rajdhani-bold'
+                    letter-spacing: gem(2)
                     font-size: gem(28)
-                    line-height: gem(34)
-                    color: #ffffff
+                    line-height: gem(36)
+                    color: #000000
                     display: block
                     transform-style: preserve-3d
                     transform: translateY(-100%)
                     transition: all .3s ease
+                    z-index: 2
                 p
                     display: flex
                     flex-direction: column
@@ -199,61 +245,67 @@
                     text-align: center
                     flex-shrink: 0
                     width: 100%
-                    margin-top: gem(10)
-                    height: gem(68)
+                    margin-top: gem(20)
+                    margin-bottom: 0
+                    height: gem(52)
                     overflow: hidden
                 &:hover
                     span
+                        color: #fff
                         transform: translateY(0%)
                     &:after
                         height: 100%
+                    svg 
+                        path 
+                            fill: #000
             .total
-                width: gem(163)
+                width: gem(240)
                 text-align: end
-    .lulusha
+.lulusha
+    display: none
+    &.active
         display: flex
-    .card-insert
-        display: none
-    .fnic-loading
-        display: none
-    .fnic-authorised
-        display: none
-    .self-destruct
-        display: none
-    .static-noise
-        display: none
-                                
-// .successful-section
-//     display: none
-//     position: fixed
-//     top: 0
-//     width: 100%
-//     height: 100vh
-//     justify-content: center
-//     background: #000
-//     z-index: 5
-//     video
-//         width: gem(680)
-//         height: gem(680)
-//         // margin-top: gem(36)
-//         top: gem(168)
-//         position: absolute
-//     .content 
-//         justify-content: flex-start
-//         h2
-//             font-size: gem(58)
-//             line-height: gem(78)
-//             letter-spacing: gem(11)
-//             margin: gem(60) 0 gem(28)
-//         h3 
-//             color: #ffffff
-//             font-family: 'type-medium'
-//             font-size: gem(30)
-//             line-height: gem(36)
-//             text-transform: uppercase
-//             width: gem(701)
-//             text-align: center
-
+.card-insert
+    display: none
+    &.active
+        display: flex
+.fnic-loading
+    display: none
+    &.active
+        display: flex
+.fnic-authorised
+    display: none
+    &.active
+        display: flex
+.self-destruct
+    display: none
+    &.active
+        display: flex
+.static-noise
+    display: none
+    &.active
+        display: flex
+.scan-lulu
+    display: none
+    transform: scale(0)
+    margin-top: gem(100)
+    mix-blend-mode: hard-light
+    &.active
+        display: flex
+.lulusha-after
+    display: none
+    transform: scale(0)
+    margin-top: gem(100)
+    &.active
+        display: flex
+.flash
+    display: none
+    width: 100%
+    height: 100%
+    mix-blend-mode: screen
+    &.active
+        display: flex
+    
 .after-successful-section
     display: none
     position: fixed
@@ -263,27 +315,33 @@
     justify-content: center
     z-index: 5
     background: #000000
-    .scan-lulu
-        display: none
     video
         width: gem(680)
         height: gem(680)
-        // margin-top: gem(36)
         top: gem(36)
         position: absolute
+    .flash 
+        width: 100%
+        height: 100%
+    .scan-lulu
+        mix-blend-mode: hard-light
     .successful-text
-        display: none
+        display: flex
         flex-direction: column
         align-items: center
         position: absolute
+        transform: translateY(gem(100))
+        opacity: 0
         h2
-            font-size: gem(58)
-            line-height: gem(78)
+            font-size: gem(50)
+            line-height: gem(70)
             letter-spacing: gem(11)
             margin: gem(60) 0 gem(28)
+            letter-spacing: gem(2)
+            font-family: 'roboto-bold'
         h3 
             color: #ffffff
-            font-family: 'type-medium'
+            font-family: 'roboto-bold'
             font-size: gem(30)
             line-height: gem(36)
             text-transform: uppercase
@@ -294,6 +352,9 @@
         display: flex
         flex-direction: row
         justify-content: flex-end
+        opacity: 0
+        transform: translateY(gem(100))
+        transition: all .3s ease
         &-right 
             display: flex
             width: gem(489)
@@ -301,8 +362,9 @@
             h2
                 font-size: gem(58)
                 line-height: gem(78)
+                letter-spacing: gem(2)
                 text-align: start
-                font-family: 'type-bold'
+                font-family: 'roboto-bold'
             h3 
                 font-size: gem(30)
                 line-height: gem(40)
@@ -310,15 +372,43 @@
                 font-weight: 600
                 letter-spacing: gem(4)
                 color: #ffffff
-                margin-bottom: gem(40)
-                font-family: 'type-regular'
+                margin-bottom: gem(20)
+                font-family: 'roboto-bold'
             p 
+                font-family: 'roboto-medium'
                 font-size: gem(17)
                 line-height: gem(20)
                 text-align: start
                 width: gem(430)
                 letter-spacing: gem(1)
-                margin-bottom: gem(52)
+                margin-bottom: gem(32)
+            .connect 
+                width: gem(241)
+                background: #000000
+                border-radius: gem(6)
+                clip-path: url(#my-clip-path-new)
+                svg 
+                    z-index: 1
+                p 
+                    width: gem(241)    
+                    text-align: center
+                    margin-bottom: 0
+                    span 
+                        font-family: 'rajdhani-bold'
+                        letter-spacing: gem(2)
+                        color: #000000
+                        z-index: 2
+                &:after
+                    background: #000000
+                &:hover
+                    span
+                        color: #fff
+                        transform: translateY(0%)
+                    &:after
+                        height: 100%
+                    svg 
+                        path 
+                            fill: #000
             .tabs
                 position: relative
                 margin-bottom: gem(28)
@@ -331,11 +421,13 @@
                     position: absolute
                     left: 0
                     background: #ffffff
+                    border-radius: gem(6)
                     top: gem(-4)
                     z-index: -1
                     transition: all .5s ease
                 span
-                    font-family: 'chakra-bold'
+                    font-family: 'rajdhani-bold'
+                    letter-spacing: gem(3)
                     font-weight: 700
                     color: #000
                     font-size: gem(28)
@@ -380,7 +472,16 @@
                                 display: flex
                                 flex-direction: column
                                 height: gem(167)
-                                overflow: scroll
+                                overflow-y: scroll
+                                /* width */
+                                &::-webkit-scrollbar 
+                                    width: gem(2)
+                                /* Track */
+                                &::-webkit-scrollbar-track 
+                                    background: #333333
+                                /* Handle */
+                                &::-webkit-scrollbar-thumb 
+                                    background: #FFFFFF
                                 &-li 
                                     display: flex
                                     p 
@@ -405,16 +506,14 @@
                                         width: gem(21)
                                         position: absolute
                                         right: 0
+                                        opacity: 0
                                 p 
                                     margin-bottom: gem(20)
+                        
                     &.active 
                         .tabs-container-inside
                             transform: translateX(gem(0))
-            .connect 
-                p 
-                    width: gem(241)    
-                    text-align: center
-                    margin-bottom: 0
+           
 @keyframes colors
     0% 
         fill: #ffffff
@@ -432,28 +531,157 @@
         fill: #FFB800
     100%
         fill: #ffffff
-                            
-.public-mint
+.error-message
     display: none
     position: fixed
-    top: 0
+    width: 100%
+    height: 100%
     z-index: 5
+    top: 0
     background: #000
+    padding: gem(130) 0 0 gem(100)
+    video 
+        width: gem(600)
+    &.active
+        display: flex
+
+.popup-sound
+    display: flex
+    flex-direction: column
+    width: gem(316)
+    height: gem(200)
+    padding: gem(20)
+    position: fixed
+    bottom: gem(30)
+    left: gem(30)
+    z-index: 5
+    border: 1px solid #fff
+    p 
+        font-family: 'type-regular'
+        font-size: gem(16)
+        line-height: gem(22)
+        letter-spacing: 1px
+        width: gem(276)
+        text-align: start
+        margin-bottom: gem(38)
+    .yorn 
+        display: flex
+        align-items: center
+        justify-content: space-around
+        .ans
+            display: flex
+            align-items: center
+            position: relative
+            width: gem(131)
+            height: gem(32)
+            justify-content: center
+            span 
+                font-family: 'chakra-bold'
+                font-size: gem(28)
+                line-height: gem(34)
+                color: #fff
+                text-transform: uppercase
+                margin-right: gem(10)
+                transition: all .3s ease
+            svg 
+                display: block
+                width: gem(32)
+                height: gem(32)
+                transition: all .3s ease
+                path 
+                    stroke: #fff 
+            &::after
+                content: ''
+                opacity: 0
+                background: url("../images/dist/framesound.svg") no-repeat 
+                background-size: 100% 100%
+                position: absolute
+                width: gem(131)
+                height: gem(52)
+                z-index: -1
+                transition: all .3s ease
+            &:nth-of-type(2)
+                span
+                    filter: invert(1)
+                svg 
+                    filter: invert(1)
+                &::after
+                    opacity: 1
+            // &:hover
+            //     span
+            //         filter: invert(1)
+            //     svg 
+            //         filter: invert(1)
+            //     &::after
+            //         opacity: 1
+    &.active 
+        width: gem(36)
+        height: gem(36)
+        padding: 0
+        border: none
+        left: gem(36)
+        bottom: gem(80)
+        p 
+            display: none
+        .yorn
+            display: none
+    .hide-icon 
+        display: none
+        position: absolute
+        svg
+            display: block
+            position: absolute
+            width: gem(32)
+            height: gem(32)
+        &.active 
+            display: flex
+    &.mintact
+        .hide-icon 
+            display: flex
+            .onMusicSmall
+                opacity: 0
+                z-index: -1
+            .offMusicSmall
+                opacity: 1
+                z-index: 1
+                            
+.public-mint
+    visibility: hidden
+    &.active
+        display: flex
+        visibility: visible
+        .fnic-section
+            visibility: visible
+            clip-path: inset(0% 0 0 0)
+        .footer-media
+            display: flex
+    .footer-media
+        display: none
+        z-index: 5
+        // &.active
+        //     display: flex
     .fnic-section 
         display: flex
+        visibility: hidden
+        .lulusha 
+            display: flex
+            z-index: 1
         .successful-text
-            display: none
+            display: flex
             flex-direction: column
             align-items: center
             position: absolute
+            opacity: 0
+            transform: translateY(gem(100))
             h2
-                font-size: gem(58)
-                line-height: gem(78)
-                letter-spacing: gem(11)
+                font-size: gem(50)
+                line-height: gem(70)
+                letter-spacing: gem(5)
                 margin: gem(60) 0 gem(28)
+                font-family: 'roboto-bold'
             h3 
                 color: #ffffff
-                font-family: 'type-medium'
+                font-family: 'roboto-bold'
                 font-size: gem(30)
                 line-height: gem(36)
                 text-transform: uppercase
@@ -461,18 +689,39 @@
                 width: gem(690)
                 text-align: center
         .content-right 
+            opacity: 1
             margin-right: gem(50)
+            transform: translateY(0)
             p 
                 width: gem(460)
                 margin-bottom: gem(40)
             .total
-                width: gem(180)
+                width: gem(240)
             .connect 
-                width: gem(180)
-                height: gem(52)
                 clip-path: url(#my-clip-path-public)
+                border-radius: gem(6)
+                background: #000000
+                svg 
+                    z-index: 1
                 p 
-                    margin: gem(40) 0 0 0
+                    margin: gem(20) 0 0 0
+                    width: gem(240)
+                    span 
+                        font-family: 'rajdhani-bold'
+                        letter-spacing: gem(2)
+                        color: #000000
+                        z-index: 2
+                &:after
+                    background: #000000
+                &:hover
+                    span
+                        color: #fff
+                        transform: translateY(0%)
+                    &:after
+                        height: 100%
+                    svg 
+                        path 
+                            fill: #000
             .cell 
                 .but 
                     font-size: gem(30)
@@ -487,13 +736,15 @@
                     width: gem(211)
                     height: gem(40)
                     position: absolute
+                    border-radius: gem(5)
                     left: 0
                     background: #ffffff
                     top: gem(-4)
                     z-index: -1
                     transition: all .5s ease
                 span
-                    font-family: 'chakra-bold'
+                    font-family: 'rajdhani-bold'
+                    letter-spacing: gem(3)
                     font-weight: 700
                     color: #000
                     font-size: gem(28)
@@ -536,7 +787,20 @@
                                 display: flex
                                 flex-direction: column
                                 height: gem(167)
-                                overflow: scroll
+                                overflow-y: scroll
+                                 /* width */
+                                &::-webkit-scrollbar 
+                                    width: gem(2)
+                                /* Track */
+                                &::-webkit-scrollbar-track 
+                                    background: #333333
+                                /* Handle */
+                                &::-webkit-scrollbar-thumb 
+                                    background: #FFFFFF
+                                &-li 
+                                    display: flex
+                                    p 
+                                        margin-bottom: gem(20)
                                 &-li 
                                     display: flex
                                     p 
@@ -554,14 +818,50 @@
                         display: none
                     .total 
                         display: none
+    
 @media all and (max-width: 515px)
+    .popup-sound
+        display: flex
+        bottom: unset
+        top: 50%
+        left: 10%
+        z-index: 6
+        .yorn 
+            .ans 
+               &::after
+                    transform: translateX(gem(0))
+
+        &.active 
+            bottom: unset
+            top: gem(72)
+            left: unset 
+            right: gem(20)
+        &.totop
+            top: gem(20)
+    .holders-mint
+        &.active
+            .footer-media
+                display: none
+            
     .fnic-section
+        height: calc(var(--vh, 1vh) * 100)
+        overflow-y: scroll 
+        flex-direction: column
+        justify-content: flex-start
+        .from-video
+            display: flex
+            position: relative
+            width: gem(390)
+            height: gem(390)
         video 
             width: gem(390)
             height: gem(390)
             top: 0
+            position: relative
         .content
             flex-direction: column
+            height: calc(var(--vh, 1vh) * 100)
+            min-height: unset
             h2 
                 font-size: gem(42)
                 line-height: gem(42)
@@ -569,35 +869,74 @@
             h3 
                 margin-bottom: gem(20)
             &-right
-                display: flex
+                display: none
                 margin-right: 0
-                position: absolute
-                bottom: gem(80)
+                position: relative
+                bottom: gem(0)
                 .cell-count
                     margin-bottom: gem(28)
                 p 
                     width: gem(298)
                 input 
-                    width: gem(330)
+                    width: gem(300)
+                    border-radius: 0
                 .enter 
+                    width: gem(330)
+                    position: relative
                     .from-input
+                        position: relative
+                        height: gem(100)
                         margin-bottom: gem(40)
+                        /* width */
+                        &::-webkit-scrollbar 
+                            display: none
+                        /* Track */
+                        &::-webkit-scrollbar-track 
+                            background: #333333
+                        /* Handle */
+                        &::-webkit-scrollbar-thumb 
+                            background: #FFFFFF
+                    .from-scroll
+                        display: flex
+                        flex-direction: column
+                        position: absolute
+                        top: gem(51)
+                        right: 0
+                        width: gem(16)
+                        height: gem(28)
+                        justify-content: space-around
+                        align-items: center
+                        border: 1px solid #808080
+                        svg
+                            width: gem(6)
+                            height: gem(3)
+                        
+                            
                 .connect 
-                    margin-left: gem(85)
+                    margin: 0 auto gem(12)
                 .total 
-                    margin-left: gem(85)
+                    margin: 0 auto gem(20)
                 .cell 
                     .but 
                         font-size: gem(20)
+                .connect 
+                    p
+                        margin-top: gem(20)
+                        span 
+                            font-size: gem(23)
+                            line-height: gem(36)
             &-left 
                 display: none
-                position: absolute
-                bottom: gem(90)
+                position: relative
+                margin-left: 0
+                // bottom: gem(90)
                 p 
                     width: gem(322)
                     font-size: gem(16)
                     line-height: gem(22)
                     margin-bottom: gem(28)
+                a 
+                    margin-bottom: gem(50)
             &.show-left
                 .content-right 
                     display: none
@@ -605,8 +944,11 @@
                 .content-left 
                     display: none
     .after-successful-section
-        height: gem(900)
-        overflow-y: scroll
+        height: calc(var(--vh, 1vh) * 100)
+        overflow: scroll
+        z-index: 6
+        &.over
+            overflow: scroll
         video 
             width: gem(390)
             height: gem(390)
@@ -625,7 +967,7 @@
         .content 
             flex-direction: column
             justify-content: flex-start
-            margin-bottom: gem(600)
+            margin-bottom: gem(0)
             &-right 
                 width: gem(322)
                 margin-top: gem(320)
@@ -661,20 +1003,38 @@
                                 margin-right: gem(20)
                             .properties
                                 width: gem(320)
+                .connect 
+                    margin: 0 auto gem(40)
     .public-mint
+        &.active
+            .footer-media
+                display: none
         .fnic-section 
-            height: gem(900)
+            height: calc(var(--vh, 1vh) * 100)
             overflow-y: scroll
             overflow-x: hidden
             video 
                 width: gem(390)
                 height: gem(390)
                 top: 0
+            .scan-lulu
+                position: absolute
+            .successful-text
+                h2 
+                    font-size: gem(42)
+                    line-height: gem(42) 
+                    width: gem(389)
+                    margin-top: gem(112)
+                    letter-spacing: gem(5)
+                h3
+                    width: gem(350)
+                    font-size: gem(22)
+                    line-height: gem(26)
             .content
                 flex-direction: column
                 justify-content: flex-start
-                margin-top: gem(400)
-                margin-bottom: gem(270)
+                margin-top: gem(0)
+                margin-bottom: gem(0)
                 h2 
                     font-size: gem(42)
                     line-height: gem(42)
@@ -687,7 +1047,8 @@
                     display: flex
                     position: relative
                     bottom: unset
-                    margin-left: gem(34)
+                    margin-left: 0
+                    align-items: center
                     .tabs 
                         width: gem(324)
                         padding-left: 0
@@ -699,14 +1060,40 @@
                         &::after
                             width: 100%
                         &-container 
-                            width: gem(380)
+                            width: gem(324)
+                            margin-bottom: gem(40)
                             h3 
                                 font-size: gem(22)
                                 line-height: gem(26)
                             p 
                                 font-size: gem(28)
                                 line-height: gem(20)
+                            &-inside 
+                                width: gem(310)
                 &-right 
                     display: flex
                     position: relative
                     bottom: unset
+                    margin-right: 0
+                    p 
+                        width: gem(322)
+                    .connect 
+                        margin: auto 
+                    .total 
+                        margin: gem(12) auto gem(40)
+                    
+            &.active
+                .content
+                    flex-direction: column-reverse
+                    justify-content: flex-end
+                    &-right 
+                        margin: 0
+                    &-left 
+                        margin: 0
+    .error-message
+        padding: 0
+        video
+            // display: none
+            width: gem(390)
+            object-fit: contain
+    

@@ -5,6 +5,8 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 import { splitingText } from '../assets/splitingText'
 
+import {vhFunction} from '../assets/realVh'
+
 function mainPage() {
 
 	let progressLine = document.querySelector('.progress-line-inner')
@@ -219,6 +221,97 @@ function mainPage() {
 	window.addEventListener('resize', () => {
 		ScrollTrigger.refresh()
 	})
+
+	let popupSound = document.querySelector('.popup-sound')
+	let buttonOnMusic = document.querySelector('.onMusic')
+	let buttonOffMusic = document.querySelector('.offMusic')
+	let buttonOnMusicSmall = document.querySelector('.onMusicSmall')
+	let buttonOffMusicSmall = document.querySelector('.offMusicSmall')
+	let smallIcon = document.querySelector('.hide-icon')
+
+	// let video = document.getElementById('myVideo');
+	
+	// buttonOffMusic.addEventListener('click', () => {
+	// 	video.muted = true;
+	// 	console.log('Звук выключен');
+	// 	popupSound.classList.add('active')
+	// 	smallIcon.classList.add('active')
+	// 	buttonOnMusicSmall.style.opacity = '0'
+	// 	buttonOnMusicSmall.style.zIndex = '-1'
+	// 	buttonOffMusicSmall.style.opacity = '1'
+	// 	buttonOffMusicSmall.style.zIndex = '1'
+	// });
+
+	// buttonOnMusic.addEventListener('click', () => {
+	// 	video.muted = true;
+	// 	console.log('Звук включен');
+	// 	popupSound.classList.add('active')
+	// 	smallIcon.classList.add('active')
+	// 	buttonOffMusicSmall.style.opacity = '0'
+	// 	buttonOffMusicSmall.style.zIndex = '-1'
+	// 	buttonOnMusicSmall.style.opacity = '1'
+	// 	buttonOnMusicSmall.style.zIndex = '1'
+	// });
+
+	// buttonOnMusicSmall.addEventListener('click', () => {
+	// 	video.muted = false;
+	// 	console.log('Звук выключенyyyy');
+	// });
+
+
+	// buttonOffMusicSmall.addEventListener('click', () => {
+	// 	video.muted = true;
+	// 	console.log('Звук включенyyyyyy');
+	// });
+
+	// buttonOnMusicSmall.addEventListener('click', () => {
+	// 	video.muted = false;
+	// 	console.log('Звук выключен');
+	// });
+
+	// buttonOffMusic.addEventListener('click', () => {
+	// 	video.muted = true;
+	// 	console.log('Звук включен');
+	// });
+
+	// buttonOnMusic.addEventListener('click', () => {
+	// 	video.muted = false;
+	// 	console.log('Звук выключен');
+	// });
+	
+
+	// buttonOffMusic.addEventListener('click',() =>{
+	// 	popupSound.classList.add('active')
+	// 	smallIcon.classList.add('active')
+	// 	buttonOnMusicSmall.style.opacity = '0'
+	// 	buttonOnMusicSmall.style.zIndex = '-1'
+	// 	console.log('musicOff')
+	// })
+	// buttonOnMusic.addEventListener('click',() =>{
+	// 	popupSound.classList.add('active')
+	// 	smallIcon.classList.add('active')
+	// 	buttonOffMusicSmall.style.opacity = '0'
+	// 	buttonOffMusicSmall.style.zIndex = '-1'
+	// 	console.log('musicOn')
+	// })
+	// buttonOnMusicSmall.addEventListener('click',() =>{
+	// 	buttonOffMusicSmall.style.opacity = '1'
+	// 	buttonOffMusicSmall.style.zIndex = '1'
+	// 	buttonOnMusicSmall.style.opacity = '0'
+	// 	buttonOnMusicSmall.style.zIndex = '-1'
+	// 	console.log('musicOff')
+	// })
+	// buttonOffMusicSmall.addEventListener('click',() =>{
+	// 	buttonOnMusicSmall.style.opacity = '1'
+	// 	buttonOnMusicSmall.style.zIndex = '1'
+	// 	buttonOffMusicSmall.style.opacity = '0'
+	// 	buttonOffMusicSmall.style.zIndex = '-1'
+	// 	console.log('musicOn')
+	// })
+
+	vhFunction()
+
 }
+
 
 export { mainPage }

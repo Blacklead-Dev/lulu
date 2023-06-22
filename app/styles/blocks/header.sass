@@ -7,18 +7,42 @@ header
 	justify-content: space-between
 	align-items: center
 	padding: gem(36)
-	z-index: 3
+	z-index: 7
 	.logo
 		width: gem(115)
 	img
 		width: gem(115)
+.header-left 
+		display: flex
+		align-items: center
+.fromcall
+	margin-left: gem(20)
+	overflow: hidden
 .mint-call
+	display: flex
+	width: gem(134)
+	height: gem(58)
+	justify-content: center
+	align-items: center
+	font-size: gem(38)
+	line-height: gem(50)
+	font-family: 'type-bold'
+	transform: translateX(gem(-134))
+	color: #fff
 	opacity: 0
 	pointer-events: none
 	transition: all .3s ease
+	&:hover
+		color: #000
+		background: #fff
 	&.active
+		transform: translateX(0)
 		opacity: 1
 		pointer-events: unset
+	&.inside
+		color: #000
+		background: #fff
+		pointer-events: none
 .connect
 	width: gem(279)
 	height: gem(52)
@@ -71,9 +95,16 @@ header
 			transform: translateY(0%)
 		&:after
 			height: 100%
+	&.hide
+		opacity: 0
+		pointer-events: none
 @media all and (max-width: 515px)
 	header
 		padding: gem(20)
+		justify-content: space-between
+		z-index: 6
+		.logo
+			width: gem(52)
 		img
 			width: gem(52)
 		a
@@ -89,3 +120,10 @@ header
 			height: gem(34)
 			span 
 				font-size: gem(18)
+	.fromcall 
+		margin-left: gem(16)
+	.mint-call
+		width: gem(93)
+		height: gem(32)
+		font-size: gem(24)
+		line-height: gem(32)
