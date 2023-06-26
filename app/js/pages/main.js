@@ -209,11 +209,15 @@ function mainPage() {
 		gsap.to(preloader, {
 			opacity: 0, duration: 1, onComplete: () => {
 				preloader.remove()
-				document.body.classList.remove('unscroll')
+				if(window.innerWidth > 515){
+					document.body.classList.remove('unscroll')
+				}
 			}, delay: 1.1
 		})
 		setTimeout(() => {
-			document.body.classList.remove('unscroll')
+			if(window.innerWidth > 515){
+				document.body.classList.remove('unscroll')
+			}
 			ScrollTrigger.refresh()
 		}, 1000);
 	}

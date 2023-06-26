@@ -7,6 +7,7 @@ function mint() {
 
 		let connectWalletLink = document.querySelector('header .connect')
 		let website = document.querySelector('html')
+		let body = document.querySelector('body')
 		let popupSound = document.querySelector('.popup-sound')
 		
 		let holder = true
@@ -81,6 +82,7 @@ function mint() {
 
 		useFnicCardButton.addEventListener('click', (e) => {
 			e.preventDefault()
+			useFnicCardButton.classList.add('active')
 
 			//were waiting for accept from client and getting response
 			setTimeout(() => {
@@ -89,27 +91,31 @@ function mint() {
 		})
 
 		function useFnicCard() {
-			gsap.to(lulusha, 0, {
+			gsap.set(lulusha,{
 				display: 'none'
 			})
-			gsap.to(cardInsert, 0, {
+			gsap.set(cardInsert,{
 				display: 'flex'
 			})
+			cardInsert.play()
+
 			cardInsert.addEventListener('ended', function() {
-				gsap.to(cardInsert, 0, {
+				gsap.set(cardInsert,{
 					display: 'none'
 				})
-				gsap.to(fnicLoading, 0, {
+				gsap.set(fnicLoading,{
 					display: 'flex'
 				})
+				fnicLoading.play()
 			});
 			fnicLoading.addEventListener('ended', function() {
-				gsap.to(fnicLoading, 0, {
+				gsap.set(fnicLoading, {
 					display: 'none'
 				})
-				gsap.to(fnicAuthorised, 0, {
+				gsap.to(fnicAuthorised, {
 					display: 'flex'
 				})
+				fnicAuthorised.play()
 				gsap.to(holdersContentRight, .5, {
 					display: 'flex',
 					y: 0,
@@ -131,6 +137,7 @@ function mint() {
 		let burnAndMintButton = holdersMintBlock.querySelector('.burn-button')
 		burnAndMintButton.addEventListener('click', (e) => {
 			e.preventDefault()
+			burnAndMintButton.classList.add('active')
 
 			//were waiting for signing from clienr and burning
 			setTimeout(() => {
@@ -139,31 +146,32 @@ function mint() {
 		})
 
 		function burnAndMint() {
-			gsap.to(fnicAuthorised, .3, {
+			gsap.set(fnicAuthorised, {
 				display: 'none'
 			})
-			gsap.to(fnicSection, .3, {
+			gsap.set(fnicSection, {
 				display: 'none'
 			})
 			gsap.to(afterSuccessful, 3, {
 				display: 'flex'
 			})
-			gsap.to(selfDestruct, .5, {
+			gsap.set(selfDestruct, {
 				display: 'flex',
-
 			})
+			selfDestruct.play()
 			if(window.innerWidth < 515){
 				gsap.to(selfDestruct, .5, {
 					y: '1rem'
 				})
 			}
 			selfDestruct.addEventListener('ended', function() {
-				gsap.to(selfDestruct, .3, {
+				gsap.set(selfDestruct, {
 					display: 'none'
 				})
-				gsap.to(staticNoise, 0, {
+				gsap.set(staticNoise, {
 					display: 'flex',
 				})
+				staticNoise.play()
 				if(window.innerWidth < 515){
 					gsap.to(staticNoise, 0, {
 						y: '1rem'
@@ -186,12 +194,13 @@ function mint() {
 			// 	})
 			// }, 2000);
 			staticNoise.addEventListener('ended', function() {
-				gsap.to(staticNoise, 0, {
+				gsap.set(staticNoise, {
 					display: 'none'
 				})
-				gsap.to(flash, 0, {
+				gsap.set(flash, {
 					display: 'flex',
 				})
+				flash.play()
 				gsap.to(scanLulu, .7, {
 					display: 'flex',
 					scale: '1',
@@ -202,9 +211,11 @@ function mint() {
 					scale: 1,
 					delay: .3
 				})
+				scanLulu.play()
+				lulushaAfter.play()
 			})
 			scanLulu.addEventListener('ended', function() {
-				gsap.to(scanLulu, .3, {
+				gsap.set(scanLulu, {
 					display: 'none',
 				})
 				if(window.innerWidth < 515){
@@ -235,12 +246,12 @@ function mint() {
 				} else {
 					gsap.to(successfulText, .3, {
 						opacity: 1,
-						y: 0
+						y: '-4rem'
 					})
 					gsap.to(successfulText, .5, {
 						delay: 4,
 						opacity: 0,
-						y: '1rem'
+						y: '0rem'
 					})
 					gsap.to(afterSuccessfulContent, .5, {
 						delay: 4,
@@ -250,7 +261,7 @@ function mint() {
 					gsap.to(lulushaAfter, .5, {
 						delay: 4,
 						scale: 1.2,
-						y: '-1rem'
+						y: '0rem'
 					})
 				}
 			})
@@ -269,10 +280,8 @@ function mint() {
 			let number = 1;
 			 ///price
 			total.innerHTML = price * number;
-			
 			minusButton.disabled = true;
 			minusButton.style.color = 'gray';
-
 			const updateMinusButtonState = () => {
 				if (number > 0) {
 				  minusButton.disabled = false;
@@ -283,8 +292,12 @@ function mint() {
 				  minusButton.style.color = 'gray';
 				  addButton.style.color = 'white'
 				}
+				if (number >= 5) {
+					addButton.style.color = 'gray';
+				  } else {
+					addButton.style.color = 'white';
+				}
 			};
-		
 			addButton.addEventListener('click', () => {
 				if (number < 5) {
 					const newInput = document.createElement('input');
@@ -295,11 +308,8 @@ function mint() {
 					numberElement.textContent = number;
 					total.innerHTML = (price * number).toFixed(1);
 					updateMinusButtonState();
-				} else {
-					addButton.style.color = 'gray'
 				}
 			});
-		
 			minusButton.addEventListener('click', () => {
 				const lastInput = fromInput.lastElementChild;
 				if (lastInput) {
@@ -345,6 +355,7 @@ function mint() {
 		let publicMintButton = publicMintBlock.querySelector('.pubburn-button')
 		publicMintButton.addEventListener('click', (e) => {
 			e.preventDefault()
+			publicMintButton.classList.add('active')
 
 			//were waiting for signing from clienr and burning
 			setTimeout(() => {
@@ -357,11 +368,11 @@ function mint() {
 				opacity: 0,
 				zIndex: -2,
 			})
-			gsap.to(fnicPub, 0, {
+			gsap.set(fnicPub, {
 				height: 'unset'
 			})
 
-			gsap.to(lulusha, 0, {
+			gsap.set(lulusha, {
 				scale: 0
 			})
 			gsap.to(lulusha, .7, {
@@ -372,19 +383,29 @@ function mint() {
 				display: 'flex',
 				scale: '1'
 			})
+			scanLuluPub.play()
 			fnicPub.classList.add('active')
 			/////or waiting answer////
 			scanLuluPub.addEventListener('ended', function() {
-				gsap.to(scanLuluPub, 0, {
+				gsap.set(scanLuluPub, {
 					display: 'none'
 				})
 				gsap.to(successfulText, .3, {
 					opacity: 1,
-					y: 0
+					y: '-4rem'
 				})
 				if(window.innerWidth < 515){
 					gsap.to(lulusha, .3, {
 						y: '3rem'
+					})
+					gsap.to(successfulText, .3, {
+						opacity: 1,
+						y: '0'
+					})
+					gsap.to(successfulText, .5, {
+						delay: 4,
+						opacity: 0,
+						y: '2rem'
 					})
 				}
 				gsap.to(lulusha, .5, {
@@ -395,7 +416,7 @@ function mint() {
 				gsap.to(successfulText, .5, {
 					delay: 4,
 					opacity: 0,
-					y: '1rem'
+					y: '-3rem'
 				})
 				gsap.to(fnicPub, 0, {
 					delay: 4,
@@ -429,6 +450,11 @@ function mint() {
 				  minusButtonPub.disabled = true;
 				  minusButtonPub.style.color = 'gray';
 				  addButtonPub.style.color = 'white'
+				}
+				if (numberPub >= 2) {
+					addButtonPub.style.color = 'gray';
+				  } else {
+					addButtonPub.style.color = 'white';
 				}
 			};
 		
@@ -489,6 +515,7 @@ function mint() {
 		buttonOnMusicSmall.style.zIndex = '-1'
 		buttonOffMusicSmall.style.opacity = '1'
 		buttonOffMusicSmall.style.zIndex = '1'
+		document.body.classList.remove('unscroll')
 	});
 
 	buttonOnMusic.addEventListener('click', () => {
@@ -500,6 +527,7 @@ function mint() {
 		buttonOffMusicSmall.style.zIndex = '-1'
 		buttonOnMusicSmall.style.opacity = '1'
 		buttonOnMusicSmall.style.zIndex = '1'
+		document.body.classList.remove('unscroll')
 	});
 	buttonOnMusicSmall.addEventListener('click', () => {
 		video.muted = true;
