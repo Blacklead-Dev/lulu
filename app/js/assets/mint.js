@@ -10,7 +10,7 @@ function mint() {
 		let body = document.querySelector('body')
 		let popupSound = document.querySelector('.popup-sound')
 		
-		let holder = true
+		let holder = false
 		let mintCallButton = document.querySelector('header .mint-call')
 		connectWalletLink.addEventListener('click', (e) => {
 
