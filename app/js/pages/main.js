@@ -4,8 +4,7 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin'
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 import { splitingText } from '../assets/splitingText'
-
-import {vhFunction} from '../assets/realVh'
+import { vhFunction } from '../assets/realVh'
 
 function mainPage() {
 
@@ -38,7 +37,7 @@ function mainPage() {
 			end: 'bottom bottom',
 			onUpdate: self => {
 				gsap.to(progressLine, { height: `${self.progress * 100 + 4}%` })
-				backgroundVideo.currentTime = backgroundVideo.duration * self.progress
+				backgroundVideo.currentTime = backgroundVideo.duration * (self.progress * 3)
 			}
 		})
 	}
@@ -62,6 +61,7 @@ function mainPage() {
 
 				gsap.set(video, {
 					opacity: 0,
+					visibility: 'hidden'
 				})
 			}
 
@@ -69,8 +69,9 @@ function mainPage() {
 				opacity: 0,
 			})
 
+			let offsetHeight = videoSection[i].getBoundingClientRect().height * 0.2
 			progressButtons[i].addEventListener('click', () => {
-				gsap.to(window, { duration: 1, scrollTo: { y: videoSection[i], offsetY: -10 } })
+				gsap.to(window, { duration: 1, scrollTo: { y: videoSection[i], offsetY: -offsetHeight } })
 			})
 			ScrollTrigger.create({
 				trigger: videoSection[i],
@@ -88,7 +89,8 @@ function mainPage() {
 					if (video) {
 						gsap.to(video, {
 							opacity: 1,
-							duration: .3
+							duration: .3,
+							visibility: 'unset'
 						})
 					}
 
@@ -109,7 +111,8 @@ function mainPage() {
 					if (video) {
 						gsap.to(video, {
 							opacity: 0,
-							duration: .3
+							duration: .3,
+							visibility: 'hidden'
 						})
 					}
 					progressButtons[i].classList.remove('active')
@@ -124,7 +127,8 @@ function mainPage() {
 					if (video) {
 						gsap.to(video, {
 							opacity: 1,
-							duration: .3
+							duration: .3,
+							visibility: 'unset'
 						})
 					}
 					progressButtons[i].classList.add('active')
@@ -134,7 +138,8 @@ function mainPage() {
 					if (video) {
 						gsap.to(video, {
 							opacity: 0,
-							duration: .3
+							duration: .3,
+							visibility: 'hidden'
 						})
 					}
 					gsap.killTweensOf(textElements)
@@ -226,10 +231,7 @@ function mainPage() {
 		ScrollTrigger.refresh()
 	})
 
-	
-
 	vhFunction()
-
 }
 
 

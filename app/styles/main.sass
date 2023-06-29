@@ -594,6 +594,7 @@ video
 		pointer-events: none
 		transition: all .3s ease
 		padding-top: gem(40)
+		visibility: hidden
 		p:last-child
 			font-size: gem(16)
 			line-height: gem(22)
@@ -603,6 +604,7 @@ video
 			margin-top: gem(40)
 			width: gem(89)
 		&.active
+			visibility: unset
 			pointer-events: unset
 			opacity: 1
 		&-header

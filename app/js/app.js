@@ -1,3 +1,5 @@
+import Lenis from '@studio-freight/lenis'
+
 import { customCursor } from './assets/customCursor'
 
 import { mainPage } from './pages/main'
@@ -16,4 +18,17 @@ window.addEventListener('load', () => {
 		teamPage()
 		customCursor()
 	}
+
+	const lenis = new Lenis()
+
+	lenis.on('scroll', (e) => {
+
+	})
+
+	function raf(time) {
+	lenis.raf(time)
+	requestAnimationFrame(raf)
+	}
+
+	requestAnimationFrame(raf)
 })
