@@ -3,6 +3,7 @@
     &.active
         visibility: visible
         .odlabs-section
+            transition: all .5s ease
             visibility: visible
             clip-path: inset(0% 0 0 0)
         .footer-media
@@ -11,6 +12,9 @@
             pointer-events: none
             .footer-social
                 pointer-events: visible
+    .footer-media
+        display: none
+        z-index: 5
     .odlabs-section
         display: flex
         position: fixed
@@ -45,6 +49,10 @@
             transform: translateY(gem(100))
             &:hover
                 text-decoration: none
+        .flash 
+            position: absolute
+            width: 100%
+            height: 100%
         .successfulnew-text
             display: flex
             flex-direction: column
@@ -64,8 +72,30 @@
                 letter-spacing: gem(4)
 
 
-
-
+@media all and (max-width: 515px)
+    .new-mint 
+        .odlabs-section
+            height: calc(var(--vh, 1vh) * 100)
+            .pixelate 
+                width: gem(500)
+                object-fit: contain
+            video
+                width: gem(390)
+                height: gem(390)
+            .burn-card
+                width: gem(300)
+                text-align: center
+            .successfulnew-text
+                h2 
+                    font-size: gem(30)
+                    line-height: gem(32)
+                p 
+                    font-size: gem(17)
+                    line-height: gem(25)
+                    letter-spacing: gem(2)
+                    width: gem(375)
+            .flash 
+                height: unset
 
 
 

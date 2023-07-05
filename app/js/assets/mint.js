@@ -55,6 +55,7 @@ function mint() {
 		let fnicAuthorised = newMint.querySelector('.fnic-authorised')
 		let selfDestruct = newMint.querySelector('.self-destruct')
 		let staticNoise = newMint.querySelector('.static-noise')
+		let flashVideo = newMint.querySelector('.flash')
 		let successfulnewText = newMint.querySelector('.successfulnew-text')
 		newMint.classList.add('active')
 		pixelate.play()
@@ -79,7 +80,7 @@ function mint() {
 			}, 2000);
 		})
 		function startCardInserd() {
-			gsap.to(burnCard, 1,{
+			gsap.to(burnCard, 0.1,{
 				display: 'none'
 			})
 			console.log('burn card')
@@ -127,9 +128,17 @@ function mint() {
 				gsap.set(staticNoise, {
 					display: 'none'
 				})
+				gsap.set(flashVideo, {
+					display: 'flex'
+				})
+				gsap.to(flashVideo, {
+					delay: .7,
+					display: 'none'
+				})
 				gsap.to(successfulnewText, .5, {
 					opacity: '1',
-					y: 0
+					y: 0,
+					delay: 1,
 				})
 			})
 		}
