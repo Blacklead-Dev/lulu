@@ -9,6 +9,7 @@ function mint() {
 		let website = document.querySelector('html')
 		let body = document.querySelector('body')
 		let popupSound = document.querySelector('.popup-sound')
+		let logoFixed = document.querySelector('.footer-logo-always')
 		
 		let holder = true
 		let mintCallButton = document.querySelector('header .mint-call')
@@ -24,6 +25,7 @@ function mint() {
 					website.classList.add('unscroll')
 					mintCallButton.classList.add('inside')
 					connectWalletLink.classList.add('hide')
+					logoFixed.classList.add('active')
 					popupSound.classList.add('active')
 					popupSound.classList.add('mintact')
 					if(window.innerWidth < 515){
@@ -606,6 +608,7 @@ function mint() {
 	let buttonOffMusicSmall = document.querySelector('.offMusicSmall')
 	let smallIcon = document.querySelector('.hide-icon')
 	let video = document.getElementById('myVideo');
+	let logoFixed = document.querySelector('.footer-logo-always')
 	if(window.innerWidth < 515) {
 		buttonOnMusic.addEventListener('click', () => {
 			video.muted = false;
@@ -617,6 +620,7 @@ function mint() {
 			buttonOffMusicSmall.style.zIndex = '-1'
 			buttonOnMusicSmall.style.opacity = '1'
 			buttonOnMusicSmall.style.zIndex = '1'
+			logoFixed.classList.add('active')
 		});
 	}
 
@@ -630,6 +634,7 @@ function mint() {
 		buttonOffMusicSmall.style.opacity = '1'
 		buttonOffMusicSmall.style.zIndex = '1'
 		document.body.classList.remove('unscroll')
+		logoFixed.classList.add('active')
 	});
 
 	buttonOnMusic.addEventListener('click', () => {
@@ -642,6 +647,7 @@ function mint() {
 		buttonOnMusicSmall.style.opacity = '1'
 		buttonOnMusicSmall.style.zIndex = '1'
 		document.body.classList.remove('unscroll')
+		logoFixed.classList.add('active')
 	});
 	buttonOnMusicSmall.addEventListener('click', () => {
 		video.muted = true;
@@ -650,6 +656,7 @@ function mint() {
 		buttonOffMusicSmall.style.zIndex = '1'
 		buttonOnMusicSmall.style.opacity = '0'
 		buttonOnMusicSmall.style.zIndex = '-1'
+		logoFixed.classList.add('active')
 	});
 
 	buttonOffMusicSmall.addEventListener('click', () => {
@@ -659,6 +666,7 @@ function mint() {
 		buttonOnMusicSmall.style.zIndex = '1'
 		buttonOffMusicSmall.style.opacity = '0'
 		buttonOffMusicSmall.style.zIndex = '-1'
+		logoFixed.classList.add('active')
 		
 	});
 

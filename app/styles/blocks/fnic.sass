@@ -722,13 +722,6 @@
                     filter: invert(1)
                 &::after
                     opacity: 1
-            // &:hover
-            //     span
-            //         filter: invert(1)
-            //     svg 
-            //         filter: invert(1)
-            //     &::after
-            //         opacity: 1
     &.active 
         width: gem(36)
         height: gem(36)
@@ -759,6 +752,16 @@
             .offMusicSmall
                 opacity: 1
                 z-index: 1
+.footer-logo-always
+    width: gem(117)
+    position: fixed
+    bottom: gem(20)
+    z-index: 5
+    opacity: 0
+    bottom: gem(22)
+    left: gem(32)
+    &.active
+        opacity: 1
                             
 // .public-mint
     visibility: hidden
@@ -939,6 +942,8 @@
                         display: none
     
 @media all and (max-width: 515px)
+    .footer-logo-always
+        display: none
     .popup-sound
         display: flex
         bottom: unset

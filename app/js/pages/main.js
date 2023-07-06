@@ -8,6 +8,8 @@ import { vhFunction } from '../assets/realVh'
 
 function mainPage() {
 
+	
+
 	let progressLine = document.querySelector('.progress-line-inner')
 
 	gsap.to(window, {
@@ -50,7 +52,7 @@ function mainPage() {
 
 		for (let i = 0; i < videoSection.length; i++) {
 
-			let video = videoSection[i].querySelector('video')
+			let video = videoSection[i].querySelector('.secvens-video')
 			let content = videoSection[i].querySelector('.content')
 			let textElements = videoSection[i].querySelectorAll('.split-line.child')
 
@@ -226,6 +228,8 @@ function mainPage() {
 			ScrollTrigger.refresh()
 		}, 1000);
 	}
+	let videoUnderTimer = document.querySelector('.under-timer')
+	videoUnderTimer.play()
 
 	window.addEventListener('resize', () => {
 		ScrollTrigger.refresh()
