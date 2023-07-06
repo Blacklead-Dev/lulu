@@ -228,9 +228,6 @@ function mainPage() {
 			ScrollTrigger.refresh()
 		}, 1000);
 	}
-	let videoUnderTimer = document.querySelector('.under-timer')
-	videoUnderTimer.play()
-
 	window.addEventListener('resize', () => {
 		ScrollTrigger.refresh()
 	})
