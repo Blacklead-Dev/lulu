@@ -412,20 +412,16 @@ video
 	&.parent
 		overflow: hidden
 .under-timer
-	width: gem(200)
-	bottom: gem(70)
+	width: gem(400)
+	bottom: gem(-70)
 	position: absolute
 @media all and (max-width: 515px)
 	.under-timer
 		display: flex
-		position: relative
-		bottom: unset
 		width: gem(200)
 		height: gem(200)
-		top: 0
+		bottom: gem(130)
 		visibility: visible
-		opacity: 1
-		z-index: 2
 		flex-shrink: 0
 	h2
 		font-size: gem(42)
