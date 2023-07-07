@@ -1,14 +1,17 @@
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import ScrollToPlugin from 'gsap/ScrollToPlugin'
+
+
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 import { splitingText } from '../assets/splitingText'
 import { vhFunction } from '../assets/realVh'
+import { lowBatteryMode } from '../assets/lowBatteryMode.js'
+import { prelodaderHide } from '../assets/preloaderHide.js'
+import { timer } from '../assets/timer.js'
 
 function mainPage() {
-
-	
 
 	let progressLine = document.querySelector('.progress-line-inner')
 
@@ -21,25 +24,35 @@ function mainPage() {
 		}
 	});
 
-	splitingText()
-
 	setTimeout(() => {
 		prelodaderHide()
 	}, 2000);
 
-	let backgroundVideo = (window.innerWidth > 515) ? document.querySelector('.background-video.desctop') : document.querySelector('.background-video.mobile')
-
 	function backgroundVideoFunction() {
-		backgroundVideo.play()
-		backgroundVideo.pause()
+
+		let backgroundVideo = (window.innerWidth > 515) ? document.querySelector('.background-video.desctop') : document.querySelector('.background-video.mobile')
+		let lineOffset = (100 / document.querySelectorAll('.video-section').length) / 5
+		
+		async function playVideo() {
+			try {
+				await backgroundVideo.play();
+			} catch (err) {
+				console.log(err)
+			} finally {
+				backgroundVideo.pause()
+			}
+		}
+
+		playVideo()
+
 		backgroundVideo.currentTime = 0
 		ScrollTrigger.create({
 			trigger: document.body,
 			start: 'top top',
 			end: 'bottom bottom',
 			onUpdate: self => {
-				gsap.to(progressLine, { height: `${self.progress * 100 + 4}%` })
-				backgroundVideo.currentTime = backgroundVideo.duration * (self.progress * 3)
+				gsap.to(progressLine, { height: `${self.progress * 100 - lineOffset + 2}%` })
+				backgroundVideo.currentTime = backgroundVideo.duration * (self.progress)
 			}
 		})
 	}
@@ -57,8 +70,17 @@ function mainPage() {
 			let textElements = videoSection[i].querySelectorAll('.split-line.child')
 
 			if (video) {
-				video.play()
-				video.pause()
+				async function playVideo() {
+					try {
+						await video.play();
+					} catch (err) {
+						console.log(err)
+					} finally {
+						video.pause()
+					}
+				}
+		
+				playVideo()
 				video.currentTime = 0
 
 				gsap.set(video, {
@@ -72,9 +94,11 @@ function mainPage() {
 			})
 
 			let offsetHeight = videoSection[i].getBoundingClientRect().height * 0.2
+
 			progressButtons[i].addEventListener('click', () => {
 				gsap.to(window, { duration: 1, scrollTo: { y: videoSection[i], offsetY: -offsetHeight } })
 			})
+
 			ScrollTrigger.create({
 				trigger: videoSection[i],
 				pin: content,
@@ -154,85 +178,16 @@ function mainPage() {
 			})
 
 		}
-
-	}
-
-	function timer() {
-		let finishdate = document.querySelector('.date').dataset.date
-		var countDownDate = new Date(`${finishdate}`).getTime();
-		var interval = setInterval(function () {
-			var now = new Date().getTime();
-			var timeleft = countDownDate - now;
-
-			var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-			var realHours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-			var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-
-			document.getElementById("days").innerHTML = days
-			document.getElementById("hours").innerHTML = (realHours > 9) ? realHours : `0${realHours}`
-			document.getElementById("mins").innerHTML = (minutes > 9) ? minutes : `0${minutes}`
-			document.getElementById("secs").innerHTML = (seconds > 9) ? seconds : `0${seconds}`
-
-			if (timeleft < 0) {
-				clearInterval(interval);
-				document.querySelector('.timer-wrapper').remove()
-				document.querySelector('.timer-button').classList.remove('hidden')
-			}
-
-		}, 1000)
 	}
 
 	timer()
+	lowBatteryMode()
+	vhFunction()
+	splitingText()
 
-	const videoElement = document.getElementById('preloader-video');
-	const lowBatteryPopup = document.querySelector('.low-battery-popup')
-	const lowBatteryPopupClose = document.querySelector('.low-battery-popup-close')
-
-	Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
-		get: function () {
-			return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
-		}
-	});
-
-
-	videoElement
-		.play()
-		.then(() => {
-		})
-		.catch((error) => {
-			lowBatteryPopup.classList.add('active')
-		});
-
-	lowBatteryPopupClose.addEventListener('click', () => {
-		lowBatteryPopup.classList.remove('active')
-	})
-
-	function prelodaderHide() {
-		let preloaderCurtain = document.querySelector('.preloader-curtain')
-		let preloader = document.querySelector('.preloader')
-		preloaderCurtain.classList.add('close')
-
-		gsap.to(preloader, {
-			opacity: 0, duration: 1, onComplete: () => {
-				preloader.remove()
-				if(window.innerWidth > 515){
-					document.body.classList.remove('unscroll')
-				}
-			}, delay: 1.1
-		})
-		setTimeout(() => {
-			if(window.innerWidth > 515){
-				document.body.classList.remove('unscroll')
-			}
-			ScrollTrigger.refresh()
-		}, 1000);
-	}
 	window.addEventListener('resize', () => {
 		ScrollTrigger.refresh()
 	})
-
-	vhFunction()
 }
 
 

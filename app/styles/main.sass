@@ -98,6 +98,12 @@ button
 
 body
 	background: #010101
+.svg
+	position: absolute
+	width: 0
+	height: 0
+.low-battery-popup
+	display: none
 .preloader
 	background: #131313
 	width: 100%
@@ -114,15 +120,18 @@ body
 		position: relative
 		z-index: 1
 	&-curtain
-		width: 200%
-		height: 50%
+		width: 100%
+		height: 100%
 		position: absolute
-		bottom: -50%
+		bottom: 0
+		transform: translateY(100%)
 		z-index: 2
-		border-radius: 50% 50% 0% 0% 
 		background: #010101
-		&.close
-			animation: 1s openCurtain forwards
+		-webkit-clip-path: url(#my-clip-path-curtain)
+		clip-path: url(#my-clip-path-curtain)
+		// path
+			// width: 100%
+			// height: 100%
 @keyframes openCurtain 
 	0%
 		height: 50%

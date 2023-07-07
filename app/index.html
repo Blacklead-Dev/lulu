@@ -6,13 +6,18 @@
 <!--#include virtual="/parts/header.html" -->
 <main class="hero">
     <div class="preloader">
-        <video preload="auto" playsinline muted  autoplay id="preloader-video">
+        <video preload="auto" playsinline muted autoplay loop id="preloader-video">
             <source src="assets/videos/preloader.mov" type="video/mp4; codecs=&quot;hvc1&quot">
             <source src="assets/videos/preloader.webm" type="video/webm">
         </video>
         <div class="preloader-curtain">
-
         </div>
+        <svg class="svg">
+            <clipPath id="my-clip-path-curtain" clipPathUnits="objectBoundingBox">
+                <path d="M0,0 C0,0,0.201,0,0.5,0 C0.799,0,1,0,1,0 V1 H0 V0" id="curtain-1"></path>
+            </clipPath>
+            <path d="M0,0.158 C0,0.158,0.201,0,0.5,0 C0.799,0,1,0.158,1,0.158 V1 H0 V0.158" fill="#010101" id="curtain-2" />
+        </svg>
     </div>
     <div class="low-battery-popup">
         <div class="low-battery-popup-header">
@@ -27,11 +32,11 @@
             after disabling the mode, please reload the page
         </p>
     </div>
-    <video preload="auto" playsinline muted class="background-video desctop" >
-        <source src="assets/videos/lulubg.mov" type="video/mp4; codecs=&quot;hvc1&quot">
-        <source src="assets/videos/lulubg.webm" type="video/webm">
+    <video preload="auto" playsinline muted class="background-video desctop">
+        <source src="assets/videos/lulu-bg.mov" type="video/mp4; codecs=&quot;hvc1&quot">
+        <source src="assets/videos/lulu-bg.webm" type="video/webm">
     </video>
-    <video preload="auto" playsinline muted class="background-video mobile" >
+    <video preload="auto" playsinline muted class="background-video mobile">
         <source src="assets/videos/lulubg-mobile.mov" type="video/mp4; codecs=&quot;hvc1&quot">
         <source src="assets/videos/lulubg-mobile.webm" type="video/webm">
     </video>
@@ -41,7 +46,7 @@
                 <source src="assets/videos/brain.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/brain.webm" type="video/webm">
             </video>
-        
+
             <h2 class="anim-body">
                 THE HUMAN BRAIN
             </h2>
@@ -53,7 +58,7 @@
     </section>
     <section class="video-section portal-section">
         <div class="content">
-            <video class="secvens-video" preload="auto" playsinline muted >
+            <video class="secvens-video" preload="auto" playsinline muted>
                 <source src="assets/videos/portal.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/portal.webm" type="video/webm">
             </video>
@@ -67,7 +72,7 @@
     </section>
     <section class="video-section souls-section">
         <div class="content">
-            <video class="secvens-video" preload="auto" playsinline muted >
+            <video class="secvens-video" preload="auto" playsinline muted>
                 <source src="assets/videos/video-3.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/video-3.webm" type="video/webm">
             </video>
@@ -90,20 +95,21 @@
     </section>
     <section class="video-section companions-section">
         <div class="content">
-            <video class="secvens-video" preload="auto" playsinline muted >
+            <video class="secvens-video" preload="auto" playsinline muted>
                 <source src="assets/videos/video-5.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/video-5.webm" type="video/webm">
             </video>
             <div class="companions-section-right">
                 <p class="numbers anim-body">13,000</p>
                 <h2 class="anim-body">companions</h2>
-                <p class="title anim-body">13,000 lulu’s made up of <br>10 neural companents and 9 colors of matter.coming together to create the first generativear project</p>
+                <p class="title anim-body">13,000 lulu’s made up of <br>10 neural companents and 9 colors of
+                    matter.coming together to create the first generativear project</p>
             </div>
         </div>
     </section>
     <section class="video-section fnik-section">
         <div class="content">
-            <video class="secvens-video" preload="auto" playsinline muted >
+            <video class="secvens-video" preload="auto" playsinline muted>
                 <source src="assets/videos/video-6.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/video-6.webm" type="video/webm">
             </video>
@@ -113,13 +119,15 @@
             <p class="anim-body">
                 “Revolutionary mint through community driven distribution” <br>
                 using our founders will distribute our lulu mint amongst <br>
-                their own communitiesthis <br> revolutionary mint mechanism will: <br>negate the need for white lists <br> prevent gas wars, dutch auctions and other wasteful mint mechanism <br>gamify the minting experience and allows for our founders <br>to distribute and earn
+                their own communitiesthis <br> revolutionary mint mechanism will: <br>negate the need for white lists
+                <br> prevent gas wars, dutch auctions and other wasteful mint mechanism <br>gamify the minting
+                experience and allows for our founders <br>to distribute and earn
             </p>
         </div>
     </section>
     <section class="video-section mint-section">
         <div class="content">
-            <video class="secvens-video" preload="auto" playsinline muted >
+            <video class="secvens-video" preload="auto" playsinline muted>
                 <source src="assets/videos/video-7.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/video-7.webm" type="video/webm">
             </video>
@@ -129,13 +137,16 @@
             <p class="anim-body">
                 333 founders holding an fnic can mint up 5 lulu’s <br>for a total of 1665 lulu’s <br>
                 during each mint the founder will pass <br>
-                an access token to two new wallets. <br>each wallet with the newly acquired access token <br>will now be able to mint up to 2 lulu’s while simultaneously <br>pasing two new access tokens to two new wallets <br>if and when these access tokens used to mint new lulu’s <br>the wallet that distributed them will earn 10% of the mint price                 
+                an access token to two new wallets. <br>each wallet with the newly acquired access token <br>will now be
+                able to mint up to 2 lulu’s while simultaneously <br>pasing two new access tokens to two new wallets
+                <br>if and when these access tokens used to mint new lulu’s <br>the wallet that distributed them will
+                earn 10% of the mint price
             </p>
         </div>
     </section>
     <section class="video-section incubation-section">
         <div class="content">
-            <video class="secvens-video" preload="auto" playsinline muted >
+            <video class="secvens-video" preload="auto" playsinline muted>
                 <source src="assets/videos/video-9.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/video-9.webm" type="video/webm">
             </video>
@@ -143,10 +154,12 @@
                 incubation tech hoodies
             </h2>
             <p class="anim-body">
-                each lulu comes with a redeemable physical hoodie. <br>these hoodies are embedded with nfc technology that allows you <br>to tap and activate your augmented reality luu, anywhere anytime! <br>
-                also embedded is your incubator identification number “I.i.n” <br>through your i.i.n you will be able to collect our highly coveted <br>3n3rgy points. <br>
+                each lulu comes with a redeemable physical hoodie. <br>these hoodies are embedded with nfc technology
+                that allows you <br>to tap and activate your augmented reality luu, anywhere anytime! <br>
+                also embedded is your incubator identification number “I.i.n” <br>through your i.i.n you will be able to
+                collect our highly coveted <br>3n3rgy points. <br>
                 these 3n3rgy points will be exchangeable in the near future <br>
-                for a number of utilities (TBA) let the games begin.             
+                for a number of utilities (TBA) let the games begin.
             </p>
         </div>
     </section>
@@ -161,55 +174,59 @@
                         06.08.23
                     </p>
                     <p class="timer anim-body">
-                        <span id="days">24</span>:<span id="hours">24</span>:<span id="mins">15</span>:<span id="secs">06</span>
+                        <span id="days">24</span>:<span id="hours">24</span>:<span id="mins">15</span>:<span
+                            id="secs">06</span>
                     </p>
                     <video preload="auto" playsinline muted loop autoplay class="under-timer">
-                        <source src="assets/videos/under-timer2-hevc-safari.mp4" type="video/mp4; codecs=&quot;hvc1&quot">
+                        <source src="assets/videos/under-timer2-hevc-safari.mp4"
+                            type="video/mp4; codecs=&quot;hvc1&quot">
                         <source src="assets/videos/under-timer2-vp9-chrome.webm" type="video/webm">
                     </video>
                 </div>
-               <div class="timer-button hidden">
+                <div class="timer-button hidden">
                     <a href="#" target="_blank" class="button custom-cursor">
                         <p>
                             <span>MINT</span>
                             <span>MINT</span>
                         </p>
                         <svg viewBox="0 0 279 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0.5 0.5H278.5V51.5H17.6654L0.5 38.7486V0.5Z" stroke="white" stroke-width="2"/>
-                        </svg>		
+                            <path d="M0.5 0.5H278.5V51.5H17.6654L0.5 38.7486V0.5Z" stroke="white" stroke-width="2" />
+                        </svg>
                         <svg class="svg">
-                            <clipPath id="my-clip-path" clipPathUnits="objectBoundingBox"><path d="M0.002,0.01 H1 V1 H0.064 L0.002,0.76 V0.01"></path></clipPath>
-                        </svg>		
+                            <clipPath id="my-clip-path" clipPathUnits="objectBoundingBox">
+                                <path d="M0.002,0.01 H1 V1 H0.064 L0.002,0.76 V0.01"></path>
+                            </clipPath>
+                        </svg>
                     </a>
-               </div>
+                </div>
             </div>
             <!--#include virtual="/parts/footer.html" -->
         </div>
     </section>
     <div class="new-mint">
         <section class="odlabs-section">
-            <video class="pixelate" preload="auto" playsinline muted >
+            <video class="pixelate" preload="auto" playsinline muted>
                 <source src="assets/videos/pixelate.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/pixelate.webm" type="video/webm">
             </video>
             <a class="burn-card custom-cursor">BURN F.N.I.C CARD</a>
-            <video class="card-insert" preload="auto" playsinline muted >
+            <video class="card-insert" preload="auto" playsinline muted>
                 <source src="assets/videos/card-insert.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/card-insert.webm" type="video/webm">
             </video>
-            <video class="fnic-loading" preload="auto" playsinline muted >
+            <video class="fnic-loading" preload="auto" playsinline muted>
                 <source src="assets/videos/fnic-loading.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/fnic-loading.webm" type="video/webm">
             </video>
-            <video class="fnic-authorised" preload="auto" playsinline muted >
+            <video class="fnic-authorised" preload="auto" playsinline muted>
                 <source src="assets/videos/fnic-authorised.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/fnic-authorised.webm" type="video/webm">
             </video>
-            <video class="self-destruct" preload="auto" playsinline muted >
+            <video class="self-destruct" preload="auto" playsinline muted>
                 <source src="assets/videos/self-destruct.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/self-destruct.webm" type="video/webm">
             </video>
-            <video class="static-noise" preload="auto" playsinline muted >
+            <video class="static-noise" preload="auto" playsinline muted>
                 <source src="assets/videos/static-noise.mov" type="video/mp4; codecs=&quot;hvc1&quot">
                 <source src="assets/videos/static-noise.webm" type="video/webm">
             </video>
@@ -222,7 +239,7 @@
                     YOUR FOUNDERS PASS NOW ACTIVE SEE YOU ON MINT DAY.
                 </p>
             </div>
-        </section>   
+        </section>
         <!--#include virtual="/parts/footer.html" -->
     </div>
     <!-- <div class="holders-mint">
@@ -490,7 +507,7 @@
         </section>
     </div> -->
     <div class="error-message">
-        <video class="error-video" preload="auto" id="myVideo" loop autoplay="false" playsinline muted="false" >
+        <video class="error-video" preload="auto" id="myVideo" loop autoplay="false" playsinline muted="false">
             <source src="assets/videos/error.mp4" type="video/mp4">
         </video>
     </div>
@@ -500,23 +517,31 @@
             <div class="ans offMusic">
                 <span>no</span>
                 <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M25.5 13.4995L30 17.9995M30 17.9995L34.5 22.4995M30 17.9995L34.5 13.4995M30 17.9995L25.5 22.4995M9.19558 24.1392L17.1281 29.8053C18.1209 30.5144 19.5 29.8048 19.5 28.5847V7.41427C19.5 6.19421 18.1209 5.48452 17.1281 6.19367L9.19558 11.8598C9.06838 11.9506 8.91597 11.9995 8.75965 11.9995L3 11.9995C2.17157 11.9995 1.5 12.6711 1.5 13.4995V22.4995C1.5 23.3279 2.17157 23.9995 3 23.9995H8.75965C8.91597 23.9995 9.06838 24.0483 9.19558 24.1392Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                    
+                    <path
+                        d="M25.5 13.4995L30 17.9995M30 17.9995L34.5 22.4995M30 17.9995L34.5 13.4995M30 17.9995L25.5 22.4995M9.19558 24.1392L17.1281 29.8053C18.1209 30.5144 19.5 29.8048 19.5 28.5847V7.41427C19.5 6.19421 18.1209 5.48452 17.1281 6.19367L9.19558 11.8598C9.06838 11.9506 8.91597 11.9995 8.75965 11.9995L3 11.9995C2.17157 11.9995 1.5 12.6711 1.5 13.4995V22.4995C1.5 23.3279 2.17157 23.9995 3 23.9995H8.75965C8.91597 23.9995 9.06838 24.0483 9.19558 24.1392Z"
+                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
             </div>
             <div class="ans onMusic">
                 <span>yes</span>
                 <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M25.5 13.4995C26.4279 14.659 27 16.2474 27 17.9995C27 19.7516 26.4279 21.3399 25.5 22.4995M30 8.99948C31.8557 11.3186 33 14.4953 33 17.9995C33 21.5036 31.8557 24.6804 30 26.9995M9.19558 24.1392L17.1281 29.8053C18.1209 30.5144 19.5 29.8048 19.5 28.5847V7.41427C19.5 6.19421 18.1209 5.48452 17.1281 6.19367L9.19558 11.8598C9.06838 11.9506 8.91597 11.9995 8.75965 11.9995L3 11.9995C2.17157 11.9995 1.5 12.6711 1.5 13.4995V22.4995C1.5 23.3279 2.17157 23.9995 3 23.9995H8.75965C8.91597 23.9995 9.06838 24.0483 9.19558 24.1392Z" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path
+                        d="M25.5 13.4995C26.4279 14.659 27 16.2474 27 17.9995C27 19.7516 26.4279 21.3399 25.5 22.4995M30 8.99948C31.8557 11.3186 33 14.4953 33 17.9995C33 21.5036 31.8557 24.6804 30 26.9995M9.19558 24.1392L17.1281 29.8053C18.1209 30.5144 19.5 29.8048 19.5 28.5847V7.41427C19.5 6.19421 18.1209 5.48452 17.1281 6.19367L9.19558 11.8598C9.06838 11.9506 8.91597 11.9995 8.75965 11.9995L3 11.9995C2.17157 11.9995 1.5 12.6711 1.5 13.4995V22.4995C1.5 23.3279 2.17157 23.9995 3 23.9995H8.75965C8.91597 23.9995 9.06838 24.0483 9.19558 24.1392Z"
+                        stroke="white" stroke-width="2" stroke-linecap="round" />
                 </svg>
             </div>
         </div>
         <div class="hide-icon">
             <svg class="onMusicSmall" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.5 13.4995C26.4279 14.659 27 16.2474 27 17.9995C27 19.7516 26.4279 21.3399 25.5 22.4995M30 8.99948C31.8557 11.3186 33 14.4953 33 17.9995C33 21.5036 31.8557 24.6804 30 26.9995M9.19558 24.1392L17.1281 29.8053C18.1209 30.5144 19.5 29.8048 19.5 28.5847V7.41427C19.5 6.19421 18.1209 5.48452 17.1281 6.19367L9.19558 11.8598C9.06838 11.9506 8.91597 11.9995 8.75965 11.9995L3 11.9995C2.17157 11.9995 1.5 12.6711 1.5 13.4995V22.4995C1.5 23.3279 2.17157 23.9995 3 23.9995H8.75965C8.91597 23.9995 9.06838 24.0483 9.19558 24.1392Z" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <path
+                    d="M25.5 13.4995C26.4279 14.659 27 16.2474 27 17.9995C27 19.7516 26.4279 21.3399 25.5 22.4995M30 8.99948C31.8557 11.3186 33 14.4953 33 17.9995C33 21.5036 31.8557 24.6804 30 26.9995M9.19558 24.1392L17.1281 29.8053C18.1209 30.5144 19.5 29.8048 19.5 28.5847V7.41427C19.5 6.19421 18.1209 5.48452 17.1281 6.19367L9.19558 11.8598C9.06838 11.9506 8.91597 11.9995 8.75965 11.9995L3 11.9995C2.17157 11.9995 1.5 12.6711 1.5 13.4995V22.4995C1.5 23.3279 2.17157 23.9995 3 23.9995H8.75965C8.91597 23.9995 9.06838 24.0483 9.19558 24.1392Z"
+                    stroke="white" stroke-width="2" stroke-linecap="round" />
             </svg>
             <svg class="offMusicSmall" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.5 13.4995L30 17.9995M30 17.9995L34.5 22.4995M30 17.9995L34.5 13.4995M30 17.9995L25.5 22.4995M9.19558 24.1392L17.1281 29.8053C18.1209 30.5144 19.5 29.8048 19.5 28.5847V7.41427C19.5 6.19421 18.1209 5.48452 17.1281 6.19367L9.19558 11.8598C9.06838 11.9506 8.91597 11.9995 8.75965 11.9995L3 11.9995C2.17157 11.9995 1.5 12.6711 1.5 13.4995V22.4995C1.5 23.3279 2.17157 23.9995 3 23.9995H8.75965C8.91597 23.9995 9.06838 24.0483 9.19558 24.1392Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg> 
+                <path
+                    d="M25.5 13.4995L30 17.9995M30 17.9995L34.5 22.4995M30 17.9995L34.5 13.4995M30 17.9995L25.5 22.4995M9.19558 24.1392L17.1281 29.8053C18.1209 30.5144 19.5 29.8048 19.5 28.5847V7.41427C19.5 6.19421 18.1209 5.48452 17.1281 6.19367L9.19558 11.8598C9.06838 11.9506 8.91597 11.9995 8.75965 11.9995L3 11.9995C2.17157 11.9995 1.5 12.6711 1.5 13.4995V22.4995C1.5 23.3279 2.17157 23.9995 3 23.9995H8.75965C8.91597 23.9995 9.06838 24.0483 9.19558 24.1392Z"
+                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
         </div>
     </div>
     <div class="progress">
@@ -556,4 +581,3 @@
 </main>
 
 <!--#include virtual="/parts/foot.html" -->
-
