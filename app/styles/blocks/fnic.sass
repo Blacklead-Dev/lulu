@@ -104,7 +104,7 @@
     
     
     
-// .holders-mint
+.holders-mint
     visibility: hidden
     &.active
         visibility: visible
@@ -120,7 +120,7 @@
     .footer-media
         display: none
         z-index: 5
-// .fnic-section
+.fnic-section
     display: flex
     position: fixed
     visibility: hidden
@@ -763,7 +763,7 @@
     &.active
         opacity: 1
                             
-// .public-mint
+.public-mint
     visibility: hidden
     &.active
         display: flex
@@ -791,7 +791,7 @@
             align-items: center
             position: absolute
             opacity: 0
-            transform: translateY(gem(-300))
+            transform: translateY(gem(0))
             h2
                 font-size: gem(50)
                 line-height: gem(70)
@@ -962,175 +962,175 @@
             right: gem(20)
         &.totop
             top: gem(20)
-    // .holders-mint
+    .holders-mint
         &.active
             .footer-media
                 display: none
             
-    // .fnic-section
-    //     height: calc(var(--vh, 1vh) * 100)
-    //     overflow-y: scroll 
-    //     flex-direction: column
-    //     justify-content: flex-start
-    //     .from-video
-    //         display: flex
-    //         position: relative
-    //         width: gem(390)
-    //         height: gem(390)
-    //     video 
-    //         width: gem(390)
-    //         height: gem(390)
-    //         top: 0
-    //         position: relative
-    //     .content
-    //         flex-direction: column
-    //         height: calc(var(--vh, 1vh) * 100)
-    //         min-height: unset
-    //         h2 
-    //             font-size: gem(42)
-    //             line-height: gem(42)
-    //             margin-bottom: gem(8)
-    //         h3 
-    //             margin-bottom: gem(20)
-    //         &-right
-    //             display: none
-    //             margin-right: 0
-    //             position: relative
-    //             bottom: gem(0)
-    //             .cell-count
-    //                 margin-bottom: gem(28)
-    //             p 
-    //                 width: gem(298)
-    //             input 
-    //                 width: gem(300)
-    //                 border-radius: 0
-    //             .enter 
-    //                 width: gem(330)
-    //                 position: relative
-    //                 .from-input
-    //                     position: relative
-    //                     height: gem(100)
-    //                     margin-bottom: gem(40)
-    //                     /* width */
-    //                     &::-webkit-scrollbar 
-    //                         display: none
-    //                     /* Track */
-    //                     &::-webkit-scrollbar-track 
-    //                         background: #333333
-    //                     /* Handle */
-    //                     &::-webkit-scrollbar-thumb 
-    //                         background: #FFFFFF
-    //                 .from-scroll
-    //                     display: flex
-    //                     flex-direction: column
-    //                     position: absolute
-    //                     top: gem(51)
-    //                     right: 0
-    //                     width: gem(16)
-    //                     height: gem(28)
-    //                     justify-content: space-around
-    //                     align-items: center
-    //                     border: 1px solid #808080
-    //                     svg
-    //                         width: gem(6)
-    //                         height: gem(3)
+    .fnic-section
+        height: calc(var(--vh, 1vh) * 100)
+        overflow-y: scroll 
+        flex-direction: column
+        justify-content: flex-start
+        .from-video
+            display: flex
+            position: relative
+            width: gem(390)
+            height: gem(390)
+        video 
+            width: gem(390)
+            height: gem(390)
+            top: 0
+            position: relative
+        .content
+            flex-direction: column
+            height: calc(var(--vh, 1vh) * 100)
+            min-height: unset
+            h2 
+                font-size: gem(42)
+                line-height: gem(42)
+                margin-bottom: gem(8)
+            h3 
+                margin-bottom: gem(20)
+            &-right
+                display: none
+                margin-right: 0
+                position: relative
+                bottom: gem(0)
+                .cell-count
+                    margin-bottom: gem(28)
+                p 
+                    width: gem(298)
+                input 
+                    width: gem(300)
+                    border-radius: 0
+                .enter 
+                    width: gem(330)
+                    position: relative
+                    .from-input
+                        position: relative
+                        height: gem(100)
+                        margin-bottom: gem(40)
+                        /* width */
+                        &::-webkit-scrollbar 
+                            display: none
+                        /* Track */
+                        &::-webkit-scrollbar-track 
+                            background: #333333
+                        /* Handle */
+                        &::-webkit-scrollbar-thumb 
+                            background: #FFFFFF
+                    .from-scroll
+                        display: flex
+                        flex-direction: column
+                        position: absolute
+                        top: gem(51)
+                        right: 0
+                        width: gem(16)
+                        height: gem(28)
+                        justify-content: space-around
+                        align-items: center
+                        border: 1px solid #808080
+                        svg
+                            width: gem(6)
+                            height: gem(3)
                         
                             
-    //             .connect 
-    //                 margin: 0 auto gem(12)
-    //             .total 
-    //                 margin: 0 auto gem(20)
-    //             .cell 
-    //                 .but 
-    //                     font-size: gem(20)
-    //             .connect 
-    //                 p
-    //                     margin-top: gem(20)
-    //                     span 
-    //                         font-size: gem(23)
-    //                         line-height: gem(36)
-    //         &-left 
-    //             display: none
-    //             position: relative
-    //             margin-left: 0
-    //             // bottom: gem(90)
-    //             p 
-    //                 width: gem(322)
-    //                 font-size: gem(16)
-    //                 line-height: gem(22)
-    //                 margin-bottom: gem(28)
-    //             a 
-    //                 margin-bottom: gem(50)
-    //         &.show-left
-    //             .content-right 
-    //                 display: none
-    //         &.show-right
-    //             .content-left 
-    //                 display: none
-    // .after-successful-section
-    //     height: calc(var(--vh, 1vh) * 100)
-    //     overflow: scroll
-    //     z-index: 6
-    //     align-items: flex-start
-    //     &.over
-    //         overflow: scroll
-    //     video 
-    //         width: gem(390)
-    //         height: gem(390)
-    //         top: 0
-    //     .successful-text
-    //         h2 
-    //             font-size: gem(42)
-    //             line-height: gem(42) 
-    //             width: gem(389)
-    //             margin-top: gem(112)
-    //             letter-spacing: gem(5)
-    //         h3
-    //             width: gem(350)
-    //             font-size: gem(22)
-    //             line-height: gem(26)
-    //     .content 
-    //         flex-direction: column
-    //         justify-content: flex-start
-    //         margin-bottom: gem(0)
-    //         &-right 
-    //             width: gem(322)
-    //             margin-top: gem(320)
-    //             p 
-    //                 font-size: gem(16)
-    //                 line-height: gem(22)
-    //                 width: gem(322)
-    //             .tabs 
-    //                 display: flex
-    //                 width: gem(322)
-    //                 padding-left: gem(0)
-    //                 justify-content: space-around
-    //                 &::after
-    //                     width: gem(161)
-    //                 span 
-    //                     display: flex
-    //                     justify-content: center
-    //                     width: gem(161)
-    //                     font-size: gem(17)
-    //                     line-height: gem(32)
-    //                     margin-right: gem(0)
-    //                 &.active 
-    //                     &::after
-    //                         transform: translateX(gem(161))
-    //                         width: gem(161)
-    //                 &-container
-    //                     width: gem(340)
-    //                     &-inside
-    //                         width: gem(600)
-    //                         transform: translateX(gem(-340))
-    //                         .addresses
-    //                             width: gem(320)
-    //                             margin-right: gem(20)
-    //                         .properties
-    //                             width: gem(320)
-    //             .connect 
-    //                 margin: 0 auto gem(40)
-    // .public-mint
+                .connect 
+                    margin: 0 auto gem(12)
+                .total 
+                    margin: 0 auto gem(20)
+                .cell 
+                    .but 
+                        font-size: gem(20)
+                .connect 
+                    p
+                        margin-top: gem(20)
+                        span 
+                            font-size: gem(23)
+                            line-height: gem(36)
+            &-left 
+                display: none
+                position: relative
+                margin-left: 0
+                // bottom: gem(90)
+                p 
+                    width: gem(322)
+                    font-size: gem(16)
+                    line-height: gem(22)
+                    margin-bottom: gem(28)
+                a 
+                    margin-bottom: gem(50)
+            &.show-left
+                .content-right 
+                    display: none
+            &.show-right
+                .content-left 
+                    display: none
+    .after-successful-section
+        height: calc(var(--vh, 1vh) * 100)
+        overflow: scroll
+        z-index: 5
+        align-items: flex-start
+        &.over
+            overflow: scroll
+        video 
+            width: gem(390)
+            height: gem(390)
+            top: 0
+        .successful-text
+            h2 
+                font-size: gem(42)
+                line-height: gem(42) 
+                width: gem(389)
+                margin-top: gem(112)
+                letter-spacing: gem(5)
+            h3
+                width: gem(350)
+                font-size: gem(22)
+                line-height: gem(26)
+        .content 
+            flex-direction: column
+            justify-content: flex-start
+            margin-bottom: gem(0)
+            &-right 
+                width: gem(322)
+                margin-top: gem(320)
+                p 
+                    font-size: gem(16)
+                    line-height: gem(22)
+                    width: gem(322)
+                .tabs 
+                    display: flex
+                    width: gem(322)
+                    padding-left: gem(0)
+                    justify-content: space-around
+                    &::after
+                        width: gem(161)
+                    span 
+                        display: flex
+                        justify-content: center
+                        width: gem(161)
+                        font-size: gem(17)
+                        line-height: gem(32)
+                        margin-right: gem(0)
+                    &.active 
+                        &::after
+                            transform: translateX(gem(161))
+                            width: gem(161)
+                    &-container
+                        width: gem(340)
+                        &-inside
+                            width: gem(600)
+                            transform: translateX(gem(-340))
+                            .addresses
+                                width: gem(320)
+                                margin-right: gem(20)
+                            .properties
+                                width: gem(320)
+                .connect 
+                    margin: 0 auto gem(40)
+    .public-mint
         &.active
             .footer-media
                 display: none
