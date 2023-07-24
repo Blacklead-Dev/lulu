@@ -1,7 +1,7 @@
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import ScrollToPlugin from 'gsap/ScrollToPlugin'
-
+import { deviceIs } from '../assets/device'
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
@@ -16,7 +16,7 @@ function mainPage() {
 	let progressLine = document.querySelector('.progress-line-inner')
 
 	gsap.to(window, {
-		duration: .1, scrollTo: { y: 0 }, onComplete: () => {
+		duration: .1, scrollTo: { y: 0 }, delay: .2, onComplete: () => {
 			document.body.classList.add('unscroll')
 			document.body.classList.remove('hiddenlines')
 			gsap.to(progressLine, { height: `0%` })
@@ -29,8 +29,8 @@ function mainPage() {
 	}, 2000);
 
 	function backgroundVideoFunction() {
+		let backgroundVideo = document.querySelector('.background-video')
 
-		let backgroundVideo = (window.innerWidth > 515) ? document.querySelector('.background-video.desctop') : document.querySelector('.background-video.mobile')
 		let lineOffset = (100 / document.querySelectorAll('.video-section').length) / 5
 		
 		async function playVideo() {
@@ -39,7 +39,9 @@ function mainPage() {
 			} catch (err) {
 				console.log(err)
 			} finally {
-				backgroundVideo.pause()
+				setTimeout(() => {
+					backgroundVideo.pause()
+				}, 100);
 			}
 		}
 
@@ -58,6 +60,48 @@ function mainPage() {
 	}
 
 	backgroundVideoFunction()
+
+
+	// function secventionBg() {
+	// 	const canvas = document.querySelector('.canvas')
+
+	// 	canvas.width = window.innerWidth
+	// 	canvas.height = window.innerHeight
+
+	// 	const context = canvas.getContext('2d')
+	// 	const frameCount = 359
+	// 	const currentFrame = (index) => `../assets/videos/bg-secvention/${(index + 1).toString()}.jpg`
+	// 	const images = []
+	// 	let lulu = {frame : 0}
+
+	// 	for (let i = 0; i < frameCount; i++) {
+	// 		const img = new Image();
+	// 		img.src = currentFrame(i);
+	// 		images.push(img)
+	// 	}
+		
+	// 	images[0].onload = render
+
+	// 	gsap.to(lulu, {
+	// 		frame: frameCount - 1,
+	// 		snap: 'frame',
+	// 		ease: 'none',
+	// 		scrollTrigger: {
+	// 			scrub: true,
+	// 			// pin: 'canvas',
+	// 			endTrigger: 'main',
+	// 			end: 'bottom bottom',
+	// 			markers: true,
+	// 		},
+	// 		onUpdate: render
+	// 	})
+	// 	function render() {
+	// 		context.clearRect(0,0, canvas.width, canvas.height)
+	// 		context.drawImage(images[lulu.frame], 0, 0)
+	// 	}
+	// }
+
+	// secventionBg()
 
 	function sectionsFunction() {
 		let videoSection = document.querySelectorAll('.video-section')
