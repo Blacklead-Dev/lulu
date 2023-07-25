@@ -5,6 +5,7 @@ import { adaptiveVideos } from './assets/adaptiveVideos'
 import { mainPage } from './pages/main'
 import { teamPage } from './pages/team'
 import { mint } from './assets/mint'
+import { sound } from './assets/sound'
 
 window.addEventListener('load', () => {
 	let main = document.querySelector('main')
@@ -14,6 +15,7 @@ window.addEventListener('load', () => {
 		mainPage()
 		mint()
 		customCursor()
+		sound()
 	} 
 	if(main.classList.contains('team')) {
 		adaptiveVideos()
