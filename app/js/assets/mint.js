@@ -58,8 +58,10 @@ function mint() {
 		let fnicAuthorised = newMint.querySelector('.fnic-authorised')
 		let selfDestruct = newMint.querySelector('.self-destruct')
 		let staticNoise = newMint.querySelector('.static-noise')
-		let flashVideo = newMint.querySelector('.flash')
-		let successfulnewText = newMint.querySelector('.successfulnew-text')
+		// let flashVideo = newMint.querySelector('.flash')
+		// let successfulnewText = newMint.querySelector('.successfulnew-text')
+		let burnSuccess = newMint.querySelector('.burn-success')
+		let seeYou = newMint.querySelector('.see-you')
 		newMint.classList.add('active')
 		pixelate.play()
 
@@ -72,6 +74,7 @@ function mint() {
 				y: 0,
 				delay: .3,
 			})
+			burnCard.play()
 		})
 
 		burnCard.addEventListener('click', (e) => {
@@ -88,6 +91,7 @@ function mint() {
 			})
 			console.log('burn card')
 			gsap.set(cardInsert,{
+				delay: .7,
 				display: 'flex'
 			})
 			cardInsert.play()
@@ -131,19 +135,46 @@ function mint() {
 				gsap.set(staticNoise, {
 					display: 'none'
 				})
-				gsap.set(flashVideo, {
-					display: 'flex'
+				// gsap.set(flashVideo, {
+				// 	display: 'flex'
+				// })
+				// gsap.to(flashVideo, {
+				// 	delay: .7,
+				// 	display: 'none'
+				// })
+				// gsap.to(successfulnewText, .5, {
+				// 	opacity: '1',
+				// 	y: 0,
+				// 	delay: 1,
+				// })
+				gsap.set(burnSuccess, {
+					display: 'flex',
 				})
-				gsap.to(flashVideo, {
-					delay: .7,
+				burnSuccess.play()
+			})
+			burnSuccess.addEventListener('ended', function() {
+				gsap.to(burnSuccess, 1, {
 					display: 'none'
 				})
-				gsap.to(successfulnewText, .5, {
-					opacity: '1',
-					y: 0,
-					delay: 1,
+				gsap.to(seeYou, {
+					display: 'flex'
 				})
+				seeYou.play()
 			})
+			// gsap.to(burnSuccess, {
+			// 	display: 'flex'
+			// })
+			// gsap.to(burnSuccess, {
+			// 	delay: .7,
+			// 	display: 'none'
+			// })
+			// gsap.to(seeYou, {
+			// 	display: 'flex'
+			// })
+			// gsap.to(seeYou, {
+			// 	delay: .7,
+			// 	display: 'none'
+			// })
 		}
 
 	}

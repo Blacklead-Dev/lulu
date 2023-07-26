@@ -38,17 +38,20 @@
             position: absolute
         .burn-card
             display: flex
+            height: auto
             opacity: 0
-            font-family: 'chakra-bold'
-            font-size: gem(36)
-            line-height: gem(48)
-            transition: all .3s ease
-            text-transform: uppercase
-            text-decoration: underline
-            color: #ffffff
-            transform: translateY(gem(100))
-            &:hover
-                text-decoration: none
+            // font-family: 'chakra-bold'
+            // font-size: gem(36)
+            // line-height: gem(48)
+            // transition: all .3s ease
+            // text-transform: uppercase
+            // text-decoration: underline
+            // color: #ffffff
+            // transform: translateY(gem(100))
+            // &:hover
+            //     text-decoration: none
+        .burn-success, .see-you
+            height: auto    
         .flash 
             position: absolute
             width: 100%
@@ -70,7 +73,6 @@
                 font-size: gem(50)
                 line-height: gem(60)
                 letter-spacing: gem(4)
-
 
 @media all and (max-width: 515px)
     .new-mint 
@@ -395,6 +397,14 @@
     &.active
         display: flex
 .static-noise
+    display: none
+    &.active
+        display: flex
+.burn-success
+    display: none
+    &.active
+        display: flex
+.see-you
     display: none
     &.active
         display: flex
