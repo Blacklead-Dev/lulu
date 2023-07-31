@@ -8,7 +8,6 @@ function mint() {
 
 		let connectWalletLink = document.querySelector('header .connect')
 		let website = document.querySelector('html')
-		let body = document.querySelector('body')
 		let popupSound = document.querySelector('.popup-sound')
 		let logoFixed = document.querySelector('.footer-logo-always')
 		
@@ -40,63 +39,74 @@ function mint() {
 						// publicMint()
 					}
 				})
-			}, 2000);
+			}, 0);
 		})
 	}
 
 	main()
 
 	
-	//start here ARTEM
 	function simpleMintVersion() {	
 		let newMint = document.querySelector('.new-mint')
-		let odlabs = document.querySelector('.odlabs-section')
 		let pixelate = document.querySelector('.pixelate')
 		let burnCard = document.querySelector('.burn-card')
+		let burnCardLooped = document.querySelector('.burn-card-looped')
 		let cardInsert = newMint.querySelector('.card-insert')
 		let fnicLoading = newMint.querySelector('.fnic-loading')
 		let fnicAuthorised = newMint.querySelector('.fnic-authorised')
 		let selfDestruct = newMint.querySelector('.self-destruct')
 		let staticNoise = newMint.querySelector('.static-noise')
-		// let flashVideo = newMint.querySelector('.flash')
-		// let successfulnewText = newMint.querySelector('.successfulnew-text')
 		let burnSuccess = newMint.querySelector('.burn-success')
 		let seeYou = newMint.querySelector('.see-you')
+		
 		newMint.classList.add('active')
-		pixelate.play()
+		setTimeout(() => {
+			pixelate.play()
+		}, 600);
+		
 
 		pixelate.addEventListener('ended', function() {
 			gsap.set(pixelate,{
 				display: 'none'
 			})
-			gsap.to(burnCard, .5,{
-				opacity: '1',
-				y: 0,
-				delay: .3,
+			gsap.to(burnCard,{
+				visibility: 'visible',
 			})
 			burnCard.play()
 		})
 
-		burnCard.addEventListener('click', (e) => {
+		burnCard.addEventListener('ended', function() {
+			gsap.set(burnCard,{
+				display: 'none'
+			})
+			gsap.to(burnCardLooped,{
+				visibility: 'visible',
+			})
+			burnCardLooped.play()
+		})
+
+		burnCardLooped.addEventListener('click', (e) => {
 			e.preventDefault()
 
 			//were waiting for accept from client and getting response
 			setTimeout(() => {
 				startCardInserd()
-			}, 2000);
+			}, 0);
 		})
+
 		function startCardInserd() {
-			gsap.to(burnCard, 0.1,{
+			burnCardLooped.pause()
+			gsap.to(burnCardLooped, {
 				display: 'none'
 			})
-			console.log('burn card')
 			gsap.set(cardInsert,{
-				delay: .7,
+				delay: .2,
 				display: 'flex'
 			})
 			cardInsert.play()
+
 			cardInsert.addEventListener('ended', function() {
-				gsap.to(cardInsert, 1,{
+				gsap.to(cardInsert,{
 					display: 'none'
 				})
 				gsap.set(fnicLoading,{
@@ -105,7 +115,7 @@ function mint() {
 				fnicLoading.play()
 			});
 			fnicLoading.addEventListener('ended', function() {
-				gsap.to(fnicLoading, 1, {
+				gsap.to(fnicLoading,{
 					display: 'none'
 				})
 				gsap.to(fnicAuthorised, {
@@ -114,7 +124,7 @@ function mint() {
 				fnicAuthorised.play()
 			})
 			fnicAuthorised.addEventListener('ended', function() {
-				gsap.to(fnicAuthorised, 1, {
+				gsap.to(fnicAuthorised, {
 					display: 'none'
 				})
 				gsap.to(selfDestruct, {
@@ -123,7 +133,7 @@ function mint() {
 				selfDestruct.play()
 			})
 			selfDestruct.addEventListener('ended', function() {
-				gsap.to(selfDestruct, 1, {
+				gsap.to(selfDestruct, {
 					display: 'none'
 				})
 				gsap.set(staticNoise, {
@@ -135,25 +145,13 @@ function mint() {
 				gsap.set(staticNoise, {
 					display: 'none'
 				})
-				// gsap.set(flashVideo, {
-				// 	display: 'flex'
-				// })
-				// gsap.to(flashVideo, {
-				// 	delay: .7,
-				// 	display: 'none'
-				// })
-				// gsap.to(successfulnewText, .5, {
-				// 	opacity: '1',
-				// 	y: 0,
-				// 	delay: 1,
-				// })
 				gsap.set(burnSuccess, {
 					display: 'flex',
 				})
 				burnSuccess.play()
 			})
 			burnSuccess.addEventListener('ended', function() {
-				gsap.to(burnSuccess, 1, {
+				gsap.to(burnSuccess, {
 					display: 'none'
 				})
 				gsap.to(seeYou, {
@@ -161,20 +159,6 @@ function mint() {
 				})
 				seeYou.play()
 			})
-			// gsap.to(burnSuccess, {
-			// 	display: 'flex'
-			// })
-			// gsap.to(burnSuccess, {
-			// 	delay: .7,
-			// 	display: 'none'
-			// })
-			// gsap.to(seeYou, {
-			// 	display: 'flex'
-			// })
-			// gsap.to(seeYou, {
-			// 	delay: .7,
-			// 	display: 'none'
-			// })
 		}
 
 	}

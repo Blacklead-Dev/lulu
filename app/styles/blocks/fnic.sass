@@ -36,10 +36,11 @@
             display: flex
             width: gem(1100)
             position: absolute
-        .burn-card
+        .burn-card, .burn-card-looped
             display: flex
             height: auto
-            opacity: 0
+            visibility: hidden
+        
             // font-family: 'chakra-bold'
             // font-size: gem(36)
             // line-height: gem(48)
@@ -84,7 +85,7 @@
             video
                 width: gem(390)
                 height: gem(390)
-            .burn-card
+            .burn-card, .burn-card-looped
                 width: gem(300)
                 text-align: center
             .successfulnew-text
