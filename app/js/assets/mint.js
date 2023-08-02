@@ -136,29 +136,29 @@ function mint() {
 				gsap.to(selfDestruct, {
 					display: 'none'
 				})
-				gsap.set(staticNoise, {
+				gsap.set(seeYou, {
 					display: 'flex',
-				})
-				staticNoise.play()
-			})
-			staticNoise.addEventListener('ended', function() {
-				gsap.set(staticNoise, {
-					display: 'none'
-				})
-				gsap.set(burnSuccess, {
-					display: 'flex',
-				})
-				burnSuccess.play()
-			})
-			burnSuccess.addEventListener('ended', function() {
-				gsap.to(burnSuccess, {
-					display: 'none'
-				})
-				gsap.to(seeYou, {
-					display: 'flex'
 				})
 				seeYou.play()
 			})
+			// staticNoise.addEventListener('ended', function() {
+			// 	gsap.set(staticNoise, {
+			// 		display: 'none'
+			// 	})
+			// 	gsap.set(burnSuccess, {
+			// 		display: 'flex',
+			// 	})
+			// 	burnSuccess.play()
+			// })
+			// fnicAuthorised.addEventListener('ended', function() {
+			// 	gsap.to(fnicAuthorised, {
+			// 		display: 'none'
+			// 	})
+			// 	gsap.to(seeYou, {
+			// 		display: 'flex'
+			// 	})
+			// 	seeYou.play()
+			// })
 		}
 
 	}
