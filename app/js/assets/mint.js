@@ -1,4 +1,5 @@
 import gsap from 'gsap'
+
 function mint() {
 
 	let price = 0.2
@@ -7,10 +8,10 @@ function mint() {
 
 		let connectWalletLink = document.querySelector('header .connect')
 		let website = document.querySelector('html')
-		let body = document.querySelector('body')
 		let popupSound = document.querySelector('.popup-sound')
+		let logoFixed = document.querySelector('.footer-logo-always')
 		
-		let holder = false
+		let holder = true
 		let mintCallButton = document.querySelector('header .mint-call')
 		connectWalletLink.addEventListener('click', (e) => {
 
@@ -24,27 +25,143 @@ function mint() {
 					website.classList.add('unscroll')
 					mintCallButton.classList.add('inside')
 					connectWalletLink.classList.add('hide')
+					logoFixed.classList.add('active')
 					popupSound.classList.add('active')
 					popupSound.classList.add('mintact')
 					if(window.innerWidth < 515){
 						popupSound.classList.add('totop')
 					}
 					if(holder) {
-						holderMint()
+						simpleMintVersion()
+						// holderMint()
 						// errorMint()
 					} else {
-						publicMint()
+						// publicMint()
 					}
 				})
-			}, 2000);
+			}, 0);
 		})
 	}
 
 	main()
 
 	
-	
-	
+	function simpleMintVersion() {	
+		let newMint = document.querySelector('.new-mint')
+		let pixelate = document.querySelector('.pixelate')
+		let burnCard = document.querySelector('.burn-card')
+		let burnCardLooped = document.querySelector('.burn-card-looped')
+		let cardInsert = newMint.querySelector('.card-insert')
+		let fnicLoading = newMint.querySelector('.fnic-loading')
+		let fnicAuthorised = newMint.querySelector('.fnic-authorised')
+		let selfDestruct = newMint.querySelector('.self-destruct')
+		let staticNoise = newMint.querySelector('.static-noise')
+		let burnSuccess = newMint.querySelector('.burn-success')
+		let seeYou = newMint.querySelector('.see-you')
+		
+		newMint.classList.add('active')
+		setTimeout(() => {
+			pixelate.play()
+		}, 600);
+		
+
+		pixelate.addEventListener('ended', function() {
+			gsap.set(pixelate,{
+				display: 'none'
+			})
+			gsap.to(burnCard,{
+				visibility: 'visible',
+			})
+			burnCard.play()
+		})
+
+		burnCard.addEventListener('ended', function() {
+			gsap.set(burnCard,{
+				display: 'none'
+			})
+			gsap.to(burnCardLooped,{
+				visibility: 'visible',
+			})
+			burnCardLooped.play()
+		})
+
+		burnCardLooped.addEventListener('click', (e) => {
+			e.preventDefault()
+
+			//were waiting for accept from client and getting response
+			setTimeout(() => {
+				startCardInserd()
+			}, 0);
+		})
+
+		function startCardInserd() {
+			burnCardLooped.pause()
+			gsap.to(burnCardLooped, {
+				display: 'none'
+			})
+			gsap.set(cardInsert,{
+				delay: .2,
+				display: 'flex'
+			})
+			cardInsert.play()
+
+			cardInsert.addEventListener('ended', function() {
+				gsap.to(cardInsert,{
+					display: 'none'
+				})
+				gsap.set(fnicLoading,{
+					display: 'flex'
+				})
+				fnicLoading.play()
+			});
+			fnicLoading.addEventListener('ended', function() {
+				gsap.to(fnicLoading,{
+					display: 'none'
+				})
+				gsap.to(fnicAuthorised, {
+					display: 'flex'
+				})
+				fnicAuthorised.play()
+			})
+			fnicAuthorised.addEventListener('ended', function() {
+				gsap.to(fnicAuthorised, {
+					display: 'none'
+				})
+				gsap.to(selfDestruct, {
+					display: 'flex'
+				})
+				selfDestruct.play()
+			})
+			selfDestruct.addEventListener('ended', function() {
+				gsap.to(selfDestruct, {
+					display: 'none'
+				})
+				gsap.set(seeYou, {
+					display: 'flex',
+				})
+				seeYou.play()
+			})
+			// staticNoise.addEventListener('ended', function() {
+			// 	gsap.set(staticNoise, {
+			// 		display: 'none'
+			// 	})
+			// 	gsap.set(burnSuccess, {
+			// 		display: 'flex',
+			// 	})
+			// 	burnSuccess.play()
+			// })
+			// fnicAuthorised.addEventListener('ended', function() {
+			// 	gsap.to(fnicAuthorised, {
+			// 		display: 'none'
+			// 	})
+			// 	gsap.to(seeYou, {
+			// 		display: 'flex'
+			// 	})
+			// 	seeYou.play()
+			// })
+		}
+
+	}
 
 	function holderMint() {
 		let holdersMintBlock = document.querySelector('.holders-mint')
@@ -69,8 +186,8 @@ function mint() {
 		gsap.to([holdersMintBlock, lulusha], 3, {
 			display: 'flex'
 		})
+		lulusha.play()
 		if(window.innerWidth < 515){
-			console.log('asdasdasd')
 			gsap.to(holdersContentLeft, 3, {
 				display: 'flex',
 				zIndex: 2
@@ -246,7 +363,7 @@ function mint() {
 				} else {
 					gsap.to(successfulText, .3, {
 						opacity: 1,
-						y: '-4rem'
+						y: '-3rem'
 					})
 					gsap.to(successfulText, .5, {
 						delay: 4,
@@ -392,7 +509,7 @@ function mint() {
 				})
 				gsap.to(successfulText, .3, {
 					opacity: 1,
-					y: '-4rem'
+					y: '-3rem'
 				})
 				if(window.innerWidth < 515){
 					gsap.to(lulusha, .3, {
@@ -484,70 +601,6 @@ function mint() {
 
 		mintCalculation()
 	}
-
-	let popupSound = document.querySelector('.popup-sound')
-	let buttonOnMusic = document.querySelector('.onMusic')
-	let buttonOffMusic = document.querySelector('.offMusic')
-	let buttonOnMusicSmall = document.querySelector('.onMusicSmall')
-	let buttonOffMusicSmall = document.querySelector('.offMusicSmall')
-	let smallIcon = document.querySelector('.hide-icon')
-	let video = document.getElementById('myVideo');
-	if(window.innerWidth < 515) {
-		buttonOnMusic.addEventListener('click', () => {
-			video.muted = false;
-			video.pause()
-			// console.log('Звук включен');
-			popupSound.classList.add('active')
-			smallIcon.classList.add('active')
-			buttonOffMusicSmall.style.opacity = '0'
-			buttonOffMusicSmall.style.zIndex = '-1'
-			buttonOnMusicSmall.style.opacity = '1'
-			buttonOnMusicSmall.style.zIndex = '1'
-		});
-	}
-
-	buttonOffMusic.addEventListener('click', () => {
-		video.muted = true;
-		// console.log('Звук выключен');
-		popupSound.classList.add('active')
-		smallIcon.classList.add('active')
-		buttonOnMusicSmall.style.opacity = '0'
-		buttonOnMusicSmall.style.zIndex = '-1'
-		buttonOffMusicSmall.style.opacity = '1'
-		buttonOffMusicSmall.style.zIndex = '1'
-		document.body.classList.remove('unscroll')
-	});
-
-	buttonOnMusic.addEventListener('click', () => {
-		video.muted = false;
-		// console.log('Звук включен');
-		popupSound.classList.add('active')
-		smallIcon.classList.add('active')
-		buttonOffMusicSmall.style.opacity = '0'
-		buttonOffMusicSmall.style.zIndex = '-1'
-		buttonOnMusicSmall.style.opacity = '1'
-		buttonOnMusicSmall.style.zIndex = '1'
-		document.body.classList.remove('unscroll')
-	});
-	buttonOnMusicSmall.addEventListener('click', () => {
-		video.muted = true;
-		// console.log('Звук выключенннннннн');
-		buttonOffMusicSmall.style.opacity = '1'
-		buttonOffMusicSmall.style.zIndex = '1'
-		buttonOnMusicSmall.style.opacity = '0'
-		buttonOnMusicSmall.style.zIndex = '-1'
-	});
-
-	buttonOffMusicSmall.addEventListener('click', () => {
-		video.muted = false;
-		// console.log('Звук включеннннннн');
-		buttonOnMusicSmall.style.opacity = '1'
-		buttonOnMusicSmall.style.zIndex = '1'
-		buttonOffMusicSmall.style.opacity = '0'
-		buttonOffMusicSmall.style.zIndex = '-1'
-		
-	});
-
 
 	function errorMint() {
 		let blockError = document.querySelector('.error-message')

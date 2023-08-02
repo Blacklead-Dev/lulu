@@ -36,7 +36,7 @@ body
 	width: gem(30)
 	height: gem(30)
 	position: fixed
-	z-index: 5
+	z-index: 7
 	top: 0
 	left: 0
 	pointer-events: none
@@ -98,6 +98,12 @@ button
 
 body
 	background: #010101
+.svg
+	position: absolute
+	width: 0
+	height: 0
+.low-battery-popup
+	display: none
 .preloader
 	background: #131313
 	width: 100%
@@ -114,15 +120,18 @@ body
 		position: relative
 		z-index: 1
 	&-curtain
-		width: 200%
-		height: 50%
+		width: 100%
+		height: 100%
 		position: absolute
-		bottom: -50%
+		bottom: 0
+		transform: translateY(100%)
 		z-index: 2
-		border-radius: 50% 50% 0% 0% 
 		background: #010101
-		&.close
-			animation: 1s openCurtain forwards
+		-webkit-clip-path: url(#my-clip-path-curtain)
+		clip-path: url(#my-clip-path-curtain)
+		// path
+			// width: 100%
+			// height: 100%
 @keyframes openCurtain 
 	0%
 		height: 50%
@@ -295,6 +304,11 @@ main
 		letter-spacing: gem(3)
 		margin-left: gem(219)
 .timer-section
+	.timer-wrapper
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
 	h2
 		font-family: 'chakra-regular'
 		color: #ffff
@@ -406,7 +420,18 @@ video
 .split-line
 	&.parent
 		overflow: hidden
+.under-timer
+	width: gem(400)
+	bottom: gem(-70)
+	position: absolute
 @media all and (max-width: 515px)
+	.under-timer
+		display: flex
+		width: gem(200)
+		height: gem(200)
+		bottom: gem(130)
+		visibility: visible
+		flex-shrink: 0
 	h2
 		font-size: gem(42)
 		line-height: gem(42)
@@ -432,8 +457,8 @@ video
 			width: gem(340)
 	.portal-section
 		video
-			width: gem(530)
-			margin-left: gem(140)
+			width: gem(390)
+			margin-left: 0
 		h2
 			margin-top: 0
 			margin-bottom: gem(22)
@@ -443,10 +468,10 @@ video
 			letter-spacing: gem(1)
 	.souls-section
 		video
-			width: gem(620)
+			width: gem(460)
 			margin-left: gem(30)
-			margin-top: gem(-60)
-			margin-bottom: gem(-26)
+			margin-top: gem(-80)
+			margin-bottom: gem(-16)
 		h2
 			margin-top: 0
 			margin-bottom: gem(22)
@@ -477,8 +502,8 @@ video
 		video
 			position: relative
 			left: unset
-			width: gem(559)
-			// margin-top: gem(-130)
+			width: gem(360)
+			margin: 0 0 gem(94) gem(-17)
 		&-right
 			width: 100%
 			margin-left: 0
@@ -532,12 +557,15 @@ video
 			line-height: gem(18)
 			letter-spacing: 1px
 			margin-left: gem(21)
+	.fnik-section
+		video
+			width: gem(430)
+			margin-left: gem(-15)
 	.mint-section
 		video
-			width: gem(750)
+			width: gem(510)
 			align-self: center
-			margin-left: gem(10)
-			// margin-top: gem(-100)
+			margin: gem(-60) gem(10) gem(50) gem(4)
 		h2
 			margin-top: gem(-90)
 			margin-bottom: gem(15)
@@ -545,10 +573,10 @@ video
 			font-size: gem(10)
 	.incubation-section
 		video
-			width: gem(540)
+			width: gem(370)
 			align-self: center
-			margin-left: 0
-			margin-bottom: gem(-20)
+			margin-left: gem(14)
+			margin-bottom: gem(20)
 		h2
 			width: gem(353)
 			margin-bottom: gem(10)
@@ -565,6 +593,7 @@ video
 		.timer 
 			.split-line.parent
 				overflow: visible
+	
 
 	.progress
 		display: none
@@ -622,3 +651,13 @@ video
 					width: gem(52)
 				&:last-child
 					width: gem(34)
+
+
+
+
+//canvas
+.canvas
+	width: 100vw
+	height: 100vh
+	position: fixed
+	top: 0
