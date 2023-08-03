@@ -114,17 +114,17 @@ function mint() {
 				})
 				fnicLoading.play()
 			});
+			// fnicLoading.addEventListener('ended', function() {
+			// 	gsap.to(fnicLoading,{
+			// 		display: 'none'
+			// 	})
+			// 	gsap.to(fnicAuthorised, {
+			// 		display: 'flex'
+			// 	})
+			// 	fnicAuthorised.play()
+			// })
 			fnicLoading.addEventListener('ended', function() {
-				gsap.to(fnicLoading,{
-					display: 'none'
-				})
-				gsap.to(fnicAuthorised, {
-					display: 'flex'
-				})
-				fnicAuthorised.play()
-			})
-			fnicAuthorised.addEventListener('ended', function() {
-				gsap.to(fnicAuthorised, {
+				gsap.to(fnicLoading, {
 					display: 'none'
 				})
 				gsap.to(selfDestruct, {
