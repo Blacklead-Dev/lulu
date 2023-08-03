@@ -114,16 +114,11 @@ function mint() {
 				})
 				fnicLoading.play()
 			});
-			// fnicLoading.addEventListener('ended', function() {
-			// 	gsap.to(fnicLoading,{
-			// 		display: 'none'
-			// 	})
-			// 	gsap.to(fnicAuthorised, {
-			// 		display: 'flex'
-			// 	})
-			// 	fnicAuthorised.play()
-			// })
-			fnicLoading.addEventListener('ended', function() {
+
+
+			//here we get response from web3.0
+			fnicLoading.addEventListener('click', function() {
+				fnicLoading.pause()
 				gsap.to(fnicLoading, {
 					display: 'none'
 				})
@@ -141,24 +136,6 @@ function mint() {
 				})
 				seeYou.play()
 			})
-			// staticNoise.addEventListener('ended', function() {
-			// 	gsap.set(staticNoise, {
-			// 		display: 'none'
-			// 	})
-			// 	gsap.set(burnSuccess, {
-			// 		display: 'flex',
-			// 	})
-			// 	burnSuccess.play()
-			// })
-			// fnicAuthorised.addEventListener('ended', function() {
-			// 	gsap.to(fnicAuthorised, {
-			// 		display: 'none'
-			// 	})
-			// 	gsap.to(seeYou, {
-			// 		display: 'flex'
-			// 	})
-			// 	seeYou.play()
-			// })
 		}
 
 	}

@@ -1,7 +1,6 @@
 function sound() {
 
-	let isPlayd = true
-	let currentSound
+	let isPlayd = false
 
 	function soundCheckHandler() {
 		let popupSound = document.querySelector('.popup-sound')
@@ -11,9 +10,24 @@ function sound() {
 		let buttonOffMusicSmall = document.querySelector('.offMusicSmall')
 		let smallIcon = document.querySelector('.hide-icon')
 		let logoFixed = document.querySelector('.footer-logo-always')
+		let allVideosWithSound = document.querySelectorAll('.error-message video, .new-mint video')
+
+		function muteVideos () {
+			allVideosWithSound.forEach(video => {
+				video.muted = true
+			})
+		}
+
+		function unMuteVideos() {
+			allVideosWithSound.forEach(video => {
+				video.muted = false
+			})
+		}
 	
 		if(window.innerWidth < 515) {
 			buttonOnMusic.addEventListener('click', () => {
+				unMuteVideos()
+				mintAmbientSoundUnMute()
 				isPlayd = true
 				popupSound.classList.add('active')
 				smallIcon.classList.add('active')
@@ -22,10 +36,13 @@ function sound() {
 				buttonOnMusicSmall.style.opacity = '1'
 				buttonOnMusicSmall.style.zIndex = '1'
 				logoFixed.classList.add('active')
+
 			});
 		}
 	
 		buttonOffMusic.addEventListener('click', () => {
+			muteVideos()
+			mintAmbientSoundMute()
 			isPlayd = false
 			popupSound.classList.add('active')
 			smallIcon.classList.add('active')
@@ -38,6 +55,8 @@ function sound() {
 		});
 	
 		buttonOnMusic.addEventListener('click', () => {
+			unMuteVideos()
+			mintAmbientSoundUnMute()
 			isPlayd = true
 			popupSound.classList.add('active')
 			smallIcon.classList.add('active')
@@ -49,6 +68,8 @@ function sound() {
 			logoFixed.classList.add('active')
 		});
 		buttonOnMusicSmall.addEventListener('click', () => {
+			muteVideos()
+			mintAmbientSoundMute()
 			isPlayd = false
 			buttonOffMusicSmall.style.opacity = '1'
 			buttonOffMusicSmall.style.zIndex = '1'
@@ -58,6 +79,8 @@ function sound() {
 		});
 	
 		buttonOffMusicSmall.addEventListener('click', () => {
+			unMuteVideos()
+			mintAmbientSoundUnMute()
 			isPlayd = true
 			buttonOnMusicSmall.style.opacity = '1'
 			buttonOnMusicSmall.style.zIndex = '1'
@@ -84,22 +107,27 @@ function sound() {
 	
 	clickSoundHandler()
 
-	function minSoundHandler() {
-		let mintCallButton = document.querySelector('header .mint-call')
-		let typingSoundAudio = new Audio('../assets/audio/pixelate.wav')
-		typingSoundAudio.currentTime = 0
-		// typingSoundAudio.volume = 0
-		mintCallButton.addEventListener('click', () => {
-			currentSound = typingSoundAudio
-			typingSoundAudio.play()
-			
+	let ambientSound = new Audio('../assets/audio/ambient-start.wav')
+	ambientSound.currentTime = 0
+	ambientSound.loop = true
 
+	function mintAmbientSoundHandler() {
+		let mintCallButton = document.querySelector('header .mint-call')	
+		mintCallButton.addEventListener('click', () => {
+			ambientSound.play()
 			if (!isPlayd) return
-			// currentSound.volume = 1.0
 		})
 	}
 
-	minSoundHandler()
+	mintAmbientSoundHandler()
+
+	function mintAmbientSoundMute() {
+		ambientSound.volume = 0
+	}
+
+	function mintAmbientSoundUnMute() {
+		ambientSound.volume = 1
+	}
 
 }
 
