@@ -69,21 +69,25 @@ function mint() {
 			gsap.set(pixelate,{
 				display: 'none'
 			})
-			gsap.to(burnCard,{
-				visibility: 'visible',
-			})
-			burnCard.play()
-		})
-
-		burnCard.addEventListener('ended', function() {
-			gsap.set(burnCard,{
-				display: 'none'
-			})
 			gsap.to(burnCardLooped,{
 				visibility: 'visible',
 			})
 			burnCardLooped.play()
+			// gsap.to(burnCard,{
+			// 	visibility: 'visible',
+			// })
+			// burnCard.play()
 		})
+
+		// burnCard.addEventListener('ended', function() {
+		// 	gsap.set(burnCard,{
+		// 		display: 'none'
+		// 	})
+		// 	gsap.to(burnCardLooped,{
+		// 		visibility: 'visible',
+		// 	})
+		// 	burnCardLooped.play()
+		// })
 
 		burnCardLooped.addEventListener('click', (e) => {
 			e.preventDefault()
@@ -117,7 +121,7 @@ function mint() {
 
 
 			//here we get response from web3.0
-			fnicLoading.addEventListener('click', function() {
+			fnicLoading.addEventListener('ended', function() {
 				fnicLoading.pause()
 				gsap.to(fnicLoading, {
 					display: 'none'
