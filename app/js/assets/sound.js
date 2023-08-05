@@ -10,7 +10,7 @@ function sound() {
 		let buttonOffMusicSmall = document.querySelector('.offMusicSmall')
 		let smallIcon = document.querySelector('.hide-icon')
 		let logoFixed = document.querySelector('.footer-logo-always')
-		let allVideosWithSound = document.querySelectorAll('.error-message video, .new-mint video')
+		let allVideosWithSound = document.querySelectorAll('.error-message .video-with-sound, .new-mint .video-with-sound')
 
 		function muteVideos () {
 			allVideosWithSound.forEach(video => {
@@ -115,7 +115,7 @@ function sound() {
 		let mintCallButton = document.querySelector('header .mint-call')	
 		mintCallButton.addEventListener('click', () => {
 			ambientSound.play()
-			if (!isPlayd) return
+			if (!isPlayd) mintAmbientSoundMute()
 		})
 	}
 

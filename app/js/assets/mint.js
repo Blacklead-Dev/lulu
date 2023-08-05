@@ -49,14 +49,10 @@ function mint() {
 	function simpleMintVersion() {	
 		let newMint = document.querySelector('.new-mint')
 		let pixelate = document.querySelector('.pixelate')
-		let burnCard = document.querySelector('.burn-card')
 		let burnCardLooped = document.querySelector('.burn-card-looped')
 		let cardInsert = newMint.querySelector('.card-insert')
 		let fnicLoading = newMint.querySelector('.fnic-loading')
-		let fnicAuthorised = newMint.querySelector('.fnic-authorised')
 		let selfDestruct = newMint.querySelector('.self-destruct')
-		let staticNoise = newMint.querySelector('.static-noise')
-		let burnSuccess = newMint.querySelector('.burn-success')
 		let seeYou = newMint.querySelector('.see-you')
 		
 		newMint.classList.add('active')
@@ -73,30 +69,9 @@ function mint() {
 				visibility: 'visible',
 			})
 			burnCardLooped.play()
-			// gsap.to(burnCard,{
-			// 	visibility: 'visible',
-			// })
-			// burnCard.play()
 		})
 
-		// burnCard.addEventListener('ended', function() {
-		// 	gsap.set(burnCard,{
-		// 		display: 'none'
-		// 	})
-		// 	gsap.to(burnCardLooped,{
-		// 		visibility: 'visible',
-		// 	})
-		// 	burnCardLooped.play()
-		// })
-
-		burnCardLooped.addEventListener('click', (e) => {
-			e.preventDefault()
-
-			//were waiting for accept from client and getting response
-			setTimeout(() => {
-				startCardInserd()
-			}, 0);
-		})
+		burnCardLooped.addEventListener('click',startCardInserd)
 
 		function startCardInserd() {
 			burnCardLooped.pause()
@@ -104,7 +79,7 @@ function mint() {
 				display: 'none'
 			})
 			gsap.set(cardInsert,{
-				delay: .2,
+				delay: 0.5,
 				display: 'flex'
 			})
 			cardInsert.play()
@@ -121,7 +96,7 @@ function mint() {
 
 
 			//here we get response from web3.0
-			fnicLoading.addEventListener('ended', function() {
+			fnicLoading.addEventListener('click', function() {
 				fnicLoading.pause()
 				gsap.to(fnicLoading, {
 					display: 'none'
