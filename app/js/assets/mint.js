@@ -78,7 +78,6 @@ function mint() {
 			// })
 			// burnCard.play()
 		})
-
 		// burnCard.addEventListener('ended', function() {
 		// 	gsap.set(burnCard,{
 		// 		display: 'none'
