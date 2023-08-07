@@ -103,8 +103,7 @@ function mint() {
 				display: 'none'
 			})
 			gsap.set(cardInsert,{
-				delay: .2,
-				display: 'flex'
+				visibility: 'visible',
 			})
 			cardInsert.play()
 
@@ -113,7 +112,7 @@ function mint() {
 					display: 'none'
 				})
 				gsap.set(fnicLoading,{
-					display: 'flex'
+					visibility: 'visible',
 				})
 				fnicLoading.play()
 			});
@@ -126,7 +125,7 @@ function mint() {
 					display: 'none'
 				})
 				gsap.to(selfDestruct, {
-					display: 'flex'
+					visibility: 'visible',
 				})
 				selfDestruct.play()
 			})
@@ -135,7 +134,7 @@ function mint() {
 					display: 'none'
 				})
 				gsap.set(seeYou, {
-					display: 'flex',
+					visibility: 'visible',
 				})
 				seeYou.play()
 			})
