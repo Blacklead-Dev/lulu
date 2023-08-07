@@ -10,7 +10,7 @@ function sound() {
 		let buttonOffMusicSmall = document.querySelector('.offMusicSmall')
 		let smallIcon = document.querySelector('.hide-icon')
 		let logoFixed = document.querySelector('.footer-logo-always')
-		let allVideosWithSound = document.querySelectorAll('.error-message .video-with-sound, .new-mint .video-with-sound')
+		let allVideosWithSound = document.querySelectorAll('.error-video .video-with-sound, .new-mint .video-with-sound')
 
 		function muteVideos () {
 			allVideosWithSound.forEach(video => {

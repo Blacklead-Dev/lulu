@@ -21,6 +21,8 @@ window.addEventListener('load', () => {
 		adaptiveVideos()
 		teamPage()
 		customCursor()
+		mint()
+		sound()
 	}
 
 	const lenis = new Lenis({
