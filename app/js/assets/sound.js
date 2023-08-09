@@ -1,6 +1,6 @@
 function sound() {
 
-	let isPlayd = false
+	let isPlayd = true
 
 	function soundCheckHandler() {
 		let popupSound = document.querySelector('.popup-sound')
