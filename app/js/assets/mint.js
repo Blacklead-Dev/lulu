@@ -1,5 +1,5 @@
 import gsap from 'gsap'
-
+import { ambientSound, endLoopSound } from './sound'
 function mint() {
 
 	let price = 0.2
@@ -133,6 +133,14 @@ function mint() {
 				gsap.to(selfDestruct, {
 					display: 'none'
 				})
+				let audioDown = setInterval(() => {
+					ambientSound.volume -= 0.1
+					if(ambientSound.volume <= 0.1) {
+						ambientSound.pause()
+						clearInterval(audioDown)
+					}
+				}, 150)
+				endLoopSound.play()
 				gsap.set(seeYou, {
 					visibility: 'visible',
 				})

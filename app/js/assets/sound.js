@@ -1,3 +1,13 @@
+let ambientSound = new Audio('../assets/audio/ambient-start.wav')
+	ambientSound.load
+	ambientSound.currentTime = 0
+	ambientSound.loop = true
+let endLoopSound = new Audio('../assets/audio/end-loop.mp3')
+	endLoopSound.load
+	endLoopSound.currentTime = 0
+	endLoopSound.loop = true
+
+
 function sound() {
 
 	let isPlayd = true
@@ -107,10 +117,7 @@ function sound() {
 	
 	clickSoundHandler()
 
-	let ambientSound = new Audio('../assets/audio/ambient-start.wav')
-	ambientSound.load
-	ambientSound.currentTime = 0
-	ambientSound.loop = true
+	
 
 	function mintAmbientSoundHandler() {
 		let mintCallButton = document.querySelector('header .mint-call')	
@@ -123,13 +130,15 @@ function sound() {
 	mintAmbientSoundHandler()
 
 	function mintAmbientSoundMute() {
+		endLoopSound.volume = 0
 		ambientSound.volume = 0
 	}
 
 	function mintAmbientSoundUnMute() {
+		endLoopSound.volume = 1
 		ambientSound.volume = 1
 	}
 
 }
 
-export {sound}
+export {sound, ambientSound, endLoopSound}
