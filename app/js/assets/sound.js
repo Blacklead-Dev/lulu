@@ -1,4 +1,4 @@
-let ambientSound = new Audio('../assets/audio/ambient-start-1.wav')
+let ambientSound = new Audio('../assets/audio/ambient-start.wav')
 	ambientSound.load
 	ambientSound.currentTime = 0
 	ambientSound.loop = true
