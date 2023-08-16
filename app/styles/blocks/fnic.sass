@@ -76,7 +76,19 @@
                 font-size: gem(50)
                 line-height: gem(60)
                 letter-spacing: gem(4)
-
+    &-burn-card-button
+        display: block
+        width: gem(425)
+        height: gem(105)
+        pointer-events: none
+        
+        position: relative
+        z-index: 2
+        transform: translate(gem(-7), gem(-5))
+        &.active
+            // background: red
+            // opacity: .5
+            pointer-events: unset
 @media all and (max-width: 515px)
     .new-mint 
         .odlabs-section
@@ -102,7 +114,10 @@
             .flash 
                 height: unset
 
-
+        &-burn-card-button
+            width: gem(220)
+            height: gem(50)
+            transform: unset
 
     
     

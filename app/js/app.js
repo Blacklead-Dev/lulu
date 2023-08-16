@@ -13,16 +13,16 @@ window.addEventListener('load', () => {
 	if(main.classList.contains('hero')) {
 		adaptiveVideos()
 		mainPage()
+		sound()
 		mint()
 		customCursor()
-		sound()
 	} 
 	if(main.classList.contains('team')) {
 		adaptiveVideos()
 		teamPage()
 		customCursor()
-		mint()
 		sound()
+		mint()
 	}
 
 	const lenis = new Lenis({
