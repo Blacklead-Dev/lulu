@@ -32,8 +32,8 @@ function mint() {
 						popupSound.classList.add('totop')
 					}
 					if(holder) {
-						simpleMintVersion()
-						// holderMint()
+						// simpleMintVersion()
+						holderMint()
 						// errorMint()
 					} else {
 						// publicMint()
@@ -202,53 +202,69 @@ function mint() {
 			useFnicCardButton.classList.add('active')
 
 			//were waiting for accept from client and getting response
-			setTimeout(() => {
-				useFnicCard()
-			}, 2000);
+			// setTimeout(() => {
+			// 	useFnicCard()
+			// }, 2000);
+			useFnicCard();
 		})
 
 		function useFnicCard() {
-			gsap.set(lulusha,{
-				display: 'none'
-			})
-			gsap.set(cardInsert,{
-				display: 'flex'
-			})
-			cardInsert.play()
-
-			cardInsert.addEventListener('ended', function() {
-				gsap.set(cardInsert,{
-					display: 'none'
-				})
-				gsap.set(fnicLoading,{
-					display: 'flex'
-				})
-				fnicLoading.play()
-			});
-			fnicLoading.addEventListener('ended', function() {
-				gsap.set(fnicLoading, {
-					display: 'none'
-				})
-				gsap.to(fnicAuthorised, {
-					display: 'flex'
-				})
-				fnicAuthorised.play()
-				gsap.to(holdersContentRight, .5, {
-					display: 'flex',
-					y: 0,
-					opacity: 1,
-					delay: .7
-				})
-				if(window.innerWidth < 515){
-					gsap.to(holdersContentLeft, .3, {
-						display: 'none',
-						y: '1rem',
-						opacity: 0,
-						zIndex: -1
-					})
-				}
-			})
+			// gsap.set(lulusha,{
+			// 	display: 'none'
+			// })
+			// gsap.set(cardInsert,{
+			// 	display: 'flex'
+			// })
+			// cardInsert.play()
+			//
+			// cardInsert.addEventListener('ended', function() {
+			// 	gsap.set(cardInsert,{
+			// 		display: 'none'
+			// 	})
+			// 	gsap.set(fnicLoading,{
+			// 		display: 'flex'
+			// 	})
+			// 	fnicLoading.play()
+			// });
+			// fnicLoading.addEventListener('ended', function() {
+			// 	gsap.set(fnicLoading, {
+			// 		display: 'none'
+			// 	})
+			// 	gsap.to(fnicAuthorised, {
+			// 		display: 'flex'
+			// 	})
+			// 	fnicAuthorised.play()
+			// 	gsap.to(holdersContentRight, .5, {
+			// 		display: 'flex',
+			// 		y: 0,
+			// 		opacity: 1,
+			// 		delay: .7
+			// 	})
+			// 	if(window.innerWidth < 515){
+			// 		gsap.to(holdersContentLeft, .3, {
+			// 			display: 'none',
+			// 			y: '1rem',
+			// 			opacity: 0,
+			// 			zIndex: -1
+			// 		})
+			// 	}
+			// })
 			console.log('use fnic')
+
+			gsap.to(holdersContentRight, .5, {
+				display: 'flex',
+				y: 0,
+				opacity: 1,
+				delay: .7
+			})
+			if(window.innerWidth < 515){
+				gsap.to(holdersContentLeft, .3, {
+					display: 'none',
+					y: '1rem',
+					opacity: 0,
+					zIndex: -1
+				})
+			}
 		}
 
 		let burnAndMintButton = holdersMintBlock.querySelector('.burn-button')
@@ -263,38 +279,39 @@ function mint() {
 		})
 
 		function burnAndMint() {
-			gsap.set(fnicAuthorised, {
-				display: 'none'
-			})
-			gsap.set(fnicSection, {
-				display: 'none'
-			})
+			// gsap.set(fnicAuthorised, {
+			// 	display: 'none'
+			// })
+			// @TODO: determine what it the goal of fnicSection
+			// gsap.set(fnicSection, {
+			// 	display: 'none'
+			// })
 			gsap.to(afterSuccessful, 3, {
 				display: 'flex'
 			})
-			gsap.set(selfDestruct, {
-				display: 'flex',
-			})
-			selfDestruct.play()
-			if(window.innerWidth < 515){
-				gsap.to(selfDestruct, .5, {
-					y: '1rem'
-				})
-			}
-			selfDestruct.addEventListener('ended', function() {
-				gsap.set(selfDestruct, {
-					display: 'none'
-				})
-				gsap.set(staticNoise, {
-					display: 'flex',
-				})
-				staticNoise.play()
-				if(window.innerWidth < 515){
-					gsap.to(staticNoise, 0, {
-						y: '1rem'
-					})
-				}
-			})
+			// gsap.set(selfDestruct, {
+			// 	display: 'flex',
+			// })
+			// selfDestruct.play()
+			// if(window.innerWidth < 515){ // @TODO: move mobile breakpoint value to a constant or the entire check to a function
+			// 	gsap.to(selfDestruct, .5, {
+			// 		y: '1rem'
+			// 	})
+			// }
+			// selfDestruct.addEventListener('ended', function() {
+			// 	gsap.set(selfDestruct, {
+			// 		display: 'none'
+			// 	})
+			// 	gsap.set(staticNoise, {
+			// 		display: 'flex',
+			// 	})
+			// 	staticNoise.play()
+			// 	if(window.innerWidth < 515){
+			// 		gsap.to(staticNoise, 0, {
+			// 			y: '1rem'
+			// 		})
+			// 	}
+			// })
 
 			////////wait answer //////
 			// setTimeout(() => {
@@ -310,10 +327,10 @@ function mint() {
 			// 		scale: 1
 			// 	})
 			// }, 2000);
-			staticNoise.addEventListener('ended', function() {
-				gsap.set(staticNoise, {
-					display: 'none'
-				})
+			// staticNoise.addEventListener('ended', function() {
+			// 	gsap.set(staticNoise, {
+			// 		display: 'none'
+			// 	})
 				gsap.set(flash, {
 					display: 'flex',
 				})
@@ -330,7 +347,7 @@ function mint() {
 				})
 				scanLulu.play()
 				lulushaAfter.play()
-			})
+			// })
 			scanLulu.addEventListener('ended', function() {
 				gsap.set(scanLulu, {
 					display: 'none',
