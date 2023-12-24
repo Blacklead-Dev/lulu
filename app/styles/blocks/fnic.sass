@@ -182,38 +182,44 @@
             a 
                 display: flex
                 align-items: center
-                svg 
+                position: relative
+                svg
                     width: gem(54)
                     height: gem(54)
                     margin-right: gem(20)
+                    margin-top: gem(27)
+                    transform: translateY(- gem(27))
                     // path 
                     //     fill: #B9EC3D
-                span 
-                    display: block
-                    position: relative
+                .animation-fnic-text
+                    margin-top: gem(27)
+                    transform: translateY(- gem(4))
+                    display: inline-flex
+                    flex-direction: column
+                    justify-content: center
+                    text-align: center
+                    .now-active
+                        display: none
+                span
                     color: #ffffff
-                    font-family: "rajdhani-bold"
+                    font-family: "rajdhani-medium"
                     font-size: gem(28)
                     transition: all .3s ease
-                    line-height: gem(32)
+                    line-height: gem(40)
                     text-transform: uppercase
-                    &::after
-                        content: ''
-                        display: block
-                        position: absolute
-                        transition: all .3s ease
-                        transform: translateY(gem(2))
-                        width: 100%
-                        height: gem(2)
-                        background: #ffffff
+                .divider
+                    transition: all .3s ease
+                    width: 100%
+                    height: gem(2)
+                    background: #ffffff
                 &:hover
                     svg 
                         path
                             animation: colors 1s linear infinite
                     span 
                         color: #02B3FF
-                        &::after
-                            background: #02B3FF
+                    .divider
+                        background: #02B3FF
                 &.active 
                     pointer-events: none
         &-right

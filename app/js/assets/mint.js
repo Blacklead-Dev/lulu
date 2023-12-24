@@ -180,6 +180,20 @@ function mint() {
 		let scanLulu = afterSuccessful.querySelector('.scan-lulu')
 		let successfulText = afterSuccessful.querySelector('.successful-text')
 		let afterSuccessfulContent = afterSuccessful.querySelector('.content')
+		let foundersMintOfflineText = holdersMintBlock.querySelector('.animation-fnic-text .offline');
+		let foundersMintNowActiveText = holdersMintBlock.querySelector('.animation-fnic-text .now-active');
+
+		let foundersMintActive = false;
+		if (foundersMintActive) {
+			gsap.to(foundersMintOfflineText, {
+				display: 'none',
+				duration: 0,
+			});
+			gsap.to(foundersMintNowActiveText, {
+				display: 'inline',
+				duration: 0,
+			});
+		}
 
 		holdersMintBlock.classList.add('active')
 
