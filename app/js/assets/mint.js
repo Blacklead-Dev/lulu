@@ -182,6 +182,7 @@ function mint() {
 		let afterSuccessfulContent = afterSuccessful.querySelector('.content')
 		let foundersMintOfflineText = holdersMintBlock.querySelector('.animation-fnic-text .offline');
 		let foundersMintNowActiveText = holdersMintBlock.querySelector('.animation-fnic-text .now-active');
+		let useFnicCardButton = holdersMintBlock.querySelector('.animation-fnic')
 
 		let foundersMintActive = false;
 		if (foundersMintActive) {
@@ -193,6 +194,17 @@ function mint() {
 				display: 'inline',
 				duration: 0,
 			});
+
+			useFnicCardButton.addEventListener('click', (e) => {
+				e.preventDefault()
+				useFnicCardButton.classList.add('active')
+
+				//were waiting for accept from client and getting response
+				// setTimeout(() => {
+				// 	useFnicCard()
+				// }, 2000);
+				useFnicCard();
+			})
 		}
 
 		holdersMintBlock.classList.add('active')
@@ -207,20 +219,6 @@ function mint() {
 				zIndex: 2
 			})
 		}
-
-
-		let useFnicCardButton = holdersMintBlock.querySelector('.animation-fnic')
-
-		useFnicCardButton.addEventListener('click', (e) => {
-			e.preventDefault()
-			useFnicCardButton.classList.add('active')
-
-			//were waiting for accept from client and getting response
-			// setTimeout(() => {
-			// 	useFnicCard()
-			// }, 2000);
-			useFnicCard();
-		})
 
 		function useFnicCard() {
 			// gsap.set(lulusha,{
@@ -269,7 +267,7 @@ function mint() {
 				display: 'flex',
 				y: 0,
 				opacity: 1,
-				delay: .7
+				// delay: .7
 			})
 			if(window.innerWidth < 515){
 				gsap.to(holdersContentLeft, .3, {
