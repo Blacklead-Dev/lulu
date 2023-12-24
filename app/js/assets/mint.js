@@ -181,16 +181,16 @@ function mint() {
 		let successfulText = afterSuccessful.querySelector('.successful-text')
 		let afterSuccessfulContent = afterSuccessful.querySelector('.content')
 		let foundersMintOfflineText = holdersMintBlock.querySelector('.animation-fnic-text .offline');
-		let foundersMintNowActiveText = holdersMintBlock.querySelector('.animation-fnic-text .now-active');
+		let foundersMintNowLiveText = holdersMintBlock.querySelector('.animation-fnic-text .now-live');
 		let useFnicCardButton = holdersMintBlock.querySelector('.animation-fnic')
 
-		let foundersMintActive = false;
+		let foundersMintActive = true;
 		if (foundersMintActive) {
 			gsap.to(foundersMintOfflineText, {
 				display: 'none',
 				duration: 0,
 			});
-			gsap.to(foundersMintNowActiveText, {
+			gsap.to(foundersMintNowLiveText, {
 				display: 'inline',
 				duration: 0,
 			});
