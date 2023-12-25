@@ -32,8 +32,22 @@ function mint() {
 						popupSound.classList.add('totop')
 					}
 					if(holder) {
-						// simpleMintVersion()
-						holderMint()
+						let enrolmentDateKey = 'odlabs/lulu/enrolment-date';
+						let enrolmentDate = localStorage.getItem(enrolmentDateKey);
+
+						if (!enrolmentDate) {
+							simpleMintVersion({
+								onComplete: function() {
+									console.log('simple mint completed');
+
+									localStorage.setItem(enrolmentDateKey, new Date().toISOString());
+									// holderMint();
+								}
+							})
+						} else {
+							holderMint();
+						}
+						// holderMint()
 						// errorMint()
 					} else {
 						// publicMint()
@@ -46,7 +60,7 @@ function mint() {
 	main()
 
 	
-	function simpleMintVersion() {	
+	function simpleMintVersion(params) {
 		let newMint = document.querySelector('.new-mint')
 		let pixelate = document.querySelector('.pixelate')
 		let burnCard = document.querySelector('.burn-card')
@@ -63,7 +77,6 @@ function mint() {
 		setTimeout(() => {
 			pixelate.play()
 		}, 600);
-		
 
 		pixelate.addEventListener('ended', function() {
 			gsap.set(pixelate,{
@@ -140,6 +153,10 @@ function mint() {
 					display: 'flex',
 				})
 				seeYou.play()
+
+				if (typeof params.onComplete === 'function') {
+					params.onComplete();
+				}
 			})
 			// staticNoise.addEventListener('ended', function() {
 			// 	gsap.set(staticNoise, {
@@ -183,6 +200,7 @@ function mint() {
 		let foundersMintOfflineText = holdersMintBlock.querySelector('.animation-fnic-text .offline');
 		let foundersMintNowLiveText = holdersMintBlock.querySelector('.animation-fnic-text .now-live');
 		let useFnicCardButton = holdersMintBlock.querySelector('.animation-fnic')
+		let burnAndMintButton = holdersMintBlock.querySelector('.burn-button')
 
 		let foundersMintActive = true;
 		if (foundersMintActive) {
@@ -279,7 +297,6 @@ function mint() {
 			}
 		}
 
-		let burnAndMintButton = holdersMintBlock.querySelector('.burn-button')
 		burnAndMintButton.addEventListener('click', (e) => {
 			e.preventDefault()
 			burnAndMintButton.classList.add('active')
@@ -445,11 +462,18 @@ function mint() {
 				}
 			};
 			addButton.addEventListener('click', () => {
+				function createNewMintInput() {
+					const input = document.createElement('input');
+					input.type = 'text';
+					input.placeholder = 'enter your wallet address';
+
+					return input
+				}
+
 				if (number < 5) {
-					const newInput = document.createElement('input');
-					newInput.type = 'text';
-					newInput.placeholder = 'enter your wallet address';
-					fromInput.appendChild(newInput);
+					fromInput.appendChild(createNewMintInput());
+					fromInput.appendChild(createNewMintInput());
+
 					number++;
 					numberElement.textContent = number;
 					total.innerHTML = (price * number).toFixed(1);
@@ -457,14 +481,30 @@ function mint() {
 				}
 			});
 			minusButton.addEventListener('click', () => {
-				const lastInput = fromInput.lastElementChild;
-				if (lastInput) {
+				function removeMintInput() {
+					const lastInput = fromInput.lastElementChild;
+					if (!lastInput) {
+						return false;
+					}
+
 					fromInput.removeChild(lastInput);
-					number--;
-					numberElement.textContent = number;
-					total.innerHTML = (price * number).toFixed(1);
-					updateMinusButtonState();
+
+					return true;
 				}
+
+				let removeResults = [];
+
+				removeResults.push(removeMintInput());
+				removeResults.push(removeMintInput());
+
+				if (!removeResults.some(Boolean)) {
+					return;
+				}
+
+				number--;
+				numberElement.textContent = number;
+				total.innerHTML = (price * number).toFixed(1);
+				updateMinusButtonState();
 			});
 		}
 
