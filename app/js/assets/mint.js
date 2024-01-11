@@ -1,4 +1,7 @@
 import gsap from 'gsap'
+import { runTypingSound } from "./sound"
+import { sounds } from './sounds';
+import { playSound } from "./soundUtils";
 
 function mint() {
 
@@ -45,7 +48,9 @@ function mint() {
 								}
 							})
 						} else {
-							holderMint();
+							holderMint({
+								foundersMintActive: false,
+							});
 						}
 						// holderMint()
 						// errorMint()
@@ -72,10 +77,16 @@ function mint() {
 		let staticNoise = newMint.querySelector('.static-noise')
 		let burnSuccess = newMint.querySelector('.burn-success')
 		let seeYou = newMint.querySelector('.see-you')
+
+		playSound(sounds.foundersMintOnboarding.primaryBackground, {
+			loop: true,
+			fade: { inPercent: 25 },
+		});
 		
 		newMint.classList.add('active')
 		setTimeout(() => {
 			pixelate.play()
+			runTypingSound()
 		}, 600);
 
 		pixelate.addEventListener('ended', function() {
@@ -107,12 +118,35 @@ function mint() {
 			}, 0);
 		})
 
+		/**
+		 * Animation timeframe
+		 * - finc autorized animations - two times
+		 * - self destruct - three fires
+		 * - static noise - one time
+		 * - burn successful - one time
+		 * - see you on mint date - one time
+		 */
 		function startCardInserd() {
 			burnCardLooped.pause()
+
+			sounds.foundersMintOnboarding.primaryBackground.fade(1, 0, 1000);
+			setTimeout(() => {
+				sounds.foundersMintOnboarding.primaryBackground.stop();
+			}, 1000);
+
+			playSound(sounds.foundersMintOnboarding.finalBackground, {
+				loop: true,
+				volume: 0.5,
+				fade: {
+					inPercent: 25,
+					outPercent: 25,
+				}
+			});
+
 			gsap.to(burnCardLooped, {
 				display: 'none'
 			})
-			gsap.set(cardInsert,{
+			gsap.set(cardInsert, {
 				delay: .2,
 				display: 'flex'
 			})
@@ -125,8 +159,9 @@ function mint() {
 				gsap.set(fnicLoading,{
 					display: 'flex'
 				})
+
 				fnicLoading.play()
-			});
+			})
 			fnicLoading.addEventListener('ended', function() {
 				gsap.to(fnicLoading,{
 					display: 'none'
@@ -135,38 +170,70 @@ function mint() {
 					display: 'flex'
 				})
 				fnicAuthorised.play()
+				playSound(sounds.foundersMintOnboarding.sprite, {
+					sprite: "fnicAutohrized",
+					rate: 0.85,
+				});
+				// const sound = sounds.foundersMintOnboarding.fnicLoading
+				// const id = sound.play()
+				// sound.rate(0.85, id)
 			})
 			fnicAuthorised.addEventListener('ended', function() {
-				gsap.to(fnicAuthorised, {
-					display: 'none'
-				})
 				gsap.to(selfDestruct, {
 					display: 'flex'
 				})
+				gsap.to(fnicAuthorised, {
+					display: 'none'
+				})
 				selfDestruct.play()
+				playSound(sounds.foundersMintOnboarding.sprite, {
+					sprite: "selfDestruct",
+					rate: 0.85,
+				});
+				// const sound = sounds.foundersMintOnboarding.selfDestruct
+				// const id = sound.play()
+				// sound.rate(0.85, id)
 			})
 			selfDestruct.addEventListener('ended', function() {
+				// seeYou.play()
 				gsap.to(selfDestruct, {
 					display: 'none'
 				})
-				gsap.set(seeYou, {
+				gsap.to(staticNoise, {
 					display: 'flex',
 				})
-				seeYou.play()
+				staticNoise.play()
+				playSound(sounds.foundersMintOnboarding.sprite, {
+					sprite: "staticNoise",
+					rate: 0.6,
+				});
+				// const sound = sounds.foundersMintOnboarding.staticNoise
+				// const id = sound.play()
+				// sound.rate(0.6, id)
+				// gsap.set(seeYou, {
+				// 	display: 'flex',
+				// })
 
-				if (typeof params.onComplete === 'function') {
-					params.onComplete();
-				}
+				// if (typeof params.onComplete === 'function') {
+				// 	params.onComplete();
+				// }
 			})
-			// staticNoise.addEventListener('ended', function() {
-			// 	gsap.set(staticNoise, {
-			// 		display: 'none'
-			// 	})
-			// 	gsap.set(burnSuccess, {
-			// 		display: 'flex',
-			// 	})
-			// 	burnSuccess.play()
-			// })
+			staticNoise.addEventListener('ended', function() {
+				gsap.set(staticNoise, {
+					display: 'none'
+				})
+				gsap.set(burnSuccess, {
+					display: 'flex',
+				})
+				burnSuccess.play()
+				playSound(sounds.foundersMintOnboarding.sprite, {
+					sprite: "keyboardTypingSuccess",
+					rate: 0.7,
+				})
+				// const sound = sounds.foundersMintOnboarding.sprite;
+				// const id = sound.play("keyboardTypingSuccess");
+				// sound.rate(0.7, id);
+			})
 			// fnicAuthorised.addEventListener('ended', function() {
 			// 	gsap.to(fnicAuthorised, {
 			// 		display: 'none'
@@ -176,11 +243,37 @@ function mint() {
 			// 	})
 			// 	seeYou.play()
 			// })
+			burnSuccess.addEventListener('ended', function() {
+				gsap.set(burnSuccess, {
+					display: 'none'
+				})
+				gsap.set(seeYou, {
+					display: 'flex',
+				})
+				seeYou.play()
+				playSound(sounds.foundersMintOnboarding.sprite, {
+					sprite: "seeYou",
+					rate: 0.75,
+				});
+				// const sound = sounds.foundersMintOnboarding.sprite;
+				// const id = sound.play("seeYou");
+				// sound.rate(0.75, id);
+
+				if (typeof params.onComplete === 'function') {
+					params.onComplete();
+				}
+			})
 		}
 
 	}
 
-	function holderMint() {
+	/**
+	 * @typedef {Object} HolderMintOptions
+	 * @property {boolean} foundersMintActive - is mint button enabled
+	 * 
+	 * @param {HolderMintOptions} options 
+	 */
+	function holderMint(options = {}) {
 		let holdersMintBlock = document.querySelector('.holders-mint')
 		let lulusha = holdersMintBlock.querySelector('.lulusha')
 		let cardInsert = holdersMintBlock.querySelector('.card-insert')
@@ -202,8 +295,8 @@ function mint() {
 		let useFnicCardButton = holdersMintBlock.querySelector('.animation-fnic')
 		let burnAndMintButton = holdersMintBlock.querySelector('.burn-button')
 
-		let foundersMintActive = true;
-		if (foundersMintActive) {
+		// let foundersMintActive = true;
+		if (options.foundersMintActive) {
 			gsap.to(foundersMintOfflineText, {
 				display: 'none',
 				duration: 0,
@@ -430,9 +523,6 @@ function mint() {
 			})
 			console.log('burn and mint')
 		}
-
-		
-
 
 		function mintCalculation() {
 			const addButton = document.querySelector('.plus');

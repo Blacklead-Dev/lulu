@@ -23,9 +23,7 @@ window.addEventListener('load', () => {
 		customCursor()
 	}
 
-	const lenis = new Lenis({
-
-	})
+	const lenis = new Lenis({})
 
 	function raf(time) {
 		lenis.raf(time)

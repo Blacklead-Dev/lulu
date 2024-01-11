@@ -1,7 +1,7 @@
 function sound() {
 
 	let isPlayd = true
-	let currentSound
+	// let currentSound
 
 	function soundCheckHandler() {
 		let popupSound = document.querySelector('.popup-sound')
@@ -84,23 +84,41 @@ function sound() {
 	
 	clickSoundHandler()
 
-	function minSoundHandler() {
-		let mintCallButton = document.querySelector('header .mint-call')
-		let typingSoundAudio = new Audio('../assets/audio/pixelate.wav')
-		typingSoundAudio.currentTime = 0
-		// typingSoundAudio.volume = 0
-		mintCallButton.addEventListener('click', () => {
-			currentSound = typingSoundAudio
-			typingSoundAudio.play()
+	// function minSoundHandler() {
+	// 	let mintCallButton = document.querySelector('header .mint-call')
+	// 	let typingSoundAudio = new Audio('../assets/audio/pixelate.wav')
+	// 	typingSoundAudio.currentTime = 0
+	// 	// typingSoundAudio.volume = 0
+	// 	mintCallButton.addEventListener('click', () => {
+	// 		currentSound = typingSoundAudio
+	// 		typingSoundAudio.play()
 			
 
-			if (!isPlayd) return
-			// currentSound.volume = 1.0
-		})
-	}
+	// 		if (!isPlayd) return
+	// 		// currentSound.volume = 1.0
+	// 	})
+	// }
 
-	minSoundHandler()
+	// minSoundHandler()
 
 }
 
-export {sound}
+function runTypingSound() {
+	// let mintCallButton = document.querySelector('header .mint-call')
+	let typingSoundAudio = new Audio('../assets/audio/pixelate.wav')
+	typingSoundAudio.currentTime = 0
+	// typingSoundAudio.volume = 0
+	// mintCallButton.addEventListener('click', () => {
+		// currentSound = typingSoundAudio
+		typingSoundAudio.play()
+		
+
+		// if (!isPlayd) return
+		// currentSound.volume = 1.0
+	// })
+}
+
+export {
+	sound,
+	runTypingSound,
+}

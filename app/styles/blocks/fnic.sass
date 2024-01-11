@@ -40,6 +40,8 @@
             display: flex
             height: auto
             visibility: hidden
+        .self-destruct
+            width: auto
         
             // font-family: 'chakra-bold'
             // font-size: gem(36)
@@ -52,7 +54,7 @@
             // &:hover
             //     text-decoration: none
         .burn-success, .see-you
-            height: auto    
+            height: auto
         .flash 
             position: absolute
             width: 100%
@@ -188,7 +190,7 @@
                     height: gem(54)
                     margin-right: gem(20)
                     margin-top: gem(27)
-                    transform: translateY(- gem(27))
+                    transform: translateY(- gem(25))
                     // path 
                     //     fill: #B9EC3D
                 .animation-fnic-text
@@ -200,18 +202,21 @@
                     text-align: center
                     .now-live
                         display: none
-                span
-                    color: #ffffff
-                    font-family: "rajdhani-medium"
-                    font-size: gem(28)
-                    transition: all .3s ease
-                    line-height: gem(40)
-                    text-transform: uppercase
+                    span
+                        color: #fff
+                        font-family: 'chakra-regular'
+                        font-size: gem(28)
+                        line-height: gem(32)
+                        font-weight: 400
+                        text-transform: uppercase
+                        transition: all .3s ease
                 .divider
                     transition: all .3s ease
                     width: 100%
                     height: gem(2)
                     background: #ffffff
+                    margin-top: gem(6)
+                    margin-bottom: gem(6)
                 &:hover
                     svg 
                         path
