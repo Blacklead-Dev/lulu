@@ -61,11 +61,25 @@ export async function loadWebGlAnimations() {
     },
   });
 
-  await PIXI.Assets.loadBundle([
-    CARD_INSERT_ANIMATION_BUNDLE,
-    FNIC_LOADING_ANIMATION_BUNDLE,
-    // BG_ANIMATION_BUNDLE,
-  ]);
+  const load = async () => {
+    await PIXI.Assets.loadBundle([
+      CARD_INSERT_ANIMATION_BUNDLE,
+      FNIC_LOADING_ANIMATION_BUNDLE,
+      // BG_ANIMATION_BUNDLE,
+    ]);
+  };
+
+  let retriesCounr = 0;
+  const maxRetries = 3;
+  while (retriesCounr < maxRetries) {
+    try {
+      await load();
+
+      break;
+    } catch (err) {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
+  }
 }
 
 export function attachResizerToApp(
@@ -96,7 +110,7 @@ export function attachResizerToApp(
 
 /**
  * CURRENTLY NOT IN USE
- * 
+ *
  * @typedef {Object} LuluBgAnimationOptions
  * @property {Element} element
  *
@@ -128,15 +142,13 @@ export function initLuluBgAnimation(options) {
 
   const luluBgAnimation =
     PIXI.Assets.get(BG_ANIMATION_BUNDLE).data.animations[BG_ANIMATION_NAME];
-  const animatedSprite = PIXI.AnimatedSprite.fromFrames(
-    luluBgAnimation
-  );
+  const animatedSprite = PIXI.AnimatedSprite.fromFrames(luluBgAnimation);
 
   animatedSprite.anchor.set(0.5, 0.5);
   animatedSprite.position.set(WIDTH / 2, HEIGHT / 2);
 
   app.stage.addChild(animatedSprite);
-  
+
   app.stage.cullable = true;
   animatedSprite.cullable = true;
 
