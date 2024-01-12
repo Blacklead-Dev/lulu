@@ -13,7 +13,9 @@ window.addEventListener('load', () => {
 	if(main.classList.contains('hero')) {
 		adaptiveVideos()
 		mainPage()
-		mint()
+		mint({
+			connectWalledEnabled: false,
+		})
 		customCursor()
 		sound()
 	} 
@@ -31,4 +33,11 @@ window.addEventListener('load', () => {
 	}
 
 	requestAnimationFrame(raf)
-})
+});
+
+const devHosts = ['localhost'];
+const isDevEnv = devHosts.includes(window.location.hostname);
+
+if (!isDevEnv) {
+	window.console.log = function () {}
+}

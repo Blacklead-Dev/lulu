@@ -91,7 +91,7 @@ async function mainPage() {
 
     attachScrollAnimationToBackground({
       onUpdate: (self) => {
-        console.log("Backgroud animation progress", self);
+        console.log("[bg] backgroud animation progress", self);
 
         gsap.to(progressLine, {
           height: `${self.progress * 100 - lineOffset + 2}%`,
@@ -110,19 +110,40 @@ async function mainPage() {
 
         const multipliedProgress = self.progress * 2;
         const multipliedTime = backgroundVideo.duration * multipliedProgress;
+        const multipliedTimeToAnimationRatio = Math.ceil(
+          multipliedTime / backgroundVideo.duration
+        );
 
-        if (Math.ceil(multipliedTime / backgroundVideo.duration) % 2 === 0) {
+        if (
+          !multipliedTime ||
+          multipliedTime % backgroundVideo.duration === 0
+        ) {
+          backgroundVideo.currentTime = 0;
+          return;
+        }
+
+        if (multipliedTimeToAnimationRatio % 2 === 0) {
           const backwardCurrentTime =
             backgroundVideo.duration -
             (multipliedTime % backgroundVideo.duration);
 
-          console.log("[bg] backward animation play", backwardCurrentTime);
+          console.log("[bg] backward animation play", {
+            backwardCurrentTime,
+            multipliedTime,
+            duration: backgroundVideo.duration,
+            multipliedTimeToAnimationRatio,
+            division: multipliedTime % backgroundVideo.duration,
+          });
 
           backgroundVideo.currentTime = backwardCurrentTime;
         } else {
           const forwardCurrentTime = multipliedTime % backgroundVideo.duration;
 
-          console.log("[bg] forward animation play", forwardCurrentTime);
+          console.log("[bg] forward animation play", {
+            forwardCurrentTime,
+            multipliedTime,
+            duration: backgroundVideo.duration,
+          });
 
           backgroundVideo.currentTime = forwardCurrentTime;
         }
