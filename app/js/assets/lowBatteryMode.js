@@ -9,6 +9,8 @@ function lowBatteryMode() {
 		}
 	});
 
+	// videoElement.play();
+	// videoElement.pause();
 
 	videoElement
 		.play()

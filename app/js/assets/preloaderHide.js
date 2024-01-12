@@ -1,9 +1,8 @@
 import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 import { MorphSVGPlugin } from '../../assets/gsap/MorphSVGPlugin.min.js'
 
 
-gsap.registerPlugin(ScrollTrigger, MorphSVGPlugin)
+gsap.registerPlugin(MorphSVGPlugin)
 function prelodaderHide() {
 	let preloaderCurtain = document.querySelector('.preloader-curtain')
 	let preloader = document.querySelector('.preloader')
@@ -30,7 +29,6 @@ function prelodaderHide() {
 		opacity: 0, duration: .5, onComplete: () => {
 			preloader.remove()
 			document.body.classList.remove('unscroll')
-			ScrollTrigger.refresh()
 		}, delay: 1.05
 	})
 }
