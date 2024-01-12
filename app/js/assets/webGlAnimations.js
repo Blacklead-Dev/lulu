@@ -11,10 +11,10 @@ PIXI.Ticker.shared.stop();
 const BG_ANIMATION_BUNDLE = "32bit-0.5x-no-scale-marker";
 const BG_ANIMATION_NAME = "optimized-bg-sequence/Lulubg";
 
-const CARD_INSERT_ANIMATION_BUNDLE = "card-insert-32bit-0.5x";
+const CARD_INSERT_ANIMATION_BUNDLE = "card-insert-8bit-0.5x";
 const CARD_INSERT_ANIMATION_NAME = "optimized/1";
 
-const FNIC_LOADING_ANIMATION_BUNDLE = "fnic-loading-32bit-0.5x";
+const FNIC_LOADING_ANIMATION_BUNDLE = "fnic-loading-8bit-0.5x";
 const FNIC_LOADING_ANIMATION_NAME = "02. Fnic loading/1";
 
 export async function loadWebGlAnimations() {
@@ -34,15 +34,39 @@ export async function loadWebGlAnimations() {
           ],
         },
         {
+          name: "card-insert-8bit-0.5x",
+          assets: [
+            {
+              alias: "card-insert-8bit-0.5x",
+              src: Array.from({length: 5}).map(
+                (_, idx) =>
+                  `./images/dist/animations/card-insert/8bit-0.5x/card-insert-${idx}.json`
+              ),
+            }
+          ],
+        },
+        {
           name: "fnic-loading-32bit-0.5x",
           assets: [
             {
               alias: "fnic-loading-32bit-0.5x",
-              src: Array.from({ length: 5 }).map(
+              src: Array.from({ length: 6 }).map(
                 (_, idx) =>
                   `./images/dist/animations/fnic-loading/32bit-0.5x/fnic-loading-${idx}.json`
               ),
             },
+          ],
+        },
+        {
+          name: "fnic-loading-8bit-0.5x",
+          assets: [
+            {
+              alias: "fnic-loading-8bit-0.5x",
+              src: Array.from({length: 6}).map(
+                (_, idx) =>
+                  `./images/dist/animations/fnic-loading/8bit-0.5x/fnic-loading-${idx}.json`
+              ),
+            }
           ],
         },
         {

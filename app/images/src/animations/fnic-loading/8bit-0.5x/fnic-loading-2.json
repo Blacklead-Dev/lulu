@@ -1,0 +1,157 @@
+{"frames": {
+
+"02. Fnic loading/1_00000.png":
+{
+	"frame": {"x":527,"y":701,"w":347,"h":371},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00001.png":
+{
+	"frame": {"x":876,"y":936,"w":347,"h":371},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00002.png":
+{
+	"frame": {"x":527,"y":1074,"w":347,"h":371},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00003.png":
+{
+	"frame": {"x":1249,"y":936,"w":347,"h":371},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00004.png":
+{
+	"frame": {"x":876,"y":1285,"w":347,"h":371},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00005.png":
+{
+	"frame": {"x":527,"y":1447,"w":347,"h":371},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00006.png":
+{
+	"frame": {"x":1,"y":1636,"w":347,"h":371},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00007.png":
+{
+	"frame": {"x":1225,"y":1309,"w":347,"h":371},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00008.png":
+{
+	"frame": {"x":1598,"y":936,"w":347,"h":371},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00009.png":
+{
+	"frame": {"x":1598,"y":1309,"w":347,"h":371},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00010.png":
+{
+	"frame": {"x":876,"y":1658,"w":347,"h":371},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00011.png":
+{
+	"frame": {"x":1249,"y":1658,"w":347,"h":371},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00012.png":
+{
+	"frame": {"x":1598,"y":1682,"w":347,"h":371},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00013.png":
+{
+	"frame": {"x":1636,"y":1,"w":347,"h":371},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/1_00014.png":
+{
+	"frame": {"x":1636,"y":374,"w":347,"h":371},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":87,"w":347,"h":371},
+	"sourceSize": {"w":540,"h":540}
+},
+"02. Fnic loading/spritesheets/32bit-0.5x-an-0.25x/fnic-loading-normal-2.png":
+{
+	"frame": {"x":1,"y":1,"w":933,"h":698},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":933,"h":698},
+	"sourceSize": {"w":933,"h":698}
+},
+"02. Fnic loading/spritesheets/32bit-0.5x-an-0.25x/fnic-loading-normal-3.png":
+{
+	"frame": {"x":936,"y":1,"w":933,"h":698},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":933,"h":698},
+	"sourceSize": {"w":933,"h":698}
+},
+"02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-5.png":
+{
+	"frame": {"x":1,"y":701,"w":933,"h":524},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":933,"h":524},
+	"sourceSize": {"w":933,"h":524}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "fnic-loading-2.png",
+	"format": "RGBA8888",
+	"size": {"w":1984,"h":2030},
+	"scale": "0.5",
+	"related_multi_packs": [ "fnic-loading-0.json", "fnic-loading-1.json", "fnic-loading-3.json", "fnic-loading-4.json", "fnic-loading-5.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:6aa1a419e69d3037f62bc7b4320162eb:aca605db065b114ae96df51ee5935d84:4df07b4b6e0be74d1a8723b82eee07d0$"
+}
+}
