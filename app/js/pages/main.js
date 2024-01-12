@@ -25,29 +25,34 @@ import {
 async function mainPage() {
   const preloader = document.querySelector("#preloader-video");
 
-  try {
-    // preloader.load();
-    preloader.pause();
-  } catch (err) {}
+  let progressBarTween;
+  function startPreloaderAnimation() {
+    const obj = { progress: 100 };
+    progressBarTween = gsap.to(obj, {
+      progress: 0,
+      repeat: -1,
+      duration: preloader.duration,
+      ease: Power0.easeIn,
+      yoyoEase: Power0.easeOut,
+      yoyo: true,
+      onUpdate: () => {
+        preloader.currentTime = preloader.duration * (obj.progress / 100);
+      },
+    });
+  }
 
-  const obj = { progress: 0 };
-  const progressBarTween = gsap.to(obj, {
-    progress: 100,
-    repeat: -1,
-    duration: preloader.duration,
-    ease: Power0.easeIn,
-    yoyoEase: Power0.easeOut,
-    yoyo: true,
-    onUpdate: () => {
-      preloader.currentTime = preloader.duration * (obj.progress / 100);
-    },
-  });
+  if (preloader.ended) {
+    startPreloaderAnimation();
+  } else {
+    preloader.addEventListener('ended', startPreloaderAnimation);
+  }
 
   let progressLine = document.querySelector(".progress-line-inner");
 
   loadHowlerSounds([
     sounds.foundersMintOnboarding.sprite,
     sounds.foundersMintOnboarding.primaryBackground,
+    sounds.foundersMintOnboarding.finalBackground,
   ]);
   await loadWebGlAnimations();
 
@@ -65,7 +70,10 @@ async function mainPage() {
 
   setTimeout(() => {
     prelodaderHide();
-    progressBarTween.kill();
+
+    if (progressBarTween) {
+      progressBarTween.kill();
+    }
   }, 2000);
 
   function backgroundVideoFunction() {
@@ -108,7 +116,7 @@ async function mainPage() {
         // bg.sprite.gotoAndStop(frame);
         // bg.app.renderer.render(bg.app.stage);
 
-        const multipliedProgress = self.progress * 2;
+        const multipliedProgress = self.progress * 2.5;
         const multipliedTime = backgroundVideo.duration * multipliedProgress;
         const multipliedTimeToAnimationRatio = Math.ceil(
           multipliedTime / backgroundVideo.duration

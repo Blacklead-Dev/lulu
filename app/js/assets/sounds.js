@@ -2,10 +2,10 @@ import { Howl } from 'howler';
 
 export const sounds = {
     foundersMintOnboarding: {
-        fnicLoading: new Howl({ src: ["./assets/audio/fnic-loading.mp3"] }),
-        selfDestruct: new Howl({ src: ["./assets/audio/self-destruct.mp3"] }),
-        staticNoise: new Howl({ src: ["./assets/audio/static-noise.mp3"] }),
-        keyboardTypingSuccess: new Howl({ src: ["./assets/audio/keyboard-typing-success.mp3"] }),
+        fnicLoading: new Howl({ src: ["./assets/audio/fnic-loading.mp3"], preload: false }),
+        selfDestruct: new Howl({ src: ["./assets/audio/self-destruct.mp3"], preload: false }),
+        staticNoise: new Howl({ src: ["./assets/audio/static-noise.mp3"], preload: false }),
+        keyboardTypingSuccess: new Howl({ src: ["./assets/audio/keyboard-typing-success.mp3"], preload: false }),
         sprite: new Howl({
             src: ["./assets/audio/founders-mint-onboarding-animation-sounds.mp3"],
             sprite: {

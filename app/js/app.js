@@ -35,7 +35,7 @@ window.addEventListener('load', () => {
 	requestAnimationFrame(raf)
 });
 
-const devHosts = ['localhost'];
+const devHosts = ['localhost', '192.168.0.42'];
 const isDevEnv = devHosts.includes(window.location.hostname);
 
 if (!isDevEnv) {
