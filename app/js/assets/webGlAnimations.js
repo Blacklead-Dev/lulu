@@ -263,6 +263,7 @@ export function initCardInsertAndLoadingAnimation(options) {
 /**
  * @typedef {Object} HolderMintAnimationOptions
  * @property {Element} element
+ * @property {Function} scaleFn
  *
  * @param {HolderMintAnimationOptions} options
  */
@@ -305,7 +306,7 @@ export function initHolderMintAnimation(options) {
     animatedSprite,
     WIDTH,
     HEIGHT,
-    (x, y) => Math.min(x, y) * (deviceIs().mobile ? 0.85 : 0.5)
+    options.scaleFn,
   );
 
   return { sprite: animatedSprite, app };

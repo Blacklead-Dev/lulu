@@ -3,6 +3,7 @@ import { runTypingSound } from "./sound";
 import { sounds } from "./sounds";
 import { playSound } from "./soundUtils";
 import { initHolderMintAnimation } from "./webGlAnimations";
+import { deviceIs } from "./device";
 
 /**
  * @typedef {Object} MintOptions
@@ -43,8 +44,9 @@ function mint(options) {
             }
             if (holder) {
               let enrolmentDateKey = "odlabs/lulu/enrolment-date";
-              let enrolmentDate = localStorage.getItem(enrolmentDateKey);
-              
+              //   let enrolmentDate = localStorage.getItem(enrolmentDateKey);
+              let enrolmentDate = true;
+
               if (!enrolmentDate) {
                 simpleMintVersion({
                   onComplete: function () {
@@ -59,7 +61,7 @@ function mint(options) {
                 });
               } else {
                 holderMint({
-                  foundersMintActive: false,
+                  foundersMintActive: true,
                 });
               }
               // holderMint()
@@ -317,6 +319,7 @@ function mint(options) {
 
     const holderMintLuluAnimation = initHolderMintAnimation({
       element: videoWrapper,
+      scaleFn: (x, y) => Math.min(x, y) * (deviceIs().mobile ? 0.85 : 0.5),
     });
 
     // let foundersMintActive = true;
@@ -405,6 +408,7 @@ function mint(options) {
         opacity: 1,
         // delay: .7
       });
+	  
       if (window.innerWidth < 515) {
         gsap.to(holdersContentLeft, 0.3, {
           display: "none",
@@ -421,7 +425,9 @@ function mint(options) {
 
       //were waiting for signing from clienr and burning
       setTimeout(() => {
-        holderMintLuluAnimation.app.destroy(true);
+        holderMintLuluAnimation.app.destroy(true, {
+			children: true,
+		})
 
         burnAndMint();
       }, 2000);
@@ -435,9 +441,18 @@ function mint(options) {
       // gsap.set(fnicSection, {
       // 	display: 'none'
       // })
-      gsap.to(afterSuccessful, 3, {
+      //   gsap.to(afterSuccessful, 3, {
+      gsap.set(afterSuccessful, {
         display: "flex",
       });
+
+      const luluAnimationWrapper =
+        afterSuccessful.querySelector(".lulu-anim-wrapper");
+      const luluAnimation = initHolderMintAnimation({
+        element: luluAnimationWrapper,
+        scaleFn: (x, y) => Math.min(x, y),
+      });
+
       // gsap.set(selfDestruct, {
       // 	display: 'flex',
       // })
@@ -494,9 +509,19 @@ function mint(options) {
         scale: 1,
         delay: 0.3,
       });
+      gsap.fromTo(
+        luluAnimationWrapper,
+        { scale: 0 },
+        {
+          scale: 1,
+          delay: 0.3,
+        }
+      );
+
       scanLulu.play();
-      lulushaAfter.play();
+      //   lulushaAfter.play();
       // })
+
       scanLulu.addEventListener("ended", function () {
         gsap.set(scanLulu, {
           display: "none",
@@ -507,7 +532,7 @@ function mint(options) {
             opacity: 1,
             y: 0,
           });
-          gsap.to(lulushaAfter, 0.3, {
+          gsap.to(luluAnimationWrapper, 0.3, {
             y: "1.9rem",
           });
           gsap.to(successfulText, 0.5, {
@@ -520,7 +545,7 @@ function mint(options) {
             opacity: 1,
             y: "0",
           });
-          gsap.to(lulushaAfter, 0.5, {
+          gsap.to(luluAnimationWrapper, 0.5, {
             delay: 4,
             scale: 1,
             y: "-1rem",
@@ -541,7 +566,7 @@ function mint(options) {
             opacity: 1,
             y: "0",
           });
-          gsap.to(lulushaAfter, 0.5, {
+          gsap.to(luluAnimationWrapper, 0.5, {
             delay: 4,
             scale: 1.2,
             y: "0rem",
