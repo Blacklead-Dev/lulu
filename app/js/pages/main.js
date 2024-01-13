@@ -39,6 +39,8 @@ async function mainPage() {
         preloader.currentTime = preloader.duration * (obj.progress / 100);
       },
     });
+
+    console.log("It you see it multiple times - there is a memory leak!!!", {progressBarTween});
   }
 
   if (preloader.ended) {
@@ -56,6 +58,17 @@ async function mainPage() {
   ]);
   await loadWebGlAnimations();
 
+  setTimeout(() => {
+    prelodaderHide();
+
+    preloader.removeEventListener('ended', startPreloaderAnimation);
+
+    if (progressBarTween) {
+      progressBarTween.kill();
+      progressBarTween = null;
+    }
+  }, 2000);
+
   gsap.to(window, {
     duration: 0.1,
     scrollTo: { y: 0 },
@@ -67,14 +80,6 @@ async function mainPage() {
       sectionsFunction();
     },
   });
-
-  setTimeout(() => {
-    prelodaderHide();
-
-    if (progressBarTween) {
-      progressBarTween.kill();
-    }
-  }, 2000);
 
   function backgroundVideoFunction() {
     let backgroundVideo = document.querySelector(".background-video");
