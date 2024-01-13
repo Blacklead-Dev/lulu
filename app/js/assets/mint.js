@@ -2,11 +2,12 @@ import gsap from "gsap";
 import { runTypingSound } from "./sound";
 import { sounds } from "./sounds";
 import { playSound } from "./soundUtils";
+import { initHolderMintAnimation } from "./webGlAnimations";
 
 /**
  * @typedef {Object} MintOptions
  * @property {boolean} connectWalledEnabled - is connect wallet button enabled
- * @param {MintOptions} options 
+ * @param {MintOptions} options
  */
 function mint(options) {
   let price = 0.2;
@@ -21,7 +22,7 @@ function mint(options) {
     let mintCallButton = document.querySelector("header .mint-call");
 
     if (!options.connectWalledEnabled) {
-		connectWalletLink.classList.add("hide");
+      connectWalletLink.classList.add("hide");
     } else {
       connectWalletLink.addEventListener("click", (e) => {
         e.preventDefault();
@@ -43,7 +44,7 @@ function mint(options) {
             if (holder) {
               let enrolmentDateKey = "odlabs/lulu/enrolment-date";
               let enrolmentDate = localStorage.getItem(enrolmentDateKey);
-
+              
               if (!enrolmentDate) {
                 simpleMintVersion({
                   onComplete: function () {
@@ -283,7 +284,8 @@ function mint(options) {
    */
   function holderMint(options = {}) {
     let holdersMintBlock = document.querySelector(".holders-mint");
-    let lulusha = holdersMintBlock.querySelector(".lulusha");
+    let videoWrapper = holdersMintBlock.querySelector(".from-video");
+    // let lulusha = holdersMintBlock.querySelector(".lulusha");
     let cardInsert = holdersMintBlock.querySelector(".card-insert");
     let fnicLoading = holdersMintBlock.querySelector(".fnic-loading");
     let fnicAuthorised = holdersMintBlock.querySelector(".fnic-authorised");
@@ -313,6 +315,10 @@ function mint(options) {
     let useFnicCardButton = holdersMintBlock.querySelector(".animation-fnic");
     let burnAndMintButton = holdersMintBlock.querySelector(".burn-button");
 
+    const holderMintLuluAnimation = initHolderMintAnimation({
+      element: videoWrapper,
+    });
+
     // let foundersMintActive = true;
     if (options.foundersMintActive) {
       gsap.to(foundersMintOfflineText, {
@@ -338,10 +344,11 @@ function mint(options) {
 
     holdersMintBlock.classList.add("active");
 
-    gsap.to([holdersMintBlock, lulusha], 3, {
+    // gsap.to([holdersMintBlock, lulusha], 3, {
+    gsap.to([holdersMintBlock], 3, {
       display: "flex",
     });
-    lulusha.play();
+    // lulusha.play();
     if (window.innerWidth < 515) {
       gsap.to(holdersContentLeft, 3, {
         display: "flex",
@@ -414,6 +421,8 @@ function mint(options) {
 
       //were waiting for signing from clienr and burning
       setTimeout(() => {
+        holderMintLuluAnimation.app.destroy(true);
+
         burnAndMint();
       }, 2000);
     });

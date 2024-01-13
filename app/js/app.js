@@ -14,7 +14,7 @@ window.addEventListener('load', () => {
 		adaptiveVideos()
 		mainPage()
 		mint({
-			connectWalledEnabled: false,
+			connectWalledEnabled: true,
 		})
 		customCursor()
 		sound()

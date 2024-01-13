@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
 import gsap from "gsap";
+import { deviceIs } from "./device";
 
 // disabling PIXI tickers to save computation resources
 PIXI.Ticker.system.autoStart = false;
@@ -16,6 +17,9 @@ const CARD_INSERT_ANIMATION_NAME = "optimized/1";
 
 const FNIC_LOADING_ANIMATION_BUNDLE = "fnic-loading-8bit-0.5x";
 const FNIC_LOADING_ANIMATION_NAME = "02. Fnic loading/1";
+
+const HOLDER_MINT_ANIMATION_BUNDLE = "lulu-8bit";
+const HOLDER_MINT_ANIMATION_NAME = "mint-animation";
 
 export async function loadWebGlAnimations() {
   await PIXI.Assets.init({
@@ -38,11 +42,11 @@ export async function loadWebGlAnimations() {
           assets: [
             {
               alias: "card-insert-8bit-0.5x",
-              src: Array.from({length: 5}).map(
+              src: Array.from({ length: 5 }).map(
                 (_, idx) =>
                   `./images/dist/animations/card-insert/8bit-0.5x/card-insert-${idx}.json`
               ),
-            }
+            },
           ],
         },
         {
@@ -62,11 +66,11 @@ export async function loadWebGlAnimations() {
           assets: [
             {
               alias: "fnic-loading-8bit-0.5x",
-              src: Array.from({length: 6}).map(
+              src: Array.from({ length: 6 }).map(
                 (_, idx) =>
                   `./images/dist/animations/fnic-loading/8bit-0.5x/fnic-loading-${idx}.json`
               ),
-            }
+            },
           ],
         },
         {
@@ -81,6 +85,18 @@ export async function loadWebGlAnimations() {
             },
           ],
         },
+        {
+          name: "lulu-8bit",
+          assets: [
+            {
+              name: "lulu-8bit",
+              src: Array.from({ length: 6 }).map(
+                (_, index) =>
+                  `./images/dist/animations/lulu-mint/8bit-0.5x-rgba8888/lulu-colorized-${index}.json`
+              ),
+            },
+          ],
+        },
       ],
     },
   });
@@ -90,6 +106,7 @@ export async function loadWebGlAnimations() {
       CARD_INSERT_ANIMATION_BUNDLE,
       FNIC_LOADING_ANIMATION_BUNDLE,
       // BG_ANIMATION_BUNDLE,
+      HOLDER_MINT_ANIMATION_BUNDLE,
     ]);
   };
 
@@ -101,7 +118,7 @@ export async function loadWebGlAnimations() {
 
       break;
     } catch (err) {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   }
 }
@@ -238,6 +255,57 @@ export function initCardInsertAndLoadingAnimation(options) {
     WIDTH,
     HEIGHT,
     Math.min
+  );
+
+  return { sprite: animatedSprite, app };
+}
+
+/**
+ * @typedef {Object} HolderMintAnimationOptions
+ * @property {Element} element
+ *
+ * @param {HolderMintAnimationOptions} options
+ */
+export function initHolderMintAnimation(options) {
+  const WIDTH = 1080;
+  const HEIGHT = 1080;
+  const app = new PIXI.Application({
+    width: WIDTH,
+    height: HEIGHT,
+    antialias: true,
+    transparent: true,
+    backgroundAlpha: 0,
+    resolution: 1,
+    autoDensity: true,
+    resolution: window.devicePixelRatio || 1,
+    autoStart: true,
+    sharedTicker: true,
+  });
+
+  options.element.appendChild(app.view);
+
+  const holderMintAnimation = PIXI.Assets.get(HOLDER_MINT_ANIMATION_BUNDLE).data
+    .animations[HOLDER_MINT_ANIMATION_NAME];
+
+  const animatedSprite = PIXI.AnimatedSprite.fromFrames(holderMintAnimation);
+
+  animatedSprite.scale.set(0.5);
+  animatedSprite.loop = true;
+  animatedSprite.animationSpeed = 1 / 3;
+  animatedSprite.play();
+
+  animatedSprite.anchor.set(0.5, 0.5);
+  animatedSprite.position.set(app.screen.width / 2, app.screen.height / 2);
+
+  app.stage.addChild(animatedSprite);
+
+  attachResizerToApp(
+    app,
+    options.element,
+    animatedSprite,
+    WIDTH,
+    HEIGHT,
+    (x, y) => Math.min(x, y) * (deviceIs().mobile ? 0.85 : 0.5)
   );
 
   return { sprite: animatedSprite, app };

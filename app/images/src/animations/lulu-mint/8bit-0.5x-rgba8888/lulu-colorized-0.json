@@ -1,0 +1,200 @@
+{"frames": {
+
+"mint-animation/10004.png":
+{
+	"frame": {"x":1661,"y":1,"w":405,"h":345},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":90,"y":92,"w":405,"h":345},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10035.png":
+{
+	"frame": {"x":1579,"y":1660,"w":368,"h":377},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":87,"y":85,"w":368,"h":377},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10043.png":
+{
+	"frame": {"x":1225,"y":854,"w":409,"h":410},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":93,"y":82,"w":409,"h":410},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10044.png":
+{
+	"frame": {"x":416,"y":862,"w":410,"h":415},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":93,"y":83,"w":410,"h":415},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10045.png":
+{
+	"frame": {"x":1248,"y":1,"w":411,"h":420},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":93,"y":83,"w":411,"h":420},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10046.png":
+{
+	"frame": {"x":834,"y":1,"w":412,"h":424},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":93,"y":83,"w":412,"h":424},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10047.png":
+{
+	"frame": {"x":1,"y":862,"w":413,"h":427},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":93,"y":83,"w":413,"h":427},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10048.png":
+{
+	"frame": {"x":1,"y":1,"w":415,"h":429},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":82,"w":415,"h":429},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10049.png":
+{
+	"frame": {"x":1,"y":432,"w":415,"h":428},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":82,"w":415,"h":428},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10050.png":
+{
+	"frame": {"x":418,"y":1,"w":414,"h":428},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":92,"y":80,"w":414,"h":428},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10051.png":
+{
+	"frame": {"x":418,"y":431,"w":412,"h":427},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":91,"y":78,"w":412,"h":427},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10052.png":
+{
+	"frame": {"x":1,"y":1291,"w":408,"h":425},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":91,"y":75,"w":408,"h":425},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10053.png":
+{
+	"frame": {"x":411,"y":1291,"w":404,"h":423},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":91,"y":72,"w":404,"h":423},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10054.png":
+{
+	"frame": {"x":832,"y":431,"w":401,"h":421},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":91,"y":67,"w":401,"h":421},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10055.png":
+{
+	"frame": {"x":1235,"y":427,"w":398,"h":418},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":91,"y":62,"w":398,"h":418},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10056.png":
+{
+	"frame": {"x":828,"y":860,"w":395,"h":415},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":91,"y":57,"w":395,"h":415},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10057.png":
+{
+	"frame": {"x":1225,"y":1266,"w":392,"h":409},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":91,"y":53,"w":392,"h":409},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10061.png":
+{
+	"frame": {"x":817,"y":1642,"w":360,"h":380},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":43,"w":360,"h":380},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10114.png":
+{
+	"frame": {"x":1199,"y":1660,"w":360,"h":378},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":90,"y":54,"w":360,"h":378},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10127.png":
+{
+	"frame": {"x":828,"y":1277,"w":363,"h":389},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":82,"y":26,"w":363,"h":389},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10177.png":
+{
+	"frame": {"x":1635,"y":423,"w":408,"h":350},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":83,"w":408,"h":350},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10178.png":
+{
+	"frame": {"x":1636,"y":833,"w":408,"h":349},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":85,"w":408,"h":349},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10179.png":
+{
+	"frame": {"x":1636,"y":1243,"w":408,"h":349},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":87,"w":408,"h":349},
+	"sourceSize": {"w":540,"h":540}
+}},
+"animations": {
+	"mint-animation": ["mint-animation/10001.png","mint-animation/10002.png","mint-animation/10003.png","mint-animation/10004.png","mint-animation/10005.png","mint-animation/10006.png","mint-animation/10007.png","mint-animation/10008.png","mint-animation/10009.png","mint-animation/10010.png","mint-animation/10011.png","mint-animation/10012.png","mint-animation/10013.png","mint-animation/10014.png","mint-animation/10015.png","mint-animation/10016.png","mint-animation/10017.png","mint-animation/10018.png","mint-animation/10019.png","mint-animation/10020.png","mint-animation/10021.png","mint-animation/10022.png","mint-animation/10023.png","mint-animation/10024.png","mint-animation/10025.png","mint-animation/10026.png","mint-animation/10027.png","mint-animation/10028.png","mint-animation/10029.png","mint-animation/10030.png","mint-animation/10031.png","mint-animation/10032.png","mint-animation/10033.png","mint-animation/10034.png","mint-animation/10035.png","mint-animation/10036.png","mint-animation/10037.png","mint-animation/10038.png","mint-animation/10039.png","mint-animation/10040.png","mint-animation/10041.png","mint-animation/10042.png","mint-animation/10043.png","mint-animation/10044.png","mint-animation/10045.png","mint-animation/10046.png","mint-animation/10047.png","mint-animation/10048.png","mint-animation/10049.png","mint-animation/10050.png","mint-animation/10051.png","mint-animation/10052.png","mint-animation/10053.png","mint-animation/10054.png","mint-animation/10055.png","mint-animation/10056.png","mint-animation/10057.png","mint-animation/10058.png","mint-animation/10059.png","mint-animation/10060.png","mint-animation/10061.png","mint-animation/10062.png","mint-animation/10063.png","mint-animation/10064.png","mint-animation/10065.png","mint-animation/10066.png","mint-animation/10067.png","mint-animation/10068.png","mint-animation/10069.png","mint-animation/10070.png","mint-animation/10071.png","mint-animation/10072.png","mint-animation/10073.png","mint-animation/10074.png","mint-animation/10075.png","mint-animation/10076.png","mint-animation/10077.png","mint-animation/10078.png","mint-animation/10079.png","mint-animation/10080.png","mint-animation/10081.png","mint-animation/10082.png","mint-animation/10083.png","mint-animation/10084.png","mint-animation/10085.png","mint-animation/10086.png","mint-animation/10087.png","mint-animation/10088.png","mint-animation/10089.png","mint-animation/10090.png","mint-animation/10091.png","mint-animation/10092.png","mint-animation/10093.png","mint-animation/10094.png","mint-animation/10095.png","mint-animation/10096.png","mint-animation/10097.png","mint-animation/10098.png","mint-animation/10099.png","mint-animation/10100.png","mint-animation/10101.png","mint-animation/10102.png","mint-animation/10103.png","mint-animation/10104.png","mint-animation/10105.png","mint-animation/10106.png","mint-animation/10107.png","mint-animation/10108.png","mint-animation/10109.png","mint-animation/10110.png","mint-animation/10111.png","mint-animation/10112.png","mint-animation/10113.png","mint-animation/10114.png","mint-animation/10115.png","mint-animation/10116.png","mint-animation/10117.png","mint-animation/10118.png","mint-animation/10119.png","mint-animation/10120.png","mint-animation/10121.png","mint-animation/10122.png","mint-animation/10123.png","mint-animation/10124.png","mint-animation/10125.png","mint-animation/10126.png","mint-animation/10127.png","mint-animation/10128.png","mint-animation/10129.png","mint-animation/10130.png","mint-animation/10131.png","mint-animation/10132.png","mint-animation/10133.png","mint-animation/10134.png","mint-animation/10135.png","mint-animation/10136.png","mint-animation/10137.png","mint-animation/10138.png","mint-animation/10139.png","mint-animation/10140.png","mint-animation/10141.png","mint-animation/10142.png","mint-animation/10143.png","mint-animation/10144.png","mint-animation/10145.png","mint-animation/10146.png","mint-animation/10147.png","mint-animation/10148.png","mint-animation/10149.png","mint-animation/10150.png","mint-animation/10151.png","mint-animation/10152.png","mint-animation/10153.png","mint-animation/10154.png","mint-animation/10155.png","mint-animation/10156.png","mint-animation/10157.png","mint-animation/10158.png","mint-animation/10159.png","mint-animation/10160.png","mint-animation/10161.png","mint-animation/10162.png","mint-animation/10163.png","mint-animation/10164.png","mint-animation/10165.png","mint-animation/10166.png","mint-animation/10167.png","mint-animation/10168.png","mint-animation/10169.png","mint-animation/10170.png","mint-animation/10171.png","mint-animation/10172.png","mint-animation/10173.png","mint-animation/10174.png","mint-animation/10175.png","mint-animation/10176.png","mint-animation/10177.png","mint-animation/10178.png","mint-animation/10179.png","mint-animation/10180.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "lulu-colorized-0.png",
+	"format": "RGBA8888",
+	"size": {"w":2007,"h":2029},
+	"scale": "0.5",
+	"related_multi_packs": [ "lulu-colorized-1.json", "lulu-colorized-2.json", "lulu-colorized-3.json", "lulu-colorized-4.json", "lulu-colorized-5.json", "lulu-colorized-6.json", "lulu-colorized-7.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:3b5ff0bad421ee0e5d59f567318e2d12:95a6c560fae87a49dd439db04efa5193:9df2392aac7368312516d84a0e5849df$"
+}
+}
