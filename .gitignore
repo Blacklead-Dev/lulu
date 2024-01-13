@@ -9,3 +9,6 @@
 /dist/
 app/assets/videos/lulu-bg.mov
 app/assets/videos/lulu-bg.webm
+dist/
+
+.idea/

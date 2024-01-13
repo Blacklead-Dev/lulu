@@ -1,0 +1,50 @@
+{"frames": {
+
+"02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-1.png":
+{
+	"frame": {"x":996,"y":1,"w":941,"h":923},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":941,"h":923},
+	"sourceSize": {"w":941,"h":923}
+},
+"02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-2.png":
+{
+	"frame": {"x":1,"y":987,"w":961,"h":935},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":961,"h":935},
+	"sourceSize": {"w":961,"h":935}
+},
+"02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-3.png":
+{
+	"frame": {"x":964,"y":987,"w":933,"h":961},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":933,"h":961},
+	"sourceSize": {"w":933,"h":961}
+},
+"02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-4.png":
+{
+	"frame": {"x":1,"y":1,"w":984,"h":993},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":984,"h":993},
+	"sourceSize": {"w":984,"h":993}
+}},
+"animations": {
+	"02. Fnic loading/1": ["02. Fnic loading/1_00000.png","02. Fnic loading/1_00001.png","02. Fnic loading/1_00002.png","02. Fnic loading/1_00003.png","02. Fnic loading/1_00004.png","02. Fnic loading/1_00005.png","02. Fnic loading/1_00006.png","02. Fnic loading/1_00007.png","02. Fnic loading/1_00008.png","02. Fnic loading/1_00009.png","02. Fnic loading/1_00010.png","02. Fnic loading/1_00011.png","02. Fnic loading/1_00012.png","02. Fnic loading/1_00013.png","02. Fnic loading/1_00014.png","02. Fnic loading/1_00015.png","02. Fnic loading/1_00016.png","02. Fnic loading/1_00017.png","02. Fnic loading/1_00018.png","02. Fnic loading/1_00019.png","02. Fnic loading/1_00020.png","02. Fnic loading/1_00021.png","02. Fnic loading/1_00022.png","02. Fnic loading/1_00023.png","02. Fnic loading/1_00024.png","02. Fnic loading/1_00025.png","02. Fnic loading/1_00026.png","02. Fnic loading/1_00027.png","02. Fnic loading/1_00028.png","02. Fnic loading/1_00029.png","02. Fnic loading/1_00030.png","02. Fnic loading/1_00031.png","02. Fnic loading/1_00032.png","02. Fnic loading/1_00033.png","02. Fnic loading/1_00034.png","02. Fnic loading/1_00035.png","02. Fnic loading/1_00036.png","02. Fnic loading/1_00037.png","02. Fnic loading/1_00038.png","02. Fnic loading/1_00039.png","02. Fnic loading/1_00040.png","02. Fnic loading/1_00041.png","02. Fnic loading/1_00042.png","02. Fnic loading/1_00043.png","02. Fnic loading/1_00044.png","02. Fnic loading/1_00045.png","02. Fnic loading/1_00046.png","02. Fnic loading/1_00047.png","02. Fnic loading/1_00048.png","02. Fnic loading/1_00049.png","02. Fnic loading/1_00050.png","02. Fnic loading/1_00051.png","02. Fnic loading/1_00052.png","02. Fnic loading/1_00053.png","02. Fnic loading/1_00054.png","02. Fnic loading/1_00055.png","02. Fnic loading/1_00056.png","02. Fnic loading/1_00057.png","02. Fnic loading/1_00058.png","02. Fnic loading/1_00059.png","02. Fnic loading/1_00060.png","02. Fnic loading/1_00061.png","02. Fnic loading/1_00062.png","02. Fnic loading/1_00063.png","02. Fnic loading/1_00064.png","02. Fnic loading/1_00065.png","02. Fnic loading/1_00066.png","02. Fnic loading/1_00067.png","02. Fnic loading/1_00068.png","02. Fnic loading/1_00069.png","02. Fnic loading/1_00070.png","02. Fnic loading/1_00071.png","02. Fnic loading/1_00072.png","02. Fnic loading/1_00073.png","02. Fnic loading/1_00074.png","02. Fnic loading/1_00075.png","02. Fnic loading/1_00076.png","02. Fnic loading/1_00077.png","02. Fnic loading/1_00078.png","02. Fnic loading/1_00079.png","02. Fnic loading/1_00080.png","02. Fnic loading/1_00081.png","02. Fnic loading/1_00082.png","02. Fnic loading/1_00083.png","02. Fnic loading/1_00084.png","02. Fnic loading/1_00085.png","02. Fnic loading/1_00086.png","02. Fnic loading/1_00087.png","02. Fnic loading/1_00088.png","02. Fnic loading/1_00089.png"],
+	"02. Fnic loading/spritesheets/32bit-0.5x-an-0.25x/fnic-loading-normal": ["02. Fnic loading/spritesheets/32bit-0.5x-an-0.25x/fnic-loading-normal-0.png","02. Fnic loading/spritesheets/32bit-0.5x-an-0.25x/fnic-loading-normal-1.png","02. Fnic loading/spritesheets/32bit-0.5x-an-0.25x/fnic-loading-normal-2.png","02. Fnic loading/spritesheets/32bit-0.5x-an-0.25x/fnic-loading-normal-3.png"],
+	"02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading": ["02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-0.png","02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-1.png","02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-2.png","02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-3.png","02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-4.png","02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-5.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "fnic-loading-0.png",
+	"format": "RGBA8888",
+	"size": {"w":1926,"h":1923},
+	"scale": "0.5",
+	"related_multi_packs": [ "fnic-loading-1.json", "fnic-loading-2.json", "fnic-loading-3.json", "fnic-loading-4.json", "fnic-loading-5.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:6aa1a419e69d3037f62bc7b4320162eb:aca605db065b114ae96df51ee5935d84:4df07b4b6e0be74d1a8723b82eee07d0$"
+}
+}

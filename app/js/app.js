@@ -13,7 +13,9 @@ window.addEventListener('load', () => {
 	if(main.classList.contains('hero')) {
 		adaptiveVideos()
 		mainPage()
-		mint()
+		mint({
+			connectWalledEnabled: false,
+		})
 		customCursor()
 		sound()
 	} 
@@ -23,9 +25,7 @@ window.addEventListener('load', () => {
 		customCursor()
 	}
 
-	const lenis = new Lenis({
-
-	})
+	const lenis = new Lenis({})
 
 	function raf(time) {
 		lenis.raf(time)
@@ -33,4 +33,11 @@ window.addEventListener('load', () => {
 	}
 
 	requestAnimationFrame(raf)
-})
+});
+
+const devHosts = ['localhost', '192.168.0.42'];
+const isDevEnv = devHosts.includes(window.location.hostname);
+
+if (!isDevEnv) {
+	window.console.log = function () {}
+}

@@ -1,0 +1,69 @@
+{"frames": {
+
+"optimized-bg-sequence/Lulubg_00073.jpg":
+{
+	"frame": {"x":1,"y":1,"w":960,"h":541},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":541},
+	"sourceSize": {"w":960,"h":541}
+},
+"optimized-bg-sequence/Lulubg_00074.jpg":
+{
+	"frame": {"x":1,"y":544,"w":960,"h":541},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":541},
+	"sourceSize": {"w":960,"h":541}
+},
+"optimized-bg-sequence/Lulubg_00274.jpg":
+{
+	"frame": {"x":1,"y":1087,"w":960,"h":541},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":541},
+	"sourceSize": {"w":960,"h":541}
+},
+"optimized-bg-sequence/Lulubg_00275.jpg":
+{
+	"frame": {"x":544,"y":1087,"w":960,"h":541},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":541},
+	"sourceSize": {"w":960,"h":541}
+},
+"optimized-bg-sequence/Lulubg_00276.jpg":
+{
+	"frame": {"x":963,"y":1,"w":960,"h":541},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":541},
+	"sourceSize": {"w":960,"h":541}
+},
+"optimized-bg-sequence/Lulubg_00277.jpg":
+{
+	"frame": {"x":963,"y":544,"w":960,"h":541},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":541},
+	"sourceSize": {"w":960,"h":541}
+},
+"optimized-bg-sequence/Lulubg_00278.jpg":
+{
+	"frame": {"x":1087,"y":1087,"w":960,"h":541},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":541},
+	"sourceSize": {"w":960,"h":541}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "bg-lulu-34.jpg",
+	"format": "RGB888",
+	"size": {"w":1924,"h":2048},
+	"scale": "0.5",
+	"related_multi_packs": [ "bg-lulu-0.json", "bg-lulu-1.json", "bg-lulu-2.json", "bg-lulu-3.json", "bg-lulu-4.json", "bg-lulu-5.json", "bg-lulu-6.json", "bg-lulu-7.json", "bg-lulu-8.json", "bg-lulu-9.json", "bg-lulu-10.json", "bg-lulu-11.json", "bg-lulu-12.json", "bg-lulu-13.json", "bg-lulu-14.json", "bg-lulu-15.json", "bg-lulu-16.json", "bg-lulu-17.json", "bg-lulu-18.json", "bg-lulu-19.json", "bg-lulu-20.json", "bg-lulu-21.json", "bg-lulu-22.json", "bg-lulu-23.json", "bg-lulu-24.json", "bg-lulu-25.json", "bg-lulu-26.json", "bg-lulu-27.json", "bg-lulu-28.json", "bg-lulu-29.json", "bg-lulu-30.json", "bg-lulu-31.json", "bg-lulu-32.json", "bg-lulu-33.json", "bg-lulu-35.json", "bg-lulu-36.json", "bg-lulu-37.json", "bg-lulu-38.json", "bg-lulu-39.json", "bg-lulu-40.json", "bg-lulu-41.json", "bg-lulu-42.json", "bg-lulu-43.json", "bg-lulu-44.json", "bg-lulu-45.json", "bg-lulu-46.json", "bg-lulu-47.json", "bg-lulu-48.json", "bg-lulu-49.json", "bg-lulu-50.json", "bg-lulu-51.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:f3e5c960fc06b76d99239b5a11ba45e3:7852aea676286810af1c0795d89ea5d0:904631881802429815fa675fb5365dd7$"
+}
+}

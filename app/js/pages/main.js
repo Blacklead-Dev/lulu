@@ -1,238 +1,208 @@
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-import ScrollToPlugin from 'gsap/ScrollToPlugin'
-import { deviceIs } from '../assets/device'
+import gsap from "gsap";
+import { Power0 } from "gsap/all";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+import { deviceIs } from "../assets/device";
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+gsap.registerPlugin(ScrollToPlugin);
 
-import { splitingText } from '../assets/splitingText'
-import { vhFunction } from '../assets/realVh'
-import { lowBatteryMode } from '../assets/lowBatteryMode.js'
-import { prelodaderHide } from '../assets/preloaderHide.js'
-import { timer } from '../assets/timer.js'
+import { splitingText } from "../assets/splitingText";
+import { vhFunction } from "../assets/realVh";
+import { lowBatteryMode } from "../assets/lowBatteryMode.js";
+import { prelodaderHide } from "../assets/preloaderHide.js";
+import { timer } from "../assets/timer.js";
+import { loadHowlerSounds, playSound } from "../assets/soundUtils.js";
+import { sounds } from "../assets/sounds.js";
+import {
+  loadWebGlAnimations,
+  initCardInsertAndLoadingAnimation,
+  initLuluBgAnimation,
+} from "../assets/webGlAnimations.js";
+import {
+  attachScrollAnimationToBackground,
+  attachScrollAnimationToSection,
+} from "../assets/scrollTrigger.js";
 
-function mainPage() {
+async function mainPage() {
+  const preloader = document.querySelector("#preloader-video");
 
-	let progressLine = document.querySelector('.progress-line-inner')
+  let progressBarTween;
+  function startPreloaderAnimation() {
+    const obj = { progress: 100 };
+    progressBarTween = gsap.to(obj, {
+      progress: 0,
+      repeat: -1,
+      duration: preloader.duration,
+      ease: Power0.easeIn,
+      yoyoEase: Power0.easeOut,
+      yoyo: true,
+      onUpdate: () => {
+        preloader.currentTime = preloader.duration * (obj.progress / 100);
+      },
+    });
 
-	gsap.to(window, {
-		duration: .1, scrollTo: { y: 0 }, delay: .2, onComplete: () => {
-			document.body.classList.add('unscroll')
-			document.body.classList.remove('hiddenlines')
-			gsap.to(progressLine, { height: `0%` })
-			sectionsFunction()
-		}
-	});
+    console.log("It you see it multiple times - there is a memory leak!!!", {
+      progressBarTween,
+    });
+  }
 
-	setTimeout(() => {
-		prelodaderHide()
-	}, 2000);
+  if (preloader.ended) {
+    startPreloaderAnimation();
+  } else {
+    preloader.addEventListener("ended", startPreloaderAnimation, {
+      once: true,
+    });
+  }
 
-	function backgroundVideoFunction() {
-		let backgroundVideo = document.querySelector('.background-video')
+  let progressLine = document.querySelector(".progress-line-inner");
 
-		let lineOffset = (100 / document.querySelectorAll('.video-section').length) / 5
-		
-		async function playVideo() {
-			try {
-				await backgroundVideo.play();
-			} catch (err) {
-				console.log(err)
-			} finally {
-				setTimeout(() => {
-					backgroundVideo.pause()
-				}, 100);
-			}
-		}
+  loadHowlerSounds([
+    sounds.foundersMintOnboarding.sprite,
+    sounds.foundersMintOnboarding.primaryBackground,
+    sounds.foundersMintOnboarding.finalBackground,
+    sounds.homepageBackground,
+  ]);
+  await loadWebGlAnimations();
 
-		playVideo()
+  setTimeout(() => {
+    prelodaderHide();
 
-		backgroundVideo.currentTime = 0
-		ScrollTrigger.create({
-			trigger: document.body,
-			start: 'top top',
-			end: 'bottom bottom',
-			onUpdate: self => {
-				gsap.to(progressLine, { height: `${self.progress * 100 - lineOffset + 2}%` })
-				backgroundVideo.currentTime = backgroundVideo.duration * (self.progress)
-			}
-		})
-	}
+    preloader.removeEventListener("ended", startPreloaderAnimation);
 
-	backgroundVideoFunction()
+    if (progressBarTween) {
+      progressBarTween.kill();
+      progressBarTween = null;
+    }
+  }, 2000);
 
+  playSound(sounds.homepageBackground, { 
+    loop: true,
+   });
 
-	// function secventionBg() {
-	// 	const canvas = document.querySelector('.canvas')
+  gsap.to(window, {
+    duration: 0.1,
+    scrollTo: { y: 0 },
+    delay: 0.2,
+    onComplete: () => {
+      document.body.classList.add("unscroll");
+      document.body.classList.remove("hiddenlines");
+      gsap.to(progressLine, { height: `0%` });
+      sectionsFunction();
+    },
+  });
 
-	// 	canvas.width = window.innerWidth
-	// 	canvas.height = window.innerHeight
+  function backgroundVideoFunction() {
+    let backgroundVideo = document.querySelector(".background-video");
+    backgroundVideo.play();
+  }
 
-	// 	const context = canvas.getContext('2d')
-	// 	const frameCount = 359
-	// 	const currentFrame = (index) => `../assets/videos/bg-secvention/${(index + 1).toString()}.jpg`
-	// 	const images = []
-	// 	let lulu = {frame : 0}
+  backgroundVideoFunction();
 
-	// 	for (let i = 0; i < frameCount; i++) {
-	// 		const img = new Image();
-	// 		img.src = currentFrame(i);
-	// 		images.push(img)
-	// 	}
-		
-	// 	images[0].onload = render
+  function sectionsFunction() {
+    let videoSection = document.querySelectorAll(".video-section");
+    let progressButtons = document.querySelectorAll(
+      ".progress-buttons .button"
+    );
 
-	// 	gsap.to(lulu, {
-	// 		frame: frameCount - 1,
-	// 		snap: 'frame',
-	// 		ease: 'none',
-	// 		scrollTrigger: {
-	// 			scrub: true,
-	// 			// pin: 'canvas',
-	// 			endTrigger: 'main',
-	// 			end: 'bottom bottom',
-	// 			markers: true,
-	// 		},
-	// 		onUpdate: render
-	// 	})
-	// 	function render() {
-	// 		context.clearRect(0,0, canvas.width, canvas.height)
-	// 		context.drawImage(images[lulu.frame], 0, 0)
-	// 	}
-	// }
+    for (let i = 0; i < videoSection.length; i++) {
+      let offsetHeight = videoSection[i].getBoundingClientRect().height * 0.2;
 
-	// secventionBg()
+      progressButtons[i].addEventListener("click", () => {
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: { y: videoSection[i], offsetY: -offsetHeight },
+        });
+      });
 
-	function sectionsFunction() {
-		let videoSection = document.querySelectorAll('.video-section')
-		let progressButtons = document.querySelectorAll('.progress-buttons .button')
+      if (videoSection[i].getAttribute("data-webgl-animation") === "true") {
+        const animationContainer = videoSection[i];
+        const content = animationContainer.querySelector(".content");
+        const animation = animationContainer.querySelector(".webgl-animation");
+        const textElements =
+          animationContainer.querySelectorAll(".split-line.child");
+        const { sprite, app } = initCardInsertAndLoadingAnimation({
+          element: animation,
+        });
 
-		for (let i = 0; i < videoSection.length; i++) {
+        attachScrollAnimationToSection({
+          trigger: animationContainer,
+          content,
+          video: animation,
+          textElements,
+          progressButton: progressButtons[i],
+          id: i,
+          onUpdate: (self) => {
+            const frame = Math.max(
+              0,
+              Math.min(
+                Math.round(sprite.totalFrames * self.progress),
+                sprite.totalFrames - 1
+              )
+            );
+            sprite.gotoAndStop(frame);
 
-			let video = videoSection[i].querySelector('.secvens-video')
-			let content = videoSection[i].querySelector('.content')
-			let textElements = videoSection[i].querySelectorAll('.split-line.child')
+            app.renderer.render(app.stage);
+          },
+        });
 
-			if (video) {
-				async function playVideo() {
-					try {
-						await video.play();
-					} catch (err) {
-						console.log(err)
-					} finally {
-						video.pause()
-					}
-				}
-		
-				playVideo()
-				video.currentTime = 0
+        gsap.set(textElements, {
+          opacity: 0,
+        });
+        gsap.set(animation, {
+          opacity: 0,
+          visibility: "hidden",
+        });
+      } else {
+        let video = videoSection[i].querySelector(".secvens-video");
+        let content = videoSection[i].querySelector(".content");
+        let textElements =
+          videoSection[i].querySelectorAll(".split-line.child");
 
-				gsap.set(video, {
-					opacity: 0,
-					visibility: 'hidden'
-				})
-			}
+        if (video) {
+          async function playVideo() {
+            try {
+              await video.play();
+            } catch (err) {
+              console.log(err);
+            } finally {
+              video.pause();
+            }
+          }
 
-			gsap.set(textElements, {
-				opacity: 0,
-			})
+          playVideo();
+          video.currentTime = 0;
 
-			let offsetHeight = videoSection[i].getBoundingClientRect().height * 0.2
+          gsap.set(video, {
+            opacity: 0,
+            visibility: "hidden",
+          });
+        }
 
-			progressButtons[i].addEventListener('click', () => {
-				gsap.to(window, { duration: 1, scrollTo: { y: videoSection[i], offsetY: -offsetHeight } })
-			})
+        gsap.set(textElements, {
+          opacity: 0,
+        });
 
-			ScrollTrigger.create({
-				trigger: videoSection[i],
-				pin: content,
-				start: '25% center',
-				end: 'bottom center',
-				pinSpacer: false,
-				pinSpacing: false,
-				onUpdate: self => {
-					if (video) {
-						video.currentTime = video.duration * self.progress
-					}
-				},
-				onEnter: () => {
-					if (video) {
-						gsap.to(video, {
-							opacity: 1,
-							duration: .3,
-							visibility: 'unset'
-						})
-					}
+        attachScrollAnimationToSection({
+          trigger: videoSection[i],
+          content,
+          textElements,
+          video,
+          progressButton: progressButtons[i],
+          id: i,
+          onUpdate: (self) => {
+            if (video) {
+              // console.log(video.duration, self.progress, video.duration * self.progress)
+              video.currentTime = video.duration * self.progress;
+            }
+          },
+        });
+      }
+    }
+  }
 
-					gsap.to(textElements, {
-						y: 0,
-						opacity: 1,
-						stagger: .05,
-						delay: .2
-					})
-					progressButtons[i].classList.add('active')
-				},
-				onLeave: () => {
-					gsap.killTweensOf(textElements)
-					gsap.to(textElements, {
-						y: '100%',
-						opacity: 0,
-					})
-					if (video) {
-						gsap.to(video, {
-							opacity: 0,
-							duration: .3,
-							visibility: 'hidden'
-						})
-					}
-					progressButtons[i].classList.remove('active')
-				},
-				onEnterBack: () => {
-					gsap.to(textElements, {
-						y: 0,
-						opacity: 1,
-						stagger: .05,
-						delay: .2
-					})
-					if (video) {
-						gsap.to(video, {
-							opacity: 1,
-							duration: .3,
-							visibility: 'unset'
-						})
-					}
-					progressButtons[i].classList.add('active')
-				},
-				onLeaveBack: () => {
-
-					if (video) {
-						gsap.to(video, {
-							opacity: 0,
-							duration: .3,
-							visibility: 'hidden'
-						})
-					}
-					gsap.killTweensOf(textElements)
-					gsap.to(textElements, {
-						y: '100%',
-						opacity: 0,
-					})
-					progressButtons[i].classList.remove('active')
-				}
-			})
-
-		}
-	}
-
-	timer()
-	lowBatteryMode()
-	vhFunction()
-	splitingText()
-
-	window.addEventListener('resize', () => {
-		ScrollTrigger.refresh()
-	})
+  timer();
+  lowBatteryMode();
+  vhFunction();
+  splitingText();
 }
 
-
-export { mainPage }
+export { mainPage };
