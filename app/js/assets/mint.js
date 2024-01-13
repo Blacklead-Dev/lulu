@@ -19,7 +19,7 @@ function mint(options) {
   function main() {
     let connectWalletLink = document.querySelector("header .connect");
     let website = document.querySelector("html");
-    let popupSound = document.querySelector(".popup-sound");
+    // let popupSound = document.querySelector(".popup-sound");
     let logoFixed = document.querySelector(".footer-logo-always");
 
     let holder = true;
@@ -42,11 +42,11 @@ function mint(options) {
             mintCallButton.classList.add("inside");
             connectWalletLink.classList.add("hide");
             logoFixed.classList.add("active");
-            popupSound.classList.add("active");
-            popupSound.classList.add("mintact");
-            if (window.innerWidth < 515) {
-              popupSound.classList.add("totop");
-            }
+            // popupSound.classList.add("active");
+            // popupSound.classList.add("mintact");
+            // if (window.innerWidth < 515) {
+            //   popupSound.classList.add("totop");
+            // }
             if (holder) {
               let enrolmentDateKey = "odlabs/lulu/enrolment-date";
               //   let enrolmentDate = localStorage.getItem(enrolmentDateKey);

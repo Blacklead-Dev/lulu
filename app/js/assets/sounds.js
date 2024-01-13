@@ -21,7 +21,8 @@ export const sounds = {
     welcomeKeyboardTypingSprite: new Howl({
       src: ["./assets/audio/welcome-mint-keyboard-typing.mp3"],
       sprite: {
-        welcome: [0, 6100],
+        // welcome: [0, 6100],
+        welcome: [0, 5550],
         burn: [8367, 9795],
       },
     }),
@@ -44,5 +45,8 @@ export const sounds = {
   },
   homepageBackground: new Howl({
     src: ["./assets/audio/website-homepage-main-loop-v1.mp3"],
+  }),
+  mintBtnClick: new Howl({
+    src: ["./assets/audio/mint-click.mp3"],
   }),
 };

@@ -1,3 +1,6 @@
+import { playSound } from "./soundUtils";
+import { sounds } from "./sounds";
+
 function sound() {
 
 	function disableSounds() {
@@ -89,12 +92,11 @@ function sound() {
 
 	function clickSoundHandler() {
 		let soundClickButtons = document.querySelectorAll('.sound-click')
-		let clickSoundAudio = new Audio('../assets/audio/click.wav')
-		clickSoundAudio.currentTime = 0
+		// let clickSoundAudio = new Audio('../assets/audio/click.wav')
+		// clickSoundAudio.currentTime = 0
 		soundClickButtons.forEach(button => {
 			button.addEventListener('click', () => {
-				if (!isPlayd) return
-				clickSoundAudio.play();
+				playSound(sounds.mintBtnClick);
 			})
 		})
 	}
@@ -120,14 +122,17 @@ function sound() {
 
 }
 
+/**
+ * @deprecated
+ */
 function runTypingSound() {
 	// let mintCallButton = document.querySelector('header .mint-call')
-	let typingSoundAudio = new Audio('../assets/audio/pixelate.wav')
-	typingSoundAudio.currentTime = 0
+	// let typingSoundAudio = new Audio('../assets/audio/pixelate.wav')
+	// typingSoundAudio.currentTime = 0
 	// typingSoundAudio.volume = 0
 	// mintCallButton.addEventListener('click', () => {
 		// currentSound = typingSoundAudio
-		typingSoundAudio.play()
+		// typingSoundAudio.play()
 		
 
 		// if (!isPlayd) return
