@@ -40,13 +40,15 @@ async function mainPage() {
       },
     });
 
-    console.log("It you see it multiple times - there is a memory leak!!!", {progressBarTween});
+    console.log("It you see it multiple times - there is a memory leak!!!", {
+      progressBarTween,
+    });
   }
 
   if (preloader.ended) {
     startPreloaderAnimation();
   } else {
-    preloader.addEventListener('ended', startPreloaderAnimation, {
+    preloader.addEventListener("ended", startPreloaderAnimation, {
       once: true,
     });
   }
@@ -63,7 +65,7 @@ async function mainPage() {
   setTimeout(() => {
     prelodaderHide();
 
-    preloader.removeEventListener('ended', startPreloaderAnimation);
+    preloader.removeEventListener("ended", startPreloaderAnimation);
 
     if (progressBarTween) {
       progressBarTween.kill();
@@ -97,6 +99,15 @@ async function mainPage() {
     );
 
     for (let i = 0; i < videoSection.length; i++) {
+      let offsetHeight = videoSection[i].getBoundingClientRect().height * 0.2;
+
+      progressButtons[i].addEventListener("click", () => {
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: { y: videoSection[i], offsetY: -offsetHeight },
+        });
+      });
+
       if (videoSection[i].getAttribute("data-webgl-animation") === "true") {
         const animationContainer = videoSection[i];
         const content = animationContainer.querySelector(".content");
@@ -135,6 +146,13 @@ async function mainPage() {
           opacity: 0,
           visibility: "hidden",
         });
+
+        // progressButtons[i].addEventListener("click", () => {
+        //   gsap.to(window, {
+        //     duration: 1,
+        //     scrollTo: { y: videoSection[i], offsetY: -offsetHeight },
+        //   });
+        // });
       } else {
         let video = videoSection[i].querySelector(".secvens-video");
         let content = videoSection[i].querySelector(".content");
@@ -165,14 +183,14 @@ async function mainPage() {
           opacity: 0,
         });
 
-        let offsetHeight = videoSection[i].getBoundingClientRect().height * 0.2;
+        // let offsetHeight = videoSection[i].getBoundingClientRect().height * 0.2;
 
-        progressButtons[i].addEventListener("click", () => {
-          gsap.to(window, {
-            duration: 1,
-            scrollTo: { y: videoSection[i], offsetY: -offsetHeight },
-          });
-        });
+        // progressButtons[i].addEventListener("click", () => {
+        //   gsap.to(window, {
+        //     duration: 1,
+        //     scrollTo: { y: videoSection[i], offsetY: -offsetHeight },
+        //   });
+        // });
 
         attachScrollAnimationToSection({
           trigger: videoSection[i],
