@@ -19,4 +19,5 @@ export const sounds = {
         primaryBackground: new Howl({ src: ["./assets/audio/activate-founders-mint-primary-background.mp3"] }),
         finalBackground: new Howl({ src: ["./assets/audio/activate-founders-mint-background.mp3"] }),
     },
+    homepageBackground: new Howl({ src: ["./assets/audio/website-homepage-main-loop-v1.mp3"]}),
 };
