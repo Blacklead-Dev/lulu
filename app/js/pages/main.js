@@ -77,11 +77,7 @@ async function mainPage() {
 
   const homepageBackgroundSound = playSound(sounds.homepageBackground, {
     loop: true,
-    fade: {
-      inPercent: 25,
-      outPercent: 25,
-    },
-  });
+   });
 
   gsap.to(window, {
     duration: 0.1,
