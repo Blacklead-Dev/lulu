@@ -46,7 +46,9 @@ async function mainPage() {
   if (preloader.ended) {
     startPreloaderAnimation();
   } else {
-    preloader.addEventListener('ended', startPreloaderAnimation);
+    preloader.addEventListener('ended', startPreloaderAnimation, {
+      once: true,
+    });
   }
 
   let progressLine = document.querySelector(".progress-line-inner");
