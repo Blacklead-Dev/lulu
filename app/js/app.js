@@ -6,15 +6,19 @@ import { mainPage } from './pages/main'
 import { teamPage } from './pages/team'
 import { mint } from './assets/mint'
 import { sound } from './assets/sound'
+import { runHookFn } from "./assets/commonUtils"
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
 	let main = document.querySelector('main')
 	
 	if(main.classList.contains('hero')) {
 		adaptiveVideos()
-		mainPage()
+		const mainPageRef = await mainPage()
 		mint({
 			connectWalledEnabled: true,
+			onMintOpen() {
+				runHookFn(mainPageRef.onLeave);
+			}
 		})
 		customCursor()
 		sound()

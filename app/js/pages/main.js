@@ -56,6 +56,7 @@ async function mainPage() {
   let progressLine = document.querySelector(".progress-line-inner");
 
   loadHowlerSounds([
+    sounds.foundersMintOnboarding.welcomeKeyboardTypingSprite,
     sounds.foundersMintOnboarding.sprite,
     sounds.foundersMintOnboarding.primaryBackground,
     sounds.foundersMintOnboarding.finalBackground,
@@ -74,13 +75,13 @@ async function mainPage() {
     }
   }, 2000);
 
-  playSound(sounds.homepageBackground, { 
+  const homepageBackgroundSound = playSound(sounds.homepageBackground, {
     loop: true,
     fade: {
       inPercent: 25,
       outPercent: 25,
     },
-   });
+  });
 
   gsap.to(window, {
     duration: 0.1,
@@ -207,6 +208,13 @@ async function mainPage() {
   lowBatteryMode();
   vhFunction();
   splitingText();
+
+  return {
+    onLeave() {
+      homepageBackgroundSound.stop();
+      homepageBackgroundSound.off('end');
+    }
+  }
 }
 
 export { mainPage };

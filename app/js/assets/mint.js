@@ -4,10 +4,13 @@ import { sounds } from "./sounds";
 import { playSound } from "./soundUtils";
 import { initHolderMintAnimation } from "./webGlAnimations";
 import { deviceIs } from "./device";
+import { runHookFn } from "./commonUtils";
 
 /**
  * @typedef {Object} MintOptions
  * @property {boolean} connectWalledEnabled - is connect wallet button enabled
+ * @property {Function} [onMintOpen] - callback when any mint is opened
+ *
  * @param {MintOptions} options
  */
 function mint(options) {
@@ -33,6 +36,8 @@ function mint(options) {
           mintCallButton.classList.add("active");
           mintCallButton.addEventListener("click", (e) => {
             e.preventDefault();
+            runHookFn(options.onMintOpen);
+
             website.classList.add("unscroll");
             mintCallButton.classList.add("inside");
             connectWalletLink.classList.add("hide");
@@ -45,7 +50,7 @@ function mint(options) {
             if (holder) {
               let enrolmentDateKey = "odlabs/lulu/enrolment-date";
               //   let enrolmentDate = localStorage.getItem(enrolmentDateKey);
-              let enrolmentDate = true;
+              let enrolmentDate = false;
 
               if (!enrolmentDate) {
                 simpleMintVersion({
@@ -98,7 +103,9 @@ function mint(options) {
     newMint.classList.add("active");
     setTimeout(() => {
       pixelate.play();
-      runTypingSound();
+      playSound(sounds.foundersMintOnboarding.welcomeKeyboardTypingSprite, {
+        sprite: "welcome",
+      });
     }, 600);
 
     pixelate.addEventListener("ended", function () {
@@ -108,7 +115,13 @@ function mint(options) {
       gsap.to(burnCard, {
         visibility: "visible",
       });
+
       burnCard.play();
+      setTimeout(function () {
+        playSound(sounds.foundersMintOnboarding.welcomeKeyboardTypingSprite, {
+          sprite: "burn",
+        });
+      }, 1000);
     });
 
     burnCard.addEventListener("ended", function () {
@@ -408,7 +421,7 @@ function mint(options) {
         opacity: 1,
         // delay: .7
       });
-	  
+
       if (window.innerWidth < 515) {
         gsap.to(holdersContentLeft, 0.3, {
           display: "none",
@@ -426,8 +439,8 @@ function mint(options) {
       //were waiting for signing from clienr and burning
       setTimeout(() => {
         holderMintLuluAnimation.app.destroy(true, {
-			children: true,
-		})
+          children: true,
+        });
 
         burnAndMint();
       }, 2000);
