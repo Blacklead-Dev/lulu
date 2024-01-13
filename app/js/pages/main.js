@@ -146,13 +146,6 @@ async function mainPage() {
           opacity: 0,
           visibility: "hidden",
         });
-
-        // progressButtons[i].addEventListener("click", () => {
-        //   gsap.to(window, {
-        //     duration: 1,
-        //     scrollTo: { y: videoSection[i], offsetY: -offsetHeight },
-        //   });
-        // });
       } else {
         let video = videoSection[i].querySelector(".secvens-video");
         let content = videoSection[i].querySelector(".content");
@@ -182,15 +175,6 @@ async function mainPage() {
         gsap.set(textElements, {
           opacity: 0,
         });
-
-        // let offsetHeight = videoSection[i].getBoundingClientRect().height * 0.2;
-
-        // progressButtons[i].addEventListener("click", () => {
-        //   gsap.to(window, {
-        //     duration: 1,
-        //     scrollTo: { y: videoSection[i], offsetY: -offsetHeight },
-        //   });
-        // });
 
         attachScrollAnimationToSection({
           trigger: videoSection[i],
