@@ -76,10 +76,6 @@ async function mainPage() {
 
   playSound(sounds.homepageBackground, { 
     loop: true,
-    fade: {
-      inPercent: 25,
-      outPercent: 25,
-    },
    });
 
   gsap.to(window, {
