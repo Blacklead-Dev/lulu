@@ -18,6 +18,20 @@ function secToMs(seconds) {
     return seconds * 1000;
 }
 
+/**
+ * @typedef {Object} SoundOptions
+ * @property {string} [sprite] - the name of the sprite (chunk of the sound) to play
+ * @property {number} [volume] - the volume of the sound (from 0 to 1)
+ * @property {boolean} [loop] - whether the sound should loop
+ * @property {number} [rate] - the rate of the sound, from 0 (no play) to 1+ (normal speed and higher)
+ * @property {Object} [fade] - the fade options
+ * @property {number} [fade.inPercent] - the percentage of the sound duration to fade in
+ * @property {number} [fade.outPercent] - the percentage of the sound duration to fade out
+ * 
+ * @param {Howl} sound 
+ * @param {SoundOptions} options 
+ * @returns {Howl}
+ */
 export function playSound(sound, options = {}) {
     let id = null;
 

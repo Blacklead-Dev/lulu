@@ -10,7 +10,7 @@ import { vhFunction } from "../assets/realVh";
 import { lowBatteryMode } from "../assets/lowBatteryMode.js";
 import { prelodaderHide } from "../assets/preloaderHide.js";
 import { timer } from "../assets/timer.js";
-import { loadHowlerSounds } from "../assets/soundUtils.js";
+import { loadHowlerSounds, playSound } from "../assets/soundUtils.js";
 import { sounds } from "../assets/sounds.js";
 import {
   loadWebGlAnimations,
@@ -59,6 +59,7 @@ async function mainPage() {
     sounds.foundersMintOnboarding.sprite,
     sounds.foundersMintOnboarding.primaryBackground,
     sounds.foundersMintOnboarding.finalBackground,
+    sounds.homepageBackground,
   ]);
   await loadWebGlAnimations();
 
@@ -72,6 +73,14 @@ async function mainPage() {
       progressBarTween = null;
     }
   }, 2000);
+
+  playSound(sounds.homepageBackground, { 
+    loop: true,
+    fade: {
+      inPercent: 25,
+      outPercent: 25,
+    },
+   });
 
   gsap.to(window, {
     duration: 0.1,
