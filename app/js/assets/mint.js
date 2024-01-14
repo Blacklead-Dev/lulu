@@ -5,6 +5,7 @@ import { playSound } from "./soundUtils";
 import { initHolderMintAnimation } from "./webGlAnimations";
 import { deviceIs } from "./device";
 import { runHookFn } from "./commonUtils";
+import { createHtmlWritter, writeString } from "./typingAnimation";
 
 /**
  * @typedef {Object} MintOptions
@@ -48,27 +49,29 @@ function mint(options) {
             //   popupSound.classList.add("totop");
             // }
             if (holder) {
-              let enrolmentDateKey = "odlabs/lulu/enrolment-date";
-              //   let enrolmentDate = localStorage.getItem(enrolmentDateKey);
-              let enrolmentDate = false;
+              errorMint();
 
-              if (!enrolmentDate) {
-                simpleMintVersion({
-                  onComplete: function () {
-                    console.log("simple mint completed");
+              //   let enrolmentDateKey = "odlabs/lulu/enrolment-date";
+              //   //   let enrolmentDate = localStorage.getItem(enrolmentDateKey);
+              //   let enrolmentDate = false;
 
-                    localStorage.setItem(
-                      enrolmentDateKey,
-                      new Date().toISOString()
-                    );
-                    // holderMint();
-                  },
-                });
-              } else {
-                holderMint({
-                  foundersMintActive: true,
-                });
-              }
+              //   if (!enrolmentDate) {
+              //     simpleMintVersion({
+              //       onComplete: function () {
+              //         console.log("simple mint completed");
+
+              //         localStorage.setItem(
+              //           enrolmentDateKey,
+              //           new Date().toISOString()
+              //         );
+              //         // holderMint();
+              //       },
+              //     });
+              //   } else {
+              //     holderMint({
+              //       foundersMintActive: true,
+              //     });
+              //   }
               // holderMint()
               // errorMint()
             } else {
@@ -823,14 +826,110 @@ function mint(options) {
     mintCalculation();
   }
 
-  function errorMint() {
-    let blockError = document.querySelector(".error-message");
+  async function errorMint() {
+    const blockError = document.querySelector(".error-message");
+    const details = blockError.querySelector(".error-message_details");
+
     blockError.classList.add("active");
-    video.pause();
-    // video.muted = false
-    setTimeout(() => {
-      video.play();
-    }, 2000);
+
+    async function createNewElementAndWriteString({
+      parent,
+      text,
+      duration = 1000,
+    } = {}) {
+      const item = document.createElement("p");
+      parent.appendChild(item);
+
+      const itemWriter = createHtmlWritter(item);
+      await writeString(text, { writter: itemWriter, duration });
+
+      return {
+        destroy() {
+          parent.removeChild(item);
+        },
+        scrollIntoView() {
+          item.scrollIntoView({ behavior: "smooth" });
+        },
+      };
+    }
+
+    function delay(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    const accessTexts = [
+      { title: "> Access od security", text: "Access: permission denied" },
+      { title: "> Access od security grid", text: "Access: permission denied" },
+      {
+        title: "> Access main od security grid",
+        text: "Access: permission denied...and...",
+      },
+    ];
+    for (const { title, text } of accessTexts) {
+      const item = document.createElement("div");
+      details.appendChild(item);
+
+      await createNewElementAndWriteString({
+        parent: item,
+        text: title,
+        duration: 2000,
+      });
+
+      await delay(500);
+
+	  playSound(sounds.errorMint.sprite, {
+		sprite: "accessDenied",
+	  });
+      await createNewElementAndWriteString({ parent: item, text, duration: 0 });
+
+      await delay(2000);
+    }
+
+    let prevTime = 0;
+    const pxPerSec = 140;
+    function updateScrollPosition(time) {
+      const currentTime = Date.now();
+
+      if (!prevTime) {
+        prevTime = currentTime;
+      }
+      const timeDiff = currentTime - prevTime;
+      const scrollBy = (pxPerSec * timeDiff) / 1000;
+
+	  prevTime = currentTime;
+
+      blockError.scroll(0, blockError.scrollTop + scrollBy);
+
+      requestAnimationFrame(updateScrollPosition);
+    }
+
+    requestAnimationFrame(updateScrollPosition);
+
+	playSound(sounds.errorMint.sprite, {
+		sprite: "accessAttemptFailed",
+	}).once("end", function() {
+		playSound(sounds.errorMint.sprite, {
+			sprite: "noNoNo",
+			loop: true,
+		});
+	});
+
+    const loopTextContainer = document.createElement("div");
+    details.appendChild(loopTextContainer);
+    const loopItems = [];
+    while (true) {
+      const item = await createNewElementAndWriteString({
+        parent: loopTextContainer,
+        text: "You didn’t say the magic word!",
+        duration: 300,
+      });
+
+      loopItems.push(item);
+
+      if (loopItems.length > 30) {
+        loopItems.shift().destroy();
+      }
+    }
   }
 }
 

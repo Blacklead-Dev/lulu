@@ -31,4 +31,14 @@ export const sounds = {
     mintBtnClick: new Howl({
         src: ["./assets/audio/mint-click.mp3"],
     }),
+    errorMint: {
+        sprite: new Howl({ 
+            src: ["./assets/audio/error-mint-sprite.mp3"],
+            sprite: {
+                accessDenied: [330, 800],
+                accessAttemptFailed: [2000, 2125],
+                noNoNo: [5030, 3250],
+            },
+         }),
+    }
 };

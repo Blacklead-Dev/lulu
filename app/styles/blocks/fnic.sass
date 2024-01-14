@@ -673,16 +673,43 @@
     display: none
     position: fixed
     width: 100%
-    height: 100%
+    height: 100vh
+    box-sizing: border-box
+    overflow: auto
     z-index: 5
     top: 0
     background: #000
-    padding: gem(50) 0 0 gem(100)
-    video 
+    padding-left: gem(100)
+    color: #fff
+    text-transform: uppercase
+    text-align: left
+    &_content
+        margin-top: 15vh
+        height: 85vh
+    &_title
+        font-size: gem(24)
+        liine-height: gem(24)
+        margin-bottom: gem(40)
+        text-align: left
+        font-family: 'Press Start 2P'
+    &_details
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        gap: gem(24)
+        p
+            text-align: left
+            font-size: gem(16)
+            line-height: gem(40)
+            height: gem(40)
+            font-family: 'Press Start 2P'
+    video
         width: gem(600)
         object-fit: contain
     &.active
         display: flex
+        flex-direction: column
+        align-items: flex-start
 
 .popup-sound
     display: flex
@@ -695,6 +722,7 @@
     left: gem(30)
     z-index: 5
     border: 1px solid #fff
+    background: #000
     p 
         font-family: 'type-regular'
         font-size: gem(16)
