@@ -15,10 +15,13 @@ window.addEventListener('load', async () => {
 		adaptiveVideos()
 		const mainPageRef = await mainPage()
 		mint({
-			connectWalledEnabled: true,
+			connectWalledEnabled: false,
 			onMintOpen() {
 				runHookFn(mainPageRef.onLeave);
-			}
+			},
+			holderMintOptions: {
+				foundersMintActive: true,
+			},
 		})
 		customCursor()
 		sound()

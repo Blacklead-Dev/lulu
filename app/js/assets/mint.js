@@ -8,10 +8,18 @@ import { runHookFn } from "./commonUtils";
 import { createHtmlWritter, writeString } from "./typingAnimation";
 
 /**
+ * @typedef {Object} HolderMintOptions
+ * @property {boolean} foundersMintActive - is mint button enabled
+ */
+
+/**
  * @typedef {Object} MintOptions
  * @property {boolean} connectWalledEnabled - is connect wallet button enabled
  * @property {Function} [onMintOpen] - callback when any mint is opened
- *
+ * @property {HolderMintOptions} holderMintOptions - options for holder mint
+ */
+
+/**
  * @param {MintOptions} options
  */
 function mint(options) {
@@ -49,29 +57,27 @@ function mint(options) {
             //   popupSound.classList.add("totop");
             // }
             if (holder) {
-              errorMint();
+              //   errorMint();
 
-              //   let enrolmentDateKey = "odlabs/lulu/enrolment-date";
+              let enrolmentDateKey = "odlabs/lulu/enrolment-date";
               //   //   let enrolmentDate = localStorage.getItem(enrolmentDateKey);
-              //   let enrolmentDate = false;
+              let enrolmentDate = false;
 
-              //   if (!enrolmentDate) {
-              //     simpleMintVersion({
-              //       onComplete: function () {
-              //         console.log("simple mint completed");
+              if (!enrolmentDate) {
+                simpleMintVersion({
+                  onComplete: function () {
+                    console.log("simple mint completed");
 
-              //         localStorage.setItem(
-              //           enrolmentDateKey,
-              //           new Date().toISOString()
-              //         );
-              //         // holderMint();
-              //       },
-              //     });
-              //   } else {
-              //     holderMint({
-              //       foundersMintActive: true,
-              //     });
-              //   }
+                    localStorage.setItem(
+                      enrolmentDateKey,
+                      new Date().toISOString()
+                    );
+                    // holderMint();
+                  },
+                });
+              } else {
+                holderMint(options.holderMintOptions);
+              }
               // holderMint()
               // errorMint()
             } else {
@@ -174,7 +180,7 @@ function mint(options) {
       gsap.to(burnCardLooped, {
         display: "none",
       });
-      gsap.set(cardInsert, {
+      gsap.to(cardInsert, {
         delay: 0.2,
         display: "flex",
       });
@@ -247,10 +253,10 @@ function mint(options) {
         // }
       });
       staticNoise.addEventListener("ended", function () {
-        gsap.set(staticNoise, {
+        gsap.to(staticNoise, {
           display: "none",
         });
-        gsap.set(burnSuccess, {
+        gsap.to(burnSuccess, {
           display: "flex",
         });
         burnSuccess.play();
@@ -272,10 +278,10 @@ function mint(options) {
       // 	seeYou.play()
       // })
       burnSuccess.addEventListener("ended", function () {
-        gsap.set(burnSuccess, {
+        gsap.to(burnSuccess, {
           display: "none",
         });
-        gsap.set(seeYou, {
+        gsap.to(seeYou, {
           display: "flex",
         });
         seeYou.play();
@@ -295,8 +301,6 @@ function mint(options) {
   }
 
   /**
-   * @typedef {Object} HolderMintOptions
-   * @property {boolean} foundersMintActive - is mint button enabled
    *
    * @param {HolderMintOptions} options
    */
@@ -877,9 +881,9 @@ function mint(options) {
 
       await delay(500);
 
-	  playSound(sounds.errorMint.sprite, {
-		sprite: "accessDenied",
-	  });
+      playSound(sounds.errorMint.sprite, {
+        sprite: "accessDenied",
+      });
       await createNewElementAndWriteString({ parent: item, text, duration: 0 });
 
       await delay(2000);
@@ -896,7 +900,7 @@ function mint(options) {
       const timeDiff = currentTime - prevTime;
       const scrollBy = (pxPerSec * timeDiff) / 1000;
 
-	  prevTime = currentTime;
+      prevTime = currentTime;
 
       blockError.scroll(0, blockError.scrollTop + scrollBy);
 
@@ -905,14 +909,14 @@ function mint(options) {
 
     requestAnimationFrame(updateScrollPosition);
 
-	playSound(sounds.errorMint.sprite, {
-		sprite: "accessAttemptFailed",
-	}).once("end", function() {
-		playSound(sounds.errorMint.sprite, {
-			sprite: "noNoNo",
-			loop: true,
-		});
-	});
+    playSound(sounds.errorMint.sprite, {
+      sprite: "accessAttemptFailed",
+    }).once("end", function () {
+      playSound(sounds.errorMint.sprite, {
+        sprite: "noNoNo",
+        loop: true,
+      });
+    });
 
     const loopTextContainer = document.createElement("div");
     details.appendChild(loopTextContainer);
