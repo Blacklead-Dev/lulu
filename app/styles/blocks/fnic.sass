@@ -40,6 +40,8 @@
             display: flex
             height: auto
             visibility: hidden
+        .self-destruct
+            width: auto
         
             // font-family: 'chakra-bold'
             // font-size: gem(36)
@@ -52,7 +54,7 @@
             // &:hover
             //     text-decoration: none
         .burn-success, .see-you
-            height: auto    
+            height: auto
         .flash 
             position: absolute
             width: 100%
@@ -182,38 +184,47 @@
             a 
                 display: flex
                 align-items: center
-                svg 
+                position: relative
+                svg
                     width: gem(54)
                     height: gem(54)
                     margin-right: gem(20)
+                    margin-top: gem(27)
+                    transform: translateY(- gem(25))
                     // path 
                     //     fill: #B9EC3D
-                span 
-                    display: block
-                    position: relative
-                    color: #ffffff
-                    font-family: "rajdhani-bold"
-                    font-size: gem(28)
-                    transition: all .3s ease
-                    line-height: gem(32)
-                    text-transform: uppercase
-                    &::after
-                        content: ''
-                        display: block
-                        position: absolute
+                .animation-fnic-text
+                    margin-top: gem(27)
+                    transform: translateY(- gem(4))
+                    display: inline-flex
+                    flex-direction: column
+                    justify-content: center
+                    text-align: center
+                    .now-live
+                        display: none
+                    span
+                        color: #fff
+                        font-family: 'chakra-regular'
+                        font-size: gem(28)
+                        line-height: gem(32)
+                        font-weight: 400
+                        text-transform: uppercase
                         transition: all .3s ease
-                        transform: translateY(gem(2))
-                        width: 100%
-                        height: gem(2)
-                        background: #ffffff
+                .divider
+                    transition: all .3s ease
+                    width: 100%
+                    height: gem(2)
+                    background: #ffffff
+                    margin-top: gem(6)
+                    margin-bottom: gem(6)
                 &:hover
                     svg 
                         path
                             animation: colors 1s linear infinite
                     span 
                         color: #02B3FF
-                        &::after
-                            background: #02B3FF
+                    .divider
+                        background: #02B3FF
                 &.active 
                     pointer-events: none
         &-right
@@ -440,11 +451,13 @@
     justify-content: center
     z-index: 5
     background: #000000
-    video
+    video, .lulu-anim-wrapper
         width: gem(680)
         height: gem(680)
         // top: gem(36)
         position: absolute
+    .lulu-anim-wrapper
+        margin-top: gem(56)
     .flash 
         width: 100%
         height: 100%
@@ -660,16 +673,43 @@
     display: none
     position: fixed
     width: 100%
-    height: 100%
+    height: 100vh
+    box-sizing: border-box
+    overflow: auto
     z-index: 5
     top: 0
     background: #000
-    padding: gem(50) 0 0 gem(100)
-    video 
+    padding-left: gem(100)
+    color: #fff
+    text-transform: uppercase
+    text-align: left
+    &_content
+        margin-top: 15vh
+        height: 85vh
+    &_title
+        font-size: gem(24)
+        liine-height: gem(24)
+        margin-bottom: gem(40)
+        text-align: left
+        font-family: 'Press Start 2P'
+    &_details
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        gap: gem(24)
+        p
+            text-align: left
+            font-size: gem(16)
+            line-height: gem(40)
+            height: gem(40)
+            font-family: 'Press Start 2P'
+    video
         width: gem(600)
         object-fit: contain
     &.active
         display: flex
+        flex-direction: column
+        align-items: flex-start
 
 .popup-sound
     display: flex
@@ -682,6 +722,7 @@
     left: gem(30)
     z-index: 5
     border: 1px solid #fff
+    background: #000
     p 
         font-family: 'type-regular'
         font-size: gem(16)
@@ -1085,10 +1126,12 @@
         align-items: flex-start
         &.over
             overflow: scroll
-        video 
+        video, .lulu-anim-wrapper
             width: gem(390)
             height: gem(390)
             top: 0
+        .lulu-anim-wrapper
+            margin-top: gem(96)
         .successful-text
             h2 
                 font-size: gem(42)

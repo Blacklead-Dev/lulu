@@ -1,0 +1,69 @@
+{"frames": {
+
+"mint-animation/10073.png":
+{
+	"frame": {"x":1,"y":1,"w":338,"h":350},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":106,"y":60,"w":338,"h":350},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10074.png":
+{
+	"frame": {"x":1,"y":687,"w":340,"h":348},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":105,"y":62,"w":340,"h":348},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10075.png":
+{
+	"frame": {"x":1,"y":1029,"w":342,"h":347},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":105,"y":63,"w":342,"h":347},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10076.png":
+{
+	"frame": {"x":352,"y":352,"w":346,"h":345},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":104,"y":65,"w":346,"h":345},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10077.png":
+{
+	"frame": {"x":1,"y":341,"w":349,"h":344},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":104,"y":67,"w":349,"h":344},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10091.png":
+{
+	"frame": {"x":353,"y":1,"w":349,"h":345},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":78,"w":349,"h":345},
+	"sourceSize": {"w":540,"h":540}
+},
+"mint-animation/10092.png":
+{
+	"frame": {"x":351,"y":699,"w":347,"h":347},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":77,"w":347,"h":347},
+	"sourceSize": {"w":540,"h":540}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "lulu-colorized-7.png",
+	"format": "RGBA8888",
+	"size": {"w":699,"h":1372},
+	"scale": "0.5",
+	"related_multi_packs": [ "lulu-colorized-0.json", "lulu-colorized-1.json", "lulu-colorized-2.json", "lulu-colorized-3.json", "lulu-colorized-4.json", "lulu-colorized-5.json", "lulu-colorized-6.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:3b5ff0bad421ee0e5d59f567318e2d12:95a6c560fae87a49dd439db04efa5193:9df2392aac7368312516d84a0e5849df$"
+}
+}

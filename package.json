@@ -7,7 +7,9 @@
 	"license": "ISC",
 	"scripts": {
 		"start": "gulp",
-		"build": "gulp build"
+		"build": "gulp build",
+		"serve": "npx serve",
+		"build_and_serve": "(rm -rf ./dist && npm run build && cd ./dist && npx serve)"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.5",
@@ -19,7 +21,6 @@
 		"browser-sync": "^2.27.5",
 		"browsersync-ssi": "^0.2.4",
 		"del": "^6.0.0",
-		"gsap": "^3.11.3",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
 		"gulp-clean-css": "^4.3.0",
@@ -40,6 +41,10 @@
 	},
 	"dependencies": {
 		"@studio-freight/lenis": "^1.0.5",
-		"npm-check-updates": "^11.8.5"
+		"core-js": "^3.34.0",
+		"gsap": "^3.12.4",
+		"howler": "^2.2.4",
+		"npm-check-updates": "^11.8.5",
+		"pixi.js": "^7.3.3"
 	}
 }

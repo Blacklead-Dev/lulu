@@ -1,6 +1,16 @@
-function timer() {
+/**
+ * @typedef {Object} TimerOptions
+ * @property {boolean} enabled - if the timer is enabled
+ */
+
+/**
+ * @param {TimerOptions} options 
+ */
+function timer(options) {
+	const dateDisplay = document.querySelector('.date')
 	let finishdate = document.querySelector('.date').dataset.date
-	var countDownDate = new Date(`${finishdate}`).getTime();
+	const parsedFinishDate = new Date(`${finishdate}`);
+	var countDownDate = parsedFinishDate.getTime();
 	var interval = setInterval(function () {
 		var now = new Date().getTime();
 		var timeleft = countDownDate - now;
@@ -14,11 +24,18 @@ function timer() {
 		document.getElementById("hours").innerHTML = (realHours > 9) ? realHours : `0${realHours}`
 		document.getElementById("mins").innerHTML = (minutes > 9) ? minutes : `0${minutes}`
 		document.getElementById("secs").innerHTML = (seconds > 9) ? seconds : `0${seconds}`
+		
+		dateDisplay.innerHTML = [
+			parsedFinishDate.getDate(),
+			String(parsedFinishDate.getMonth() + 1).padStart(2, "0"),
+			parsedFinishDate.getFullYear(),
+		].join(".");
 
-		if (timeleft < 0) {
+		document.querySelector('.timer-button').classList.remove('hidden')
+		
+		if (timeleft < 0 || !options.enabled) {
 			clearInterval(interval);
 			document.querySelector('.timer-wrapper').remove()
-			document.querySelector('.timer-button').classList.remove('hidden')
 		}
 
 	}, 1000)

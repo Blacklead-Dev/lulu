@@ -263,6 +263,9 @@ main
 		line-height: gem(23)
 		letter-spacing: gem(3)
 		margin-left: gem(205)
+	&-separated-text
+		display: block
+		padding-bottom: gem(16)
 .mint-section
 	video
 		width: gem(954)	
@@ -284,9 +287,17 @@ main
 		letter-spacing: gem(3)
 		margin-left: gem(219)
 .incubation-section
-	video
-		width: gem(1100)
+	// video
+	// 	width: gem(1100)
+	// 	margin-top: gem(-80)
+	.webgl-animation
+		// width: gem(1100)
+		width: gem(500)
+		height: gem(500)
 		margin-top: gem(-80)
+		display: flex
+		justify-content: center
+		align-items: center
 	h2
 		width: gem(1458)
 		text-align: start
@@ -537,10 +548,13 @@ video
 	.fnik-section, .mint-section, .incubation-section
 		.content
 			align-items: flex-start
-		video
+		// video
+		.webgl-animation
+			opacity: 1
 			margin: 0
 			width: gem(510)
-			margin-left: gem(-50)
+			pointer-events: none
+			// margin-left: gem(-50)
 			// margin-top: gem(-54)
 		h2
 			margin: 0
@@ -572,11 +586,13 @@ video
 		p 
 			font-size: gem(10)
 	.incubation-section
-		video
+		// video
+		.webgl-animation
 			width: gem(370)
+			height: gem(300)
 			align-self: center
-			margin-left: gem(14)
-			margin-bottom: gem(20)
+			// margin-left: gem(14)
+			// margin-bottom: gem(20)
 		h2
 			width: gem(353)
 			margin-bottom: gem(10)

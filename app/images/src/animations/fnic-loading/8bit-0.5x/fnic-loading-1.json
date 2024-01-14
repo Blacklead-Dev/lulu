@@ -1,0 +1,45 @@
+{"frames": {
+
+"02. Fnic loading/spritesheets/32bit-0.5x-an-0.25x/fnic-loading-mobile-0.png":
+{
+	"frame": {"x":1,"y":1,"w":945,"h":797},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":945,"h":797},
+	"sourceSize": {"w":945,"h":797}
+},
+"02. Fnic loading/spritesheets/32bit-0.5x-an-0.25x/fnic-loading-normal-0.png":
+{
+	"frame": {"x":948,"y":1,"w":873,"h":933},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":873,"h":933},
+	"sourceSize": {"w":873,"h":933}
+},
+"02. Fnic loading/spritesheets/32bit-0.5x-an-0.25x/fnic-loading-normal-1.png":
+{
+	"frame": {"x":1,"y":800,"w":873,"h":933},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":873,"h":933},
+	"sourceSize": {"w":873,"h":933}
+},
+"02. Fnic loading/spritesheets/32bit-0.5x/fnic-loading-0.png":
+{
+	"frame": {"x":936,"y":876,"w":935,"h":874},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":935,"h":874},
+	"sourceSize": {"w":935,"h":874}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "fnic-loading-1.png",
+	"format": "RGBA8888",
+	"size": {"w":1882,"h":1751},
+	"scale": "0.5",
+	"related_multi_packs": [ "fnic-loading-0.json", "fnic-loading-2.json", "fnic-loading-3.json", "fnic-loading-4.json", "fnic-loading-5.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:6aa1a419e69d3037f62bc7b4320162eb:aca605db065b114ae96df51ee5935d84:4df07b4b6e0be74d1a8723b82eee07d0$"
+}
+}
