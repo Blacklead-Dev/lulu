@@ -13,15 +13,20 @@ window.addEventListener('load', async () => {
 	
 	if(main.classList.contains('hero')) {
 		adaptiveVideos()
-		const mainPageRef = await mainPage()
+		const mainPageRef = await mainPage({
+			timerOptions: {
+				enabled: false,
+			},
+		})
 		mint({
-			connectWalledEnabled: false,
+			connectWalledEnabled: true,
 			onMintOpen() {
 				runHookFn(mainPageRef.onLeave);
 			},
 			holderMintOptions: {
 				foundersMintActive: true,
 			},
+			mintFlow: 'public',
 		})
 		customCursor()
 		sound()

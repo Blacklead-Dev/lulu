@@ -1,4 +1,12 @@
-function timer() {
+/**
+ * @typedef {Object} TimerOptions
+ * @property {boolean} enabled - if the timer is enabled
+ */
+
+/**
+ * @param {TimerOptions} options 
+ */
+function timer(options) {
 	const dateDisplay = document.querySelector('.date')
 	let finishdate = document.querySelector('.date').dataset.date
 	const parsedFinishDate = new Date(`${finishdate}`);
@@ -25,7 +33,7 @@ function timer() {
 
 		document.querySelector('.timer-button').classList.remove('hidden')
 		
-		if (timeleft < 0) {
+		if (timeleft < 0 || !options.enabled) {
 			clearInterval(interval);
 			document.querySelector('.timer-wrapper').remove()
 		}

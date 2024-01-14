@@ -22,7 +22,16 @@ import {
   attachScrollAnimationToSection,
 } from "../assets/scrollTrigger.js";
 
-async function mainPage() {
+/**
+ * @typedef {Object} MainPageOptions
+ * @property {import("../assets/timer.js").TimerOptions} timerOptions
+ */
+
+/**
+ * @param {MainPageOptions} options
+ * @returns 
+ */
+async function mainPage(options) {
   const preloader = document.querySelector("#preloader-video");
 
   let progressBarTween;
@@ -200,7 +209,7 @@ async function mainPage() {
     }
   }
 
-  timer();
+  timer(options.timerOptions);
   lowBatteryMode();
   vhFunction();
   splitingText();

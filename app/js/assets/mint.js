@@ -1,5 +1,4 @@
 import gsap from "gsap";
-import { runTypingSound } from "./sound";
 import { sounds } from "./sounds";
 import { playSound } from "./soundUtils";
 import { initHolderMintAnimation } from "./webGlAnimations";
@@ -17,6 +16,7 @@ import { createHtmlWritter, writeString } from "./typingAnimation";
  * @property {boolean} connectWalledEnabled - is connect wallet button enabled
  * @property {Function} [onMintOpen] - callback when any mint is opened
  * @property {HolderMintOptions} holderMintOptions - options for holder mint
+ * @property {'simple-and-holder' | 'error' | 'public'} mintFlow - the type of mint flow
  */
 
 /**
@@ -56,32 +56,34 @@ function mint(options) {
             // if (window.innerWidth < 515) {
             //   popupSound.classList.add("totop");
             // }
-            if (holder) {
-              //   errorMint();
+            switch (options.mintFlow) {
+              case "error":
+                errorMint();
+                break;
+              case "simple-and-holder":
+                let enrolmentDateKey = "odlabs/lulu/enrolment-date";
+                let enrolmentDate = localStorage.getItem(enrolmentDateKey);
 
-              let enrolmentDateKey = "odlabs/lulu/enrolment-date";
-              //   //   let enrolmentDate = localStorage.getItem(enrolmentDateKey);
-              let enrolmentDate = false;
+                if (!enrolmentDate) {
+                  simpleMintVersion({
+                    onComplete: function () {
+                      console.log("simple mint completed");
 
-              if (!enrolmentDate) {
-                simpleMintVersion({
-                  onComplete: function () {
-                    console.log("simple mint completed");
-
-                    localStorage.setItem(
-                      enrolmentDateKey,
-                      new Date().toISOString()
-                    );
-                    // holderMint();
-                  },
-                });
-              } else {
-                holderMint(options.holderMintOptions);
-              }
-              // holderMint()
-              // errorMint()
-            } else {
-              // publicMint()
+                      localStorage.setItem(
+                        enrolmentDateKey,
+                        new Date().toISOString()
+                      );
+                    },
+                  });
+                } else {
+                  holderMint(options.holderMintOptions);
+                }
+                break;
+              case "public":
+                publicMint();
+                break;
+              default:
+                throw new Error(`Unknown mint flow: ${options.mintFlow}`);
             }
           });
         }, 0);
