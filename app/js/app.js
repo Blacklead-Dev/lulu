@@ -26,7 +26,7 @@ window.addEventListener('load', async () => {
 			holderMintOptions: {
 				foundersMintActive: true,
 			},
-			mintFlow: 'public',
+			mintFlow: 'error',
 		})
 		customCursor()
 		sound()
