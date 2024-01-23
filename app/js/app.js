@@ -24,9 +24,9 @@ window.addEventListener('load', async () => {
 				runHookFn(mainPageRef.onLeave);
 			},
 			holderMintOptions: {
-				foundersMintActive: true,
+				foundersMintActive: false,
 			},
-			mintFlow: 'error',
+			mintFlow: 'simple-and-holder',
 		})
 		customCursor()
 		sound()
