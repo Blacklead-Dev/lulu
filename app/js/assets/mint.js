@@ -835,6 +835,7 @@ function mint(options) {
   async function errorMint() {
     const blockError = document.querySelector(".error-message");
     const details = blockError.querySelector(".error-message_details");
+	const contentBlock = blockError.querySelector(".error-message_content");
 
     blockError.classList.add("active");
 
@@ -868,7 +869,7 @@ function mint(options) {
       { title: "> Access od security grid", text: "Access: permission denied" },
       {
         title: "> Access main od security grid",
-        text: "Access: permission denied...and...",
+        text: "Access: permission denied... and...",
       },
     ];
     for (const { title, text } of accessTexts) {
@@ -899,12 +900,15 @@ function mint(options) {
       if (!prevTime) {
         prevTime = currentTime;
       }
+	  
+	  const container = contentBlock;
       const timeDiff = currentTime - prevTime;
-      const scrollBy = (pxPerSec * timeDiff) / 1000;
+	  const baseScrollBy = (pxPerSec * timeDiff) / 1000;
+      const scrollBy = baseScrollBy;
 
       prevTime = currentTime;
 
-      blockError.scroll(0, blockError.scrollTop + scrollBy);
+      container.scroll(0, container.scrollTop + scrollBy);
 
       requestAnimationFrame(updateScrollPosition);
     }
@@ -927,7 +931,7 @@ function mint(options) {
       const item = await createNewElementAndWriteString({
         parent: loopTextContainer,
         text: "You didn’t say the magic word!",
-        duration: 300,
+        duration: 500,
       });
 
       loopItems.push(item);

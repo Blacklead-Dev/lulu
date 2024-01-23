@@ -683,26 +683,45 @@
     color: #fff
     text-transform: uppercase
     text-align: left
-    &_content
+    @include mobile
+        padding-left: gem(15)
+        padding-right: gem(15)
+    &_wrapper
         margin-top: 15vh
         height: 85vh
+        width: 100%
+        overflow: hidden
+    &_content
+        overflow: hidden
+        height: 100%
+        width: 100%
     &_title
+        width: 100%
+        text-align: left
+        font-family: 'Press Start 2P'
         font-size: gem(24)
         liine-height: gem(24)
         margin-bottom: gem(40)
-        text-align: left
-        font-family: 'Press Start 2P'
+        @include mobile
+            text-align: center
+            font-size: gem(16)
+            line-height: gem(40)
+            margin-bottom: gem(20)
     &_details
         display: flex
         flex-direction: column
         align-items: flex-start
         gap: gem(24)
+        width: 100%
         p
             text-align: left
             font-size: gem(16)
             line-height: gem(40)
-            height: gem(40)
             font-family: 'Press Start 2P'
+            @include mobile
+                font-size: gem(10)
+                line-height: gem(28)
+                width: auto
     video
         width: gem(600)
         object-fit: contain
@@ -1270,10 +1289,4 @@
                         margin: 0
                     &-left 
                         margin: 0
-    .error-message
-        padding: 0
-        video
-            // display: none
-            width: gem(390)
-            object-fit: contain
     
